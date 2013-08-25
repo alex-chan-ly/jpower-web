@@ -42,7 +42,7 @@
 </script>
 
 <input type=hidden name=arav value="1*#*#*2"><ul id='nav'>
-<li> <a href='#'><img src="images/menu-1_03.png" height="20" id="Image3" onmouseover="MM_swapImage('Image3','','images/menu-2_03.png',1)" onmouseout="MM_swapImgRestore()" /></a>
+<li> <a href="index.jsp?page=comingsoon"><img src="images/menu-1_03.png" height="20" id="Image3" onmouseover="MM_swapImage('Image3','','images/menu-2_03.png',1)" onmouseout="MM_swapImgRestore()" /></a>
 <ul>
 <li style='background-color:#ffffff;'><a href="index.jsp?page=comingsoon">Collection</a></li>
 <li style='background-color:#ffffff;'><a href="index.jsp?page=comingsoon">Projects</a></li>
@@ -63,7 +63,7 @@
 </script>
 
 <input type=hidden name=arav value="1*#*#*2"><ul id='nav2'>
-<li> <a href='#'><img src="images/menu-1_04.png" height="20" id="Image4" onmouseover="MM_swapImage('Image4','','images/menu-2_04.png',1)" onmouseout="MM_swapImgRestore()" /></a>
+<li> <a href="index.jsp?page=comingsoon"><img src="images/menu-1_04.png" height="20" id="Image4" onmouseover="MM_swapImage('Image4','','images/menu-2_04.png',1)" onmouseout="MM_swapImgRestore()" /></a>
 <ul>
 <li style='background-color:#ffffff;'><a href="index.jsp?page=comingsoon">Collection</a></li>
 <li style='background-color:#ffffff;'><a href="index.jsp?page=comingsoon">Application</a></li>
@@ -81,7 +81,7 @@
 </script>
 
 <input type=hidden name=arav value="1*#*#*2"><ul id='nav3'>
-<li> <a href='#'><img src="images/menu-1_05.jpg" height="20" id="Image5" onmouseover="MM_swapImage('Image5','','images/menu-2_05.jpg',1)" onmouseout="MM_swapImgRestore()" /></a>
+<li> <a href="index.jsp?page=aboutus"><img src="images/menu-1_05.jpg" height="20" id="Image5" onmouseover="MM_swapImage('Image5','','images/menu-2_05.jpg',1)" onmouseout="MM_swapImgRestore()" /></a>
 <ul>
 <li style='background-color:#ffffff;'><a href="index.jsp?page=aboutus">Who we are</a></li>
 <li style='background-color:#ffffff;'><a href="index.jsp?page=team">What we do</a></li>
