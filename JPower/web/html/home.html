@@ -1,0 +1,23 @@
+<script type="text/javascript">
+  var imageURLs = [
+       "images/index-pic-06.jpg"
+     , "images/index-pic-07.jpg"
+     , "images/index-pic-08.jpg"
+     , "images/index-pic-09.jpg"
+     , "images/index-pic-10.jpg"
+  ];
+  function getImageTag() {
+    var img = '<img src=\"';
+    var randomIndex = Math.floor(Math.random() * imageURLs.length);
+    img += imageURLs[randomIndex];
+    img += '\" width=\"800\" alt=\"Some alt text\"/>';
+    return img;
+  }
+</script>
+
+ <div class="mainpicture222">  
+   	<script type="text/javascript">
+  	 	document.write(getImageTag());
+   	</script>
+ </div>
+  <div class="subword"><img src="images/word-222-04.png" width="447" /></div>

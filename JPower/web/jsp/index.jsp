@@ -12,22 +12,6 @@
 <script type="text/javascript" charset="utf-8" src="js/menu.js">
 
 </script>
-<script type="text/javascript">
-  var imageURLs = [
-       "images/index-pic-06.jpg"
-     , "images/index-pic-07.jpg"
-     , "images/index-pic-08.jpg"
-     , "images/index-pic-09.jpg"
-     , "images/index-pic-10.jpg"
-  ];
-  function getImageTag() {
-    var img = '<img src=\"';
-    var randomIndex = Math.floor(Math.random() * imageURLs.length);
-    img += imageURLs[randomIndex];
-    img += '\" width=\"800\" alt=\"Some alt text\"/>';
-    return img;
-  }
-</script>
 </head>
 <%
 	String item = request.getParameter("page");
@@ -39,13 +23,15 @@
   
   	<div class="logo"><a href="index.jsp"><img src="images/jpower-logo.jpg" width="164" /></a></div>
   	<div class="langauge">
-  	  <div class="lang-inside"><a href="index.jsp"><img src="images/lang-07_01.jpg" height="25" id="Image7" onmouseover="MM_swapImage('Image7','','images/lang-07-over_01.jpg',1)" onmouseout="MM_swapImgRestore()" /></a></div>
+  	 	<!--  will be uncomment once chinese version is available 
+  	  <div class="lang-inside"><a href="index.jsp"><img src="images/lang-07_01.jpg" height="25" id="Image7" onmouseover="MM_swapImage('Image7','','images/lang-07-over_01.jpg',1)" onmouseout="MM_swapImgRestore()" /></a></div>  	 
   	  <div class="lang-inside"><img src="images/lang-07_02.jpg" alt="" height="25" /></div>
   	  <div class="lang-inside"><a href="chi-ver/index.html"><img src="images/lang-07_03.jpg" alt="" height="25" id="Image8" onmouseover="MM_swapImage('Image8','','images/lang-07-over_03.jpg',1)" onmouseout="MM_swapImgRestore()" /></a></div>
+  	  -->
     </div>
   	<div class="menu">
   	  <div class="menutab"><a href="index.jsp"><img src="images/menu-1_01.png" height="20" id="Image1" onmouseover="MM_swapImage('Image1','','images/menu-2_01.png',1)" onmouseout="MM_swapImgRestore()" /></a></div>
-  	  <div class="menutab2"><a href="whatnew.html"><img src="images/menu-1_02.png" height="20" id="Image2" onmouseover="MM_swapImage('Image2','','images/menu-2_02.png',1)" onmouseout="MM_swapImgRestore()" /></a></div>
+  	  <div class="menutab2"><a href="index.jsp?page=comingsoon"><img src="images/menu-1_02.png" height="20" id="Image2" onmouseover="MM_swapImage('Image2','','images/menu-2_02.png',1)" onmouseout="MM_swapImgRestore()" /></a></div>
   	  <div class="menutab3"><style type="text/css">
 </style>
 
@@ -58,8 +44,8 @@
 <input type=hidden name=arav value="1*#*#*2"><ul id='nav'>
 <li> <a href='#'><img src="images/menu-1_03.png" height="20" id="Image3" onmouseover="MM_swapImage('Image3','','images/menu-2_03.png',1)" onmouseout="MM_swapImgRestore()" /></a>
 <ul>
-<li style='background-color:#ffffff;'><a href=collection.html>Collection</a></li>
-<li style='background-color:#ffffff;'><a href=project.html>Projects</a></li>
+<li style='background-color:#ffffff;'><a href="index.jsp?page=comingsoon">Collection</a></li>
+<li style='background-color:#ffffff;'><a href="index.jsp?page=comingsoon">Projects</a></li>
 </ul>
 </li>
 </ul>
@@ -79,8 +65,8 @@
 <input type=hidden name=arav value="1*#*#*2"><ul id='nav2'>
 <li> <a href='#'><img src="images/menu-1_04.png" height="20" id="Image4" onmouseover="MM_swapImage('Image4','','images/menu-2_04.png',1)" onmouseout="MM_swapImgRestore()" /></a>
 <ul>
-<li style='background-color:#ffffff;'><a href=collection2.html>Collection</a></li>
-<li style='background-color:#ffffff;'><a href=application.html>Application</a></li>
+<li style='background-color:#ffffff;'><a href="index.jsp?page=comingsoon">Collection</a></li>
+<li style='background-color:#ffffff;'><a href="index.jsp?page=comingsoon">Application</a></li>
 </ul>
 </li>
 </ul></div>
@@ -97,14 +83,14 @@
 <input type=hidden name=arav value="1*#*#*2"><ul id='nav3'>
 <li> <a href='#'><img src="images/menu-1_05.jpg" height="20" id="Image5" onmouseover="MM_swapImage('Image5','','images/menu-2_05.jpg',1)" onmouseout="MM_swapImgRestore()" /></a>
 <ul>
-<li style='background-color:#ffffff;'><a href=aboutus.html>Who we are</a></li>
-<li style='background-color:#ffffff;'><a href=team.html>What we do</a></li>
-<li style='background-color:#ffffff;'><a href=service.html>Our Service</a></li>
-<li style='background-color:#ffffff;'><a href=faq.html>FAQ</a></li>
+<li style='background-color:#ffffff;'><a href="index.jsp?page=aboutus">Who we are</a></li>
+<li style='background-color:#ffffff;'><a href="index.jsp?page=team">What we do</a></li>
+<li style='background-color:#ffffff;'><a href="index.jsp?page=service">Our Service</a></li>
+<li style='background-color:#ffffff;'><a href="index.jsp?page=faq">FAQ</a></li>
 </ul>
 </li>
 </ul></div>
-  	  <div class="menutab6"><a href="contact.html"><img src="images/menu-1_06.png" height="20" id="Image6" onmouseover="MM_swapImage('Image6','','images/menu-2_06.png',1)" onmouseout="MM_swapImgRestore()" /></a></div>
+  	  <div class="menutab6"><a href="index.jsp?page=contactus"><img src="images/menu-1_06.png" height="20" id="Image6" onmouseover="MM_swapImage('Image6','','images/menu-2_06.png',1)" onmouseout="MM_swapImgRestore()" /></a></div>
     </div>
   </div>
   <p><!-- End of Header--></p>
@@ -112,20 +98,19 @@
   <%
   	if(item == null) {
   %>
-  		<div class="mainpicture222">  
-   			<script type="text/javascript">
-  	 			document.write(getImageTag());
-   			</script>
-  		</div>
+ 		<%@ include file="home.html" %>
   <%
+  	} else {
+  		String pageName = item + ".html";
+  		pageContext.include(pageName);
   	}
   %>
+  
   <!-- ******************* -->
-  <div class="subword"><img src="images/word-222-04.png" width="447" /></div>
 
   <div id="carousel" class="es-carousel-wrapper">
     <!-- End Elastislide Carousel -->
-    Copyright  Â© 2013 JIB Ltd. All Right Reserved.</div>
+    Copyright  © 2013 JIB Ltd. All Right Reserved.</div>
 <div class="clear"></div> 
   
    
