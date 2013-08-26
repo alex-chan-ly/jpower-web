@@ -85,7 +85,7 @@
 <ul>
 <li style='background-color:#ffffff;'><a href="index.jsp?page=aboutus">Who we are</a></li>
 <li style='background-color:#ffffff;'><a href="index.jsp?page=team">What we do</a></li>
-<li style='background-color:#ffffff;'><a href="index.jsp?page=service">Our Service</a></li>
+<li style='background-color:#ffffff;'><a href="index.jsp?page=enquiry">Our Service</a></li>
 <li style='background-color:#ffffff;'><a href="index.jsp?page=faq">FAQ</a></li>
 </ul>
 </li>
