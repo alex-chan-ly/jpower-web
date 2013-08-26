@@ -1,23 +1,141 @@
-<script type="text/javascript">
-  var imageURLs = [
-       "images/index-pic-06.jpg"
-     , "images/index-pic-07.jpg"
-     , "images/index-pic-08.jpg"
-     , "images/index-pic-09.jpg"
-     , "images/index-pic-10.jpg"
-  ];
-  function getImageTag() {
-    var img = '<img src=\"';
-    var randomIndex = Math.floor(Math.random() * imageURLs.length);
-    img += imageURLs[randomIndex];
-    img += '\" width=\"800\" alt=\"Some alt text\"/>';
-    return img;
-  }
-</script>
+<style>
+@-webkit-keyframes cf4FadeInOut {
+ 0% {
+   opacity:1;
+ }
+ 15% {
+   opacity:1;
+ }
+ 20% {
+   opacity:0;
+ }
+ 95% {
+   opacity:0;
+ }
+ 100% {
+   opacity:1;
+ }
+}
 
- <div class="mainpicture222">  
-   	<script type="text/javascript">
-  	 	document.write(getImageTag());
-   	</script>
- </div>
+@-moz-keyframes cf4FadeInOut {
+ 0% {
+   opacity:1;
+ }
+ 15% {
+   opacity:1;
+ }
+ 20% {
+   opacity:0;
+ }
+ 95% {
+   opacity:0;
+ }
+ 100% {
+   opacity:1;
+ }
+}
+
+@-o-keyframes cf4FadeInOut {
+ 0% {
+   opacity:1;
+ }
+ 15% {
+   opacity:1;
+ }
+ 20% {
+   opacity:0;
+ }
+ 95% {
+   opacity:0;
+ }
+ 100% {
+   opacity:1;
+ }
+}
+
+@keyframes cf4FadeInOut {
+ 0% {
+   opacity:1;
+ }
+ 15% {
+   opacity:1;
+ }
+ 20% {
+   opacity:0;
+ }
+ 95% {
+   opacity:0;
+ }
+ 100% {
+   opacity:1;
+ }
+}
+
+
+
+
+#cf4a img {
+   position:absolute;
+  -webkit-animation-name: cf4FadeInOut;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 20s;
+
+  -moz-animation-name: cf4FadeInOut;
+  -moz-animation-timing-function: ease-in-out;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-duration: 20s;
+
+  -o-animation-name: cf4FadeInOut;
+  -o-animation-timing-function: ease-in-out;
+  -o-animation-iteration-count: infinite;
+  -o-animation-duration: 20s;
+
+  animation-name: cf4FadeInOut;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 20s;
+}
+#cf4a img:nth-of-type(1) {
+  -webkit-animation-delay: 16s;
+  -moz-animation-delay: 16s;
+  -o-animation-delay: 16s;
+  animation-delay: 16s;
+}
+#cf4a img:nth-of-type(2) {
+  -webkit-animation-delay: 12s;
+  -moz-animation-delay: 12s;
+  -o-animation-delay: 12s;
+  animation-delay: 12s;
+}
+#cf4a img:nth-of-type(3) {
+  -webkit-animation-delay: 8s;
+  -moz-animation-delay: 8s;
+  -o-animation-delay: 8s;
+  animation-delay: 8s;
+}
+#cf4a img:nth-of-type(4) {
+  -webkit-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  -o-animation-delay: 4s;
+  animation-delay: 4s;
+}
+
+#cf4a img:nth-of-type(5) {
+  -webkit-animation-delay: 0;
+  -moz-animation-delay: 0;
+  -o-animation-delay: 0;
+  animation-delay: 0;
+}
+
+</style>
+<div class="mainpicture222">  
+	<div id="cf4a">
+  		<img src="images/index-pic-06.jpg" width="800"/>
+  		<img src="images/index-pic-07.jpg" width="800"/>
+  		<img src="images/index-pic-08.jpg" width="800"/>
+  		<img src="images/index-pic-09.jpg" width="800"/>
+  		<img src="images/index-pic-10.jpg" width="800"/>
+</div>
+</div>
   <div class="subword"><img src="images/word-222-04.png" width="447" /></div>
