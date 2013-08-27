@@ -8,6 +8,7 @@
 <meta name="keywords" content="" />
 <title>J POWER</title>
 <link rel="stylesheet" type="text/css" media="all" href="css/style_eng.css" />
+<link rel="SHORTCUT ICON" href="images/favicon.ico" />
 
 <script type="text/javascript" charset="utf-8" src="js/menu.js">
 
