@@ -22,7 +22,7 @@
 
   <div id="header">
   
-  	<div class="logo"><a href="index.jsp"><img src="images/jpower-logo.jpg" width="164" /></a></div>
+  	<div class="logo"><a href="."><img src="images/jpower-logo.jpg" width="164" /></a></div>
   	<div class="langauge">
   	 	<!--  will be uncomment once chinese version is available 
   	  <div class="lang-inside"><a href="index.jsp"><img src="images/lang-07_01.jpg" height="25" id="Image7" onmouseover="MM_swapImage('Image7','','images/lang-07-over_01.jpg',1)" onmouseout="MM_swapImgRestore()" /></a></div>  	 
@@ -31,7 +31,7 @@
   	  -->
     </div>
   	<div class="menu">
-  	  <div class="menutab"><a href="index.jsp"><img src="images/menu-1_01.png" height="20" id="Image1" onmouseover="MM_swapImage('Image1','','images/menu-2_01.png',1)" onmouseout="MM_swapImgRestore()" /></a></div>
+  	  <div class="menutab"><a href="."><img src="images/menu-1_01.png" height="20" id="Image1" onmouseover="MM_swapImage('Image1','','images/menu-2_01.png',1)" onmouseout="MM_swapImgRestore()" /></a></div>
   	  <div class="menutab2"><a href="index.jsp?page=comingsoon"><img src="images/menu-1_02.png" height="20" id="Image2" onmouseover="MM_swapImage('Image2','','images/menu-2_02.png',1)" onmouseout="MM_swapImgRestore()" /></a></div>
   	  <div class="menutab3"><style type="text/css">
 </style>
