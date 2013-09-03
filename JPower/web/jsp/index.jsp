@@ -13,11 +13,6 @@
 <script type="text/javascript" charset="utf-8" src="js/menu.js">
 
 </script>
-</head>
-<%
-	String item = request.getParameter("page");
-%>
-<body onload="MM_preloadImages('images/lang-07-over_01.jpg','images/lang-07-over_03.jpg','images/menu-2_01.png','images/menu-2_02.png','images/menu-2_03.png','images/menu-2_04.png','images/menu-2_05.jpg','images/menu-2_06.png')">
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -28,6 +23,12 @@
   ga('send', 'pageview');
 
 </script>
+</head>
+<%
+	String item = request.getParameter("page");
+%>
+<body onload="MM_preloadImages('images/lang-07-over_01.jpg','images/lang-07-over_03.jpg','images/menu-2_01.png','images/menu-2_02.png','images/menu-2_03.png','images/menu-2_04.png','images/menu-2_05.jpg','images/menu-2_06.png')">
+
 
  <div id="main_container">
 
