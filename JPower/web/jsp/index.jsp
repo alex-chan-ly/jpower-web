@@ -18,6 +18,17 @@
 	String item = request.getParameter("page");
 %>
 <body onload="MM_preloadImages('images/lang-07-over_01.jpg','images/lang-07-over_03.jpg','images/menu-2_01.png','images/menu-2_02.png','images/menu-2_03.png','images/menu-2_04.png','images/menu-2_05.jpg','images/menu-2_06.png')">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43719367-1', 'jpower.com.hk');
+  ga('send', 'pageview');
+
+</script>
+
  <div id="main_container">
 
   <div id="header">
