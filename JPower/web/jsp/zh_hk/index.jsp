@@ -117,7 +117,7 @@ body,td,th {
 <li style='background-color:#ffffff;'><a href="index.jsp?page=aboutus">有關我們</a></li>
 <li style='background-color:#ffffff;'><a href="index.jsp?page=team">瓷磚方案</a></li>
 <li style='background-color:#ffffff;'><a href="index.jsp?page=enquiry">服務流程</a></li>
-<li style='background-color:#ffffff;'><a href=faq.html>常問問題</a></li>
+<li style='background-color:#ffffff;'><a href="index.jsp?page=faq">常問問題</a></li>
 </ul>
 </li>
 </ul></div>
