@@ -59,7 +59,19 @@
 <script type="text/javascript" src="js/jquery.js"> 
 </script>
 
-<script type="text/javascript"src="js/menu.js">
+<script type="text/javascript">
+$(document).ready(function () {	
+	$('#nav li').hover(
+	function () {
+	//show its submenu
+	$('ul', this).slideDown(350);
+	}, 
+	function () {
+	//hide its submenu
+	$('ul', this).slideUp(350);	
+	}
+	);
+	});
 </script>
 
 <input type=hidden name=arav value="1*#*#*2"><ul id='nav'>
@@ -79,7 +91,19 @@
 <script type="text/javascript" src="js/jquery.js"> 
 </script>
 
-<script type="text/javascript" src="js/menu.js">
+<script type="text/javascript">
+$(document).ready(function () {	
+	$('#nav2 li').hover(
+	function () {
+	//show its submenu
+	$('ul', this).slideDown(350);
+	}, 
+	function () {
+	//hide its submenu
+	$('ul', this).slideUp(350);	
+	}
+	);
+	});
 
 </script>
 
@@ -98,7 +122,19 @@
 <script type="text/javascript" src="js/jquery.js"> 
 </script>
 
-<script type="text/javascript" src="js/menu.js">
+<script type="text/javascript">
+$(document).ready(function () {	
+	$('#nav3 li').hover(
+	function () {
+	//show its submenu
+	$('ul', this).slideDown(350);
+	}, 
+	function () {
+	//hide its submenu
+	$('ul', this).slideUp(350);	
+	}
+	);
+	});
 </script>
 
 <input type=hidden name=arav value="1*#*#*2"><ul id='nav3'>
