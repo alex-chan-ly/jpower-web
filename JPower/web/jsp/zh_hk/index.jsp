@@ -88,8 +88,10 @@ $(document).ready(function () {
 <input type=hidden name=arav value="1*#*#*2"><ul id='nav'>
 <li> <a href='#'><img src="../images/menu-1_03_chn.png" height="20" id="Image3" onmouseover="MM_swapImage('Image3','','../images/menu-2_03_chn.png',1)" onmouseout="MM_swapImgRestore()" /></a>
 <ul>
+<!-- 
 <li style='background-color:#ffffff;'><a href="index.jsp?page=comingsoon">系列</a></li>
 <li style='background-color:#ffffff;'><a href="index.jsp?page=comingsoon">工程</a></li>
+-->
 </ul>
 </li>
 </ul>
@@ -120,8 +122,9 @@ $(document).ready(function () {
 <input type=hidden name=arav value="1*#*#*2"><ul id='nav2'>
 <li> <a href='#'><img src="../images/menu-1_04_chn.png" height="20" id="Image4" onmouseover="MM_swapImage('Image4','','../images/menu-2_04_chn.png',1)" onmouseout="MM_swapImgRestore()" /></a>
 <ul>
-<li style='background-color:#ffffff;'><a href="index.jsp?page=comingsoon">系列</a></li>
-<li style='background-color:#ffffff;'><a href="index.jsp?page=comingsoon">用途</a></li>
+<li style='background-color:#ffffff;'><a href="index.jsp?page=comingsoon">住宅</a></li>
+<li style='background-color:#ffffff;'><a href="index.jsp?page=comingsoon">商業</a></li>
+<li style='background-color:#ffffff;'><a href="index.jsp?page=comingsoon">磁磚藝術</a></li>
 </ul>
 </li>
 </ul></div>
