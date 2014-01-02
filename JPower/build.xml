@@ -8,7 +8,7 @@
 		 <fileset dir="web/html"/>
 		 <zipfileset dir="web/css" prefix="css"/>
 		 <zipfileset dir="web/js"  prefix="js"/>
-		 <zipfileset dir="web/images"   prefix="images"/>	
+		 <zipfileset dir="web/images"   prefix="images"/>
 		</war>
 	</target>
 
