@@ -1,5 +1,6 @@
 package com.jpower.dispatcher;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -31,7 +32,16 @@ public class TestServlet extends HttpServlet {
 		out.println("Method=" + method);
 		out.println("<br/>");
 		out.println("IP=" + ip);
+		out.println("<br/>");
+		out.println("user.dir=" + System.getProperty("user.dir"));
 		out.println("<br/><br/>");
 		out.println("</body></html>");
+		
+/*		FileOutputStream output = new FileOutputStream("/home/jpoweradm/public_html/content/zip/test.txt");
+		output.write("Testing 123".getBytes());
+		output.close()*/;
+		Runtime.getRuntime().exec("chown jpoweradm " + "/home/jpoweradm/public_html/content/zip/wcrhpg300-106.zip");
+		Runtime.getRuntime().exec("chgrp jpoweradm " + "/home/jpoweradm/public_html/content/zip/wcrhpg300-106.zip");
+
 	}
 }
