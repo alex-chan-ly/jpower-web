@@ -6,9 +6,27 @@
   <servlet-name>TestServlet</servlet-name>
   <servlet-class>com.jpower.dispatcher.TestServlet</servlet-class>
  </servlet>
+<servlet>
+  <display-name>UploadServlet</display-name>
+  <servlet-name>UploadServlet</servlet-name>
+  <servlet-class>com.jpower.content.servlet.UploadServlet</servlet-class>
+</servlet>
+<servlet>
+  <display-name>AuthenServlet</display-name>
+  <servlet-name>AuthenServlet</servlet-name>
+  <servlet-class>com.jpower.content.servlet.AuthenServlet</servlet-class>
+</servlet>
  <servlet-mapping>
 		<servlet-name>TestServlet</servlet-name>
 		<url-pattern>/servlet/test</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+		<servlet-name>UploadServlet</servlet-name>
+		<url-pattern>/servlet/upload</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+		<servlet-name>AuthenServlet</servlet-name>
+		<url-pattern>/servlet/authenticate</url-pattern>
 </servlet-mapping>
  <welcome-file-list>
   <welcome-file>index.html</welcome-file>
