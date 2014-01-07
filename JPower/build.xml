@@ -9,6 +9,7 @@
 		 <zipfileset dir="web/css" prefix="css"/>
 		 <zipfileset dir="web/js"  prefix="js"/>
 		 <zipfileset dir="web/images"   prefix="images"/>
+		 <zipfileset dir="content"  prefix="content"/>
 		</war>
 	</target>
 
