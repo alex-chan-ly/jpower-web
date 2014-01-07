@@ -1281,3 +1281,52 @@ font-size: 11px;
 	height: 8px;
 	width: 560px;
 }
+
+.application-top-banner {
+	background-attachment: scroll;
+	background-repeat: no-repeat;
+	background-position: center top;
+	height: 156px;
+	width: 800px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCC;
+	float: left;
+	margin-top: 7px;
+}
+.photo-frame {
+	float: left;
+	height: auto;
+	width: 760px;
+	margin-right: 0px;
+	margin-left: 27px;
+	margin-top: 25px;
+}
+.photo-inside-1 {
+	float: left;
+	height: 210px;
+	width: 178px;
+	margin-right: 11px;
+	margin-bottom: 25px;
+	clear: none;
+}
+.photo-inside-2 {
+	padding: 9px;
+	float: left;
+	height: 160px;
+	width: 160px;
+}
+.photo-inside-caption {
+	float: left;
+	width: 160px;
+	margin-right: 9px;
+	margin-left: 9px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #CCC;
+	font-family: calibri, Arial, verdana, san-serif;
+	font-size: 14px;
+	line-height: 24px;
+	font-weight: normal;
+	color: #999;
+}
