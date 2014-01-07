@@ -112,7 +112,7 @@ $(document).ready(function () {
 <input type=hidden name=arav value="1*#*#*2"><ul id='nav2'>
 <li> <a href="index.jsp?page=comingsoon"><img src="images/menu-1_04.png" height="20" id="Image4" onmouseover="MM_swapImage('Image4','','images/menu-2_04.png',1)" onmouseout="MM_swapImgRestore()" /></a>
 <ul>
-<li style='background-color:#ffffff;'><a href="index.jsp?page=comingsoon">Residential</a></li>
+<li style='background-color:#ffffff;'><a href="index.jsp?page=residential">Residential</a></li>
 <li style='background-color:#ffffff;'><a href="index.jsp?page=comingsoon">Commercial</a></li>
 <li style='background-color:#ffffff;'><a href="index.jsp?page=comingsoon">Tile Art</a></li>
 </ul>
@@ -161,7 +161,13 @@ $(document).ready(function () {
  		<%@ include file="home.html" %>
   <%
   	} else {
-  		String pageName = item + ".html";
+  		String pageName = null;
+  		if(item.equals("residential")) {
+  			pageName = item + ".jsp";
+  		} else {
+  			pageName = item + ".html";
+  		}
+  		
   		pageContext.include(pageName);
   	}
   %>
