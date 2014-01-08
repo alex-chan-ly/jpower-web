@@ -162,7 +162,8 @@ $(document).ready(function () {
   <%
   	} else {
   		String pageName = null;
-  		if(item.equals("residential")) {
+  		if(	(item.equals("residential")) || (item.equals("residential_2")) || (item.equals("residential_3")) ||
+  			(item.equals("commercial")) || (item.equals("commercial_2")) || (item.equals("commercial_3")) ){
   			pageName = item + ".jsp";
   		} else {
   			pageName = item + ".html";
