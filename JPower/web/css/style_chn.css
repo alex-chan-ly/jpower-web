@@ -1282,6 +1282,7 @@ font-size: 11px;
 	width: 560px;
 }
 
+/*   Application, Collection */
 .application-top-banner {
 	background-attachment: scroll;
 	background-repeat: no-repeat;
@@ -1310,11 +1311,19 @@ font-size: 11px;
 	margin-bottom: 25px;
 	clear: none;
 }
+.photo-inside-1:hover {
+	height: 204px;
+	width: 172px;
+	border:3px solid  #efc1c1;
+}
 .photo-inside-2 {
 	padding: 9px;
 	float: left;
 	height: 160px;
 	width: 160px;
+}
+.photo-inside-1:hover .photo-inside-2 {
+	padding:6px 6px 9px;
 }
 .photo-inside-caption {
 	float: left;
@@ -1330,4 +1339,75 @@ font-size: 11px;
 	font-weight: normal;
 	color: #999;
 }
-
+.photo-inside-1:hover .photo-inside-caption {
+	margin-right: 6px;
+	margin-left: 6px;
+}
+.collection-submenu {
+	font-family: calibri, Arial, verdana, san-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: normal;
+	color: #999;
+	float: left;
+	height: 30px;
+	width: 700px;
+	margin-left: 27px;
+	margin-top: 20px;
+}
+.app-commer-subsub {
+	font-family: calibri, Arial, verdana, san-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: bold;
+	color: #333;
+	float: left;
+	height: 30px;
+	width: 773px;
+	background-color: #FFE8E2;
+	padding-left: 27px;
+	line-height: 30px;
+	margin-top: 10px;
+}
+.ap-photo-frame {
+	float: left;
+	height: auto;
+	width: 775px;
+	margin-right: 0px;
+	margin-left: 25px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.ap-photo-inside-1 {
+	float: left;
+	height: 220px;
+	width: 246px;
+	margin-right: 7px;
+	margin-bottom: 17px;
+	clear: none;
+}
+.ap-photo-inside-2 {
+	padding: 7px;
+	float: left;
+	height: 168px;
+	width: 229px;
+	margin: 0px;
+	border: 1px solid #CCC;
+}
+.ap-photo-inside-caption {
+	float: left;
+	width: 230px;
+	margin-right: 7px;
+	margin-left: 7px;
+	font-family: calibri, Arial, verdana, san-serif;
+	font-size: 14px;
+	line-height: 18px;
+	font-weight: normal;
+	color: #999;
+	text-align: center;
+	margin-top: 10px;
+}
+.ap-photo-inside-2:hover {
+	padding: 5px;
+	border: 3px solid #efc1c1;
+}
