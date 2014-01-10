@@ -55,3 +55,13 @@ function MM_swapImage() { //v3.0
   var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
    if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
 }// JavaScript Document
+
+function lb_effect_open(id,wrap){
+	$(id).fadeIn(300);
+	$(wrap).fadeIn(300);
+}
+
+function lb_effect_close(id,wrap){
+	$(id).fadeOut(300);
+	$(wrap).fadeOut(300);  
+}
