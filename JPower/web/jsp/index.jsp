@@ -113,7 +113,7 @@ $(document).ready(function () {
 <li> <a href="index.jsp?page=comingsoon"><img src="images/menu-1_04.png" height="20" id="Image4" onmouseover="MM_swapImage('Image4','','images/menu-2_04.png',1)" onmouseout="MM_swapImgRestore()" /></a>
 <ul>
 <li style='background-color:#ffffff;'><a href="index.jsp?page=residential">Residential</a></li>
-<li style='background-color:#ffffff;'><a href="index.jsp?page=comingsoon">Commercial</a></li>
+<li style='background-color:#ffffff;'><a href="index.jsp?page=commercial">Commercial</a></li>
 <li style='background-color:#ffffff;'><a href="index.jsp?page=comingsoon">Tile Art</a></li>
 </ul>
 </li>
