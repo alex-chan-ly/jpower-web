@@ -1,22 +1,32 @@
 package com.jpower.content.business;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jpower.cms.upload.common.DBAccess;
+import com.jpower.content.model.ResidentialPage1DTO;
 import com.jpower.content.model.Stock;
 
 public class ResidentialPhotoFramePage implements PhotoFramePage {
 
+	String title[];
+	
 	public String generatePage1() {
 		// TODO Auto-generated method stub
 		String[] title = {"Living room", "Bathroom", "Kitchen", "Miscellaneous"};
 		String content = "<div class=\"photo-frame\">";
 		
-		for(int i = 0 ; i < title.length ; i++) {
+		List rsList = getPage1Info();
+		for(int i = 0 ; i < rsList.size() ; i++) {
+			ResidentialPage1DTO dto = (ResidentialPage1DTO)rsList.get(i);
 			content = content + "<div class=\"photo-inside-1\">\n";
 			content = content + "<div class=\"photo-inside-2\"><a href=\"index.jsp?page=residential_2\">";
-			content = content + "<img src=\"content/storage/residential/1/" + "collection-sample-pic.jpg\" width=\"160\" height=\"160\" /></a></div>\n";
-			content = content + "<div class=\"photo-inside-caption\">" + title[i] + "</div>\n";
+			content = content + "<img src=\"content/storage/residential/1/" + dto.getCatImage() + "\" width=\"160\" height=\"160\" /></a></div>\n";
+			content = content + "<div class=\"photo-inside-caption\">" + dto.getCatLabelEng() + "</div>\n";
 			content = content + "</div>\n";			
 		}
 		
@@ -31,11 +41,13 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		String[] title = {"Living room", "Bathroom", "Kitchen", "Miscellaneous"};
 		String content = "<div class=\"photo-frame\">";
 		
-		for(int i = 0 ; i < title.length ; i++) {
+		List rsList = getPage1Info();
+		for(int i = 0 ; i < rsList.size() ; i++) {
+			ResidentialPage1DTO dto = (ResidentialPage1DTO)rsList.get(i);
 			content = content + "<div class=\"photo-inside-1\">\n";
 			content = content + "<div class=\"photo-inside-2\"><a href=\"index.jsp?page=residential_2\">";
-			content = content + "<img src=\"../content/storage/residential/1/" + "collection-sample-pic.jpg\" width=\"160\" height=\"160\" /></a></div>\n";
-			content = content + "<div class=\"photo-inside-caption\">" + title[i] + "</div>\n";
+			content = content + "<img src=\"../content/storage/residential/1/" + dto.getCatImage() + "\" width=\"160\" height=\"160\" /></a></div>\n";
+			content = content + "<div class=\"photo-inside-caption\">" + dto.getCatLabelChn() + "</div>\n";
 			content = content + "</div>\n";			
 		}
 		
@@ -242,6 +254,38 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		
 		return stocks;
 		
+	}
+	
+	private List<ResidentialPage1DTO> getPage1Info() {
+		Statement stmt = null;
+		String query = "select jc.category_label_eng, jc.category_label_chin, " + 
+						"jc.category_image from JPT_LOB jl, " + 
+						"JPT_RLT_LOB_CATEGORY JRLC, " + 
+						"JPT_CATEGORY jc where sub_lob_id='Residential' " + 
+						"and jl.lob_PK=JRLC.lob_pk and JRLC.category_pk=jc.category_pk";
+		
+		List<ResidentialPage1DTO> rsList = new ArrayList<ResidentialPage1DTO>();
+		
+		try {
+			Connection conn = DBAccess.getDBConnection();
+			stmt = conn.createStatement();
+			ResultSet result = stmt.executeQuery(query);
+			while(result.next()) {
+				ResidentialPage1DTO dto = new ResidentialPage1DTO();
+				dto.setCatLabelEng(result.getString(1));
+				dto.setCatLabelChn(result.getString(2));
+				dto.setCatImage(result.getString(3));
+				rsList.add(dto);
+			}
+			
+			result.close();
+			stmt.close();
+			DBAccess.returnDBConnection(conn);
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return rsList;	
 	}
 	
 
