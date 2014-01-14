@@ -8,12 +8,14 @@ public class DBAccess {
 	
 	public static String driver = "org.apache.derby.jdbc.EmbeddedDriver";
 //	public static String dbName="jPowerDB";
-	public static String dbName="db1";
+//	public static String dbName="db1";
+	public static String dbName="/home/benson/Project/JPower/content/db/db1";
 	public static String connectionURL = "jdbc:derby:" + dbName + ";create=true";
 	public static Connection conn = null;
 	
 	private static Connection acquireDBConnection() {
 		try {
+		
 			Class.forName(driver);
 			
 		} catch (ClassNotFoundException e) {
@@ -51,5 +53,9 @@ public class DBAccess {
         }  else  {
            System.out.println("Database shut down normally");	
         }  
+	}
+	
+	public static void returnDBConnection(Connection conn) {
+		
 	}
 }
