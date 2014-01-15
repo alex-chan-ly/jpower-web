@@ -5,6 +5,8 @@ public class ResidentialPage1DTO {
 	private String catLabelEng;
 	private String catLabelChn;
 	private String catImage;
+	
+	
 	public String getCatLabelEng() {
 		return catLabelEng;
 	}
@@ -14,6 +16,7 @@ public class ResidentialPage1DTO {
 	public String getCatLabelChn() {
 		return catLabelChn;
 	}
+	
 	public void setCatLabelChn(String catLabelChn) {
 		this.catLabelChn = catLabelChn;
 	}
@@ -23,7 +26,4 @@ public class ResidentialPage1DTO {
 	public void setCatImage(String catImage) {
 		this.catImage = catImage;
 	}
-	
-	
-
 }

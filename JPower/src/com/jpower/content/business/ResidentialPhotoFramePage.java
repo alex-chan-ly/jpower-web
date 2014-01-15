@@ -5,10 +5,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import com.jpower.cms.upload.common.DBAccess;
 import com.jpower.content.model.ResidentialPage1DTO;
+import com.jpower.content.model.ResidentialPage2DTO;
 import com.jpower.content.model.Stock;
 
 public class ResidentialPhotoFramePage implements PhotoFramePage {
@@ -20,7 +25,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		String[] title = {"Living room", "Bathroom", "Kitchen", "Miscellaneous"};
 		String content = "<div class=\"photo-frame\">";
 		
-		List rsList = getPage1Info();
+		List<ResidentialPage1DTO> rsList = getPage1Info();
 		for(int i = 0 ; i < rsList.size() ; i++) {
 			ResidentialPage1DTO dto = (ResidentialPage1DTO)rsList.get(i);
 			content = content + "<div class=\"photo-inside-1\">\n";
@@ -41,7 +46,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		String[] title = {"Living room", "Bathroom", "Kitchen", "Miscellaneous"};
 		String content = "<div class=\"photo-frame\">";
 		
-		List rsList = getPage1Info();
+		List<ResidentialPage1DTO> rsList = getPage1Info();
 		for(int i = 0 ; i < rsList.size() ; i++) {
 			ResidentialPage1DTO dto = (ResidentialPage1DTO)rsList.get(i);
 			content = content + "<div class=\"photo-inside-1\">\n";
@@ -61,21 +66,25 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		String[] title = {"Living Room", "Bathroom", "Kitchen", "Miscellaneous"};
 		String content = "<div class=\"collection-submenu\">";
 		
-		for(int i = 0 ; i < title.length ; i++) {
-			content = content + title[i];
-			if(i != title.length - 1) {
+		List<ResidentialPage2DTO> rsList = getPage2Info();
+		for(int i = 0 ; i < rsList.size() ; i++) {
+			ResidentialPage2DTO dto = rsList.get(i);
+			content = content + dto.getCatLabelEng();
+			if(i != rsList.size() - 1) {
 				content = content + " / ";
 			}
 		}
 		
 		content = content + "</div>\n";
-		for(int j = 0 ; j < title.length ; j++) {
-			content = content + "<div class=\"app-commer-subsub\">" + title[j] + "</div>\n";
+		for(int j = 0 ; j < rsList.size() ; j++) {
+			ResidentialPage2DTO dto = rsList.get(j);
+			content = content + "<div class=\"app-commer-subsub\">" + dto.getCatLabelEng() + "</div>\n";
 			content = content + "<div class=\"ap-photo-frame\">\n";
-			for(int i = 0 ; i < 3 ; i++) {
+			List<String> imageList = dto.getImageList();
+			for(int i = 0 ; i < imageList.size() ; i++) {
 				content = content + "<div class=\"ap-photo-inside-1\">\n";
 				content = content + "<div class=\"ap-photo-inside-2\"><a href=\"index.jsp?page=residential_3\">";
-				content = content + "<img src=\"content/storage/residential/2/" + "application-commercial-photo.jpg\" width=\"229\" height=\"168\" /></a></div>\n";
+				content = content + "<img src=\"content/storage/residential/2/" + imageList.get(i) + "\" width=\"229\" height=\"168\" /></a></div>\n";
 				content = content + "<div class=\"ap-photo-inside-caption\">Sample" + " " + (i + 1) + "</div>\n";
 				content = content + "</div>\n";
 			}
@@ -90,21 +99,25 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		String[] title = {"Living Room", "Bathroom", "Kitchen", "Miscellaneous"};
 		String content = "<div class=\"collection-submenu\">";
 		
-		for(int i = 0 ; i < title.length ; i++) {
-			content = content + title[i];
-			if(i != title.length - 1) {
+		List<ResidentialPage2DTO> rsList = getPage2Info();
+		for(int i = 0 ; i < rsList.size() ; i++) {
+			ResidentialPage2DTO dto = rsList.get(i);
+			content = content + dto.getCatLabelChn();
+			if(i != rsList.size() - 1) {
 				content = content + " / ";
 			}
 		}
 		
 		content = content + "</div>\n";
-		for(int j = 0 ; j < title.length ; j++) {
-			content = content + "<div class=\"app-commer-subsub\">" + title[j] + "</div>\n";
+		for(int j = 0 ; j < rsList.size() ; j++) {
+			ResidentialPage2DTO dto = rsList.get(j);
+			content = content + "<div class=\"app-commer-subsub\">" + dto.getCatLabelChn() + "</div>\n";
 			content = content + "<div class=\"ap-photo-frame\">\n";
+			List<String> imageList = dto.getImageList();
 			for(int i = 0 ; i < 3 ; i++) {
 				content = content + "<div class=\"ap-photo-inside-1\">\n";
 				content = content + "<div class=\"ap-photo-inside-2\"><a href=\"index.jsp?page=residential_3\">";
-				content = content + "<img src=\"../content/storage/residential/2/" + "application-commercial-photo.jpg\" width=\"229\" height=\"168\" /></a></div>\n";
+				content = content + "<img src=\"../content/storage/residential/2/" + imageList.get(i) + "\" width=\"229\" height=\"168\" /></a></div>\n";
 				content = content + "<div class=\"ap-photo-inside-caption\">Sample" + " " + (i + 1) + "</div>\n";
 				content = content + "</div>\n";
 			}
@@ -259,12 +272,14 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 	private List<ResidentialPage1DTO> getPage1Info() {
 		Statement stmt = null;
 		String query = "select jc.category_label_eng, jc.category_label_chin, " + 
-						"jc.category_image from JPT_LOB jl, " + 
+						"jc.category_image, JRLC.lob_category_seq from JPT_LOB jl, " + 
 						"JPT_RLT_LOB_CATEGORY JRLC, " + 
 						"JPT_CATEGORY jc where sub_lob_id='Residential' " + 
-						"and jl.lob_PK=JRLC.lob_pk and JRLC.category_pk=jc.category_pk";
+						"and jl.lob_PK=JRLC.lob_pk and JRLC.category_pk=jc.category_pk" +
+						" order by JRLC.lob_category_seq";
 		
 		List<ResidentialPage1DTO> rsList = new ArrayList<ResidentialPage1DTO>();
+		
 		
 		try {
 			Connection conn = DBAccess.getDBConnection();
@@ -276,8 +291,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 				dto.setCatLabelChn(result.getString(2));
 				dto.setCatImage(result.getString(3));
 				rsList.add(dto);
-			}
-			
+			}			
 			result.close();
 			stmt.close();
 			DBAccess.returnDBConnection(conn);
@@ -286,6 +300,69 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		}
 		
 		return rsList;	
+	}
+	
+	@SuppressWarnings("unchecked")
+	private List<ResidentialPage2DTO> getPage2Info() {
+		Statement stmt = null;
+		String query = "select jc.category_label_eng, jc.category_label_chin, " + 
+						"jc.category_pk, js.series_image_small, JRLC.lob_category_seq from JPT_LOB jl, " + 
+						"JPT_RLT_LOB_CATEGORY JRLC, JPT_CATEGORY jc, jpt_rlt_category_series jrcs, " + 
+						"jpt_series js where sub_lob_id='Residential' and jl.lob_PK=JRLC.lob_pk " + 
+						"and JRLC.category_pk=jc.category_pk and jc.rec_status='ACT' and " + 
+						"jrcs.category_pk=jc.category_pk and jrcs.rec_status='ACT' and " + 
+						"jrcs.series_pk=js.series_pk and js.rec_status='ACT' order by JRLC.lob_category_seq";
+		
+		List<ResidentialPage2DTO> dtos = new ArrayList<ResidentialPage2DTO>();
+		Map<Integer, ResidentialPage2DTO> catMap = new HashMap<Integer, ResidentialPage2DTO>();
+		
+		try {
+			Connection conn = DBAccess.getDBConnection();
+			stmt = conn.createStatement();
+			ResultSet result = stmt.executeQuery(query);
+			System.out.println("Ready to get data");
+			while(result.next()) {
+				System.out.println("get Data");
+				int iCatPK = result.getInt(3);
+				ResidentialPage2DTO dto = catMap.get(Integer.valueOf(iCatPK));
+				if(dto == null) {
+					dto = new ResidentialPage2DTO();
+					dto.setCatLabelEng(result.getString(1));
+					dto.setCatLabelChn(result.getString(2));
+					List<String> imageList = new ArrayList<String>();
+					imageList.add(result.getString(4));
+					dto.setImageList(imageList);
+					dto.setLogCategorySeq(result.getInt(5));
+				} else {
+					dto.getImageList().add(result.getString(4));
+				}
+				catMap.put(Integer.valueOf(iCatPK), dto);
+			}
+			
+			System.out.println("Finished to get Data");
+			
+			result.close();
+			stmt.close();
+			DBAccess.returnDBConnection(conn);
+			
+			Set<Integer> keySet = catMap.keySet();
+			Iterator<Integer> iterator = keySet.iterator();
+			ResidentialPage2DTO[] dtoArray = new ResidentialPage2DTO[keySet.size()];		
+			while(iterator.hasNext()) {
+				Integer categoryPK = (Integer)iterator.next();
+				ResidentialPage2DTO dto = catMap.get(categoryPK);
+				dtoArray[dto.getLogCategorySeq() - 1] = dto;
+			}	
+			
+			for(int i = 0 ; i < dtoArray.length ; i++) {
+				dtos.add(dtoArray[i]);
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return dtos;
+		
 	}
 	
 
