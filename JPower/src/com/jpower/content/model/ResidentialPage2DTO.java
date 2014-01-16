@@ -8,6 +8,8 @@ public class ResidentialPage2DTO {
 	private String catLabelChn;
 
 	private List imageList;
+	private Integer catPK;
+	private Integer seriesPK;
 	private Integer logCategorySeq;
 
 	public String getCatLabelEng() {
@@ -41,6 +43,26 @@ public class ResidentialPage2DTO {
 	public void setLogCategorySeq(Integer logCategorySeq) {
 		this.logCategorySeq = logCategorySeq;
 	}
+
+	public Integer getCatPK() {
+		return catPK;
+	}
+
+	public void setCatPK(Integer catPK) {
+		this.catPK = catPK;
+	}
+
+	public Integer getSeriesPK() {
+		return seriesPK;
+	}
+
+	public void setSeriesPK(Integer seriesPK) {
+		this.seriesPK = seriesPK;
+	}
+	
+	
+	
+	
 	
 	
 	
