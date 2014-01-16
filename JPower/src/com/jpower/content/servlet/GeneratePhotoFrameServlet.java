@@ -51,10 +51,12 @@ public class GeneratePhotoFrameServlet extends HttpServlet {
 			else
 				content = pfp.generatePage2_Chn();
 		} else if(page.equals("3")) {
+			String catPK = req.getParameter("cat");
+			String seriesPK = req.getParameter("series");
 			if(lang.equals("eng"))
-				content = pfp.generatePage3();
+				content = pfp.generatePage3(catPK, seriesPK);
 			else
-				content = pfp.generatePage3_Chn();
+				content = pfp.generatePage3_Chn(catPK, seriesPK);
 		}
 		
 		
