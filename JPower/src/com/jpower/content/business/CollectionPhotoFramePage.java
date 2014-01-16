@@ -22,12 +22,12 @@ public class CollectionPhotoFramePage implements PhotoFramePage {
 		return null;
 	}
 
-	public String generatePage3() {
+	public String generatePage3(String catPK, String seriesPK) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String generatePage3_Chn() {
+	public String generatePage3_Chn(String catPK, String seriesPK) {
 		// TODO Auto-generated method stub
 		return null;
 	}

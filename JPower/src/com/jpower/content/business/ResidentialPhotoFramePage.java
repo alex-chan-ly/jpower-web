@@ -1,6 +1,7 @@
 package com.jpower.content.business;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -14,6 +15,7 @@ import java.util.Set;
 import com.jpower.cms.upload.common.DBAccess;
 import com.jpower.content.model.ResidentialPage1DTO;
 import com.jpower.content.model.ResidentialPage2DTO;
+import com.jpower.content.model.ResidentialPage3DTO;
 import com.jpower.content.model.Stock;
 
 public class ResidentialPhotoFramePage implements PhotoFramePage {
@@ -83,7 +85,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 			List<String> imageList = dto.getImageList();
 			for(int i = 0 ; i < imageList.size() ; i++) {
 				content = content + "<div class=\"ap-photo-inside-1\">\n";
-				content = content + "<div class=\"ap-photo-inside-2\"><a href=\"index.jsp?page=residential_3\">";
+				content = content + "<div class=\"ap-photo-inside-2\"><a href=\"index.jsp?page=residential_3&cat=" + dto.getCatPK() + "&series=" + dto.getSeriesPK() + "\">";
 				content = content + "<img src=\"content/storage/residential/2/" + imageList.get(i) + "\" width=\"229\" height=\"168\" /></a></div>\n";
 				content = content + "<div class=\"ap-photo-inside-caption\">Sample" + " " + (i + 1) + "</div>\n";
 				content = content + "</div>\n";
@@ -116,7 +118,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 			List<String> imageList = dto.getImageList();
 			for(int i = 0 ; i < 3 ; i++) {
 				content = content + "<div class=\"ap-photo-inside-1\">\n";
-				content = content + "<div class=\"ap-photo-inside-2\"><a href=\"index.jsp?page=residential_3\">";
+				content = content + "<div class=\"ap-photo-inside-2\"><a href=\"index.jsp?page=residential_3&cat=" + dto.getCatPK() + "&series=" + dto.getSeriesPK() + "\">";
 				content = content + "<img src=\"../content/storage/residential/2/" + imageList.get(i) + "\" width=\"229\" height=\"168\" /></a></div>\n";
 				content = content + "<div class=\"ap-photo-inside-caption\">Sample" + " " + (i + 1) + "</div>\n";
 				content = content + "</div>\n";
@@ -128,7 +130,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 
 	}
 
-	public String generatePage3() {
+	public String generatePage3(String catPK, String seriesPK) {
 		// TODO Auto-generated method stub
 		List stocks = getStocks();
 		
@@ -185,7 +187,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 
 	}
 
-	public String generatePage3_Chn() {
+	public String generatePage3_Chn(String catPK, String seriesPK) {
 		// TODO Auto-generated method stub
 		List stocks = getStocks();
 		
@@ -306,7 +308,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 	private List<ResidentialPage2DTO> getPage2Info() {
 		Statement stmt = null;
 		String query = "select jc.category_label_eng, jc.category_label_chin, " + 
-						"jc.category_pk, js.series_image_small, JRLC.lob_category_seq from JPT_LOB jl, " + 
+						"jc.category_pk, js.series_image_small, JRLC.lob_category_seq, js.series_pk from JPT_LOB jl, " + 
 						"JPT_RLT_LOB_CATEGORY JRLC, JPT_CATEGORY jc, jpt_rlt_category_series jrcs, " + 
 						"jpt_series js where sub_lob_id='Residential' and jl.lob_PK=JRLC.lob_pk " + 
 						"and JRLC.category_pk=jc.category_pk and jc.rec_status='ACT' and " + 
@@ -329,10 +331,12 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 					dto = new ResidentialPage2DTO();
 					dto.setCatLabelEng(result.getString(1));
 					dto.setCatLabelChn(result.getString(2));
+					dto.setCatPK(iCatPK);
 					List<String> imageList = new ArrayList<String>();
 					imageList.add(result.getString(4));
 					dto.setImageList(imageList);
 					dto.setLogCategorySeq(result.getInt(5));
+					dto.setSeriesPK(result.getInt(6));
 				} else {
 					dto.getImageList().add(result.getString(4));
 				}
@@ -364,6 +368,58 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		return dtos;
 		
 	}
+	
+	private List<ResidentialPage3DTO> generatePage3Info(String seriesPK) {
+		
+		PreparedStatement ps = null;
+		
+		String query = "select jrsss.series_sub_series_seq, jss.sub_series_image_small, " + 
+						"jss.sub_series_image_large, js.series_image_large, jad.sub_series_id, jad.series, " + 
+						"jad.avaliable_size, jad.tile_thickness, jad.color, jad.finishing, " + 
+						"jad.application, jad.remarks_1 from jpt_rlt_series_sub_series jrsss, " +
+						"jpt_sub_series jss, jpt_series js, jpw_application_detail jad, " +
+						"jpw_application ja where jrsss.series_pk=? and jrsss.rec_status='ACT' " + 
+						"and jrsss.sub_series_pk=jss.sub_series_pk and js.series_pk=jrsss.series_pk " +
+						"and js.rec_status=jrsss.rec_status and jrsss.rec_status=jss.rec_status " +
+						"and jss.sub_series_id=jad.sub_series_id and " +
+						"jad.sub_series_id=ja.sub_series_id and ja.tran_action='ADD' " +
+						"order by jrsss.series_sub_series_seq";
+		
+		List<ResidentialPage3DTO> dtos = new ArrayList<ResidentialPage3DTO>();
+		
+		try {
+			Connection conn = DBAccess.getDBConnection();
+			ps = conn.prepareStatement(query);
+			ps.setInt(1, Integer.parseInt(seriesPK));
+			ResultSet result = ps.executeQuery();
+			while(result.next()) {
+				ResidentialPage3DTO dto = new ResidentialPage3DTO();
+				dto.setSeriesSubSeriesSeq(result.getInt(1));
+				dto.setSubSeriesImageSmall(result.getString(2));
+				dto.setSubSeriesImageLarge(result.getString(3));
+				dto.setSeriesImageLarge(result.getString(4));
+				dto.setSubSeriesID(result.getString(5));
+				dto.setSeries(result.getString(6));
+				dto.setAvailableSize(result.getString(7));
+				dto.setTileThickness(result.getString(8));
+				dto.setColor(result.getString(9));
+				dto.setFinishing(result.getString(10));
+				dto.setApplication(result.getString(11));
+				dto.setRemarks_1(result.getString(12));
+				
+				dtos.add(dto);
+			}
+			result.close();
+			ps.close();
+			DBAccess.returnDBConnection(conn);
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return dtos;
+		
+	}
+	
 	
 
 }
