@@ -164,7 +164,13 @@ $(document).ready(function () {
   		String pageName = null;
   		if(	(item.equals("residential")) || (item.equals("residential_2")) || (item.equals("residential_3")) ||
   			(item.equals("commercial")) || (item.equals("commercial_2")) || (item.equals("commercial_3")) ){
-  			pageName = item + ".jsp";
+ 			if(item.equals("residential_3")) {
+  				String catPK = request.getParameter("cat");
+  				String seriesPK = request.getParameter("series");
+  				pageName = item + ".jsp?cat=" + catPK + "&series=" + seriesPK;
+  			} else {
+  				pageName = item + ".jsp";
+  			}
   		} else {
   			pageName = item + ".html";
   		}
