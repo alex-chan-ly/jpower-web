@@ -83,9 +83,10 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 			content = content + "<div class=\"app-commer-subsub\">" + dto.getCatLabelEng() + "</div>\n";
 			content = content + "<div class=\"ap-photo-frame\">\n";
 			List<String> imageList = dto.getImageList();
+			List<Integer> seriesPKs = dto.getSeriesPKs();
 			for(int i = 0 ; i < imageList.size() ; i++) {
 				content = content + "<div class=\"ap-photo-inside-1\">\n";
-				content = content + "<div class=\"ap-photo-inside-2\"><a href=\"index.jsp?page=residential_3&cat=" + dto.getCatPK() + "&series=" + dto.getSeriesPK() + "\">";
+				content = content + "<div class=\"ap-photo-inside-2\"><a href=\"index.jsp?page=residential_3&cat=" + dto.getCatPK() + "&series=" + seriesPKs.get(i) + "&title=Sample+" + (i+1) + "\">";
 				content = content + "<img src=\"content/storage/residential/2/" + imageList.get(i) + "\" width=\"229\" height=\"168\" /></a></div>\n";
 				content = content + "<div class=\"ap-photo-inside-caption\">Sample" + " " + (i + 1) + "</div>\n";
 				content = content + "</div>\n";
@@ -116,9 +117,10 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 			content = content + "<div class=\"app-commer-subsub\">" + dto.getCatLabelChn() + "</div>\n";
 			content = content + "<div class=\"ap-photo-frame\">\n";
 			List<String> imageList = dto.getImageList();
-			for(int i = 0 ; i < 3 ; i++) {
+			List<Integer> seriesPKs = dto.getSeriesPKs();
+			for(int i = 0 ; i < imageList.size() ; i++) {
 				content = content + "<div class=\"ap-photo-inside-1\">\n";
-				content = content + "<div class=\"ap-photo-inside-2\"><a href=\"index.jsp?page=residential_3&cat=" + dto.getCatPK() + "&series=" + dto.getSeriesPK() + "\">";
+				content = content + "<div class=\"ap-photo-inside-2\"><a href=\"index.jsp?page=residential_3&cat=" + dto.getCatPK() + "&series=" + seriesPKs.get(i) + "&title=Sample+" + (i+1) + "\">";
 				content = content + "<img src=\"../content/storage/residential/2/" + imageList.get(i) + "\" width=\"229\" height=\"168\" /></a></div>\n";
 				content = content + "<div class=\"ap-photo-inside-caption\">Sample" + " " + (i + 1) + "</div>\n";
 				content = content + "</div>\n";
@@ -130,54 +132,58 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 
 	}
 
-	public String generatePage3(String catPK, String seriesPK) {
+	public String generatePage3(String catPK, String seriesPK, String title) {
 		// TODO Auto-generated method stub
 		List stocks = getStocks();
 		
-		String content = "<div class=\"collection-submenu\">Residential  &gt;  Bathroom  &gt;  Sample A</div>\n";
+		List<ResidentialPage3DTO> dtos = this.generatePage3Info(seriesPK);
+		ResidentialPage3DTO dto = dtos.get(0);
+	
+		
+		String content = "<div class=\"collection-submenu\">Residential  &gt;  " + dto.getSeriesLabelEng() + " &gt;  " + title + "</div>\n";
 		content = content + "<div class=\"app-commercial-frame2\">\n";
 		content = content + "<div class=\"big-photo-frame\">\n";
-		content = content + "<div class=\"big-photo-frame-inside-1\"><img src=\"content/storage/residential/3/application-commercial-bigphoto.jpg\" width=\"495\" height=\"375\" /></div>\n";
+		content = content + "<div class=\"big-photo-frame-inside-1\"><img src=\"content/storage/residential/3/" + dto.getSeriesImageLarge() + "\" width=\"495\" height=\"375\" /></div>\n";
 		content = content + "</div>\n";
 		content = content + "<div class=\"big-photo-right-frame\">\n";
 		
 		//Develop code here.
-		for(int i = 0 ; i < stocks.size() ; i++) {
-			Stock stock = (Stock)stocks.get(i);
+		for(int i = 0 ; i < dtos.size() ; i++) {
+			ResidentialPage3DTO dtoEntry = dtos.get(i);
 			
 			content = content + "<div class=\"rightoutsideframe\">\n";
 			content = content + "<div class=\"sp-photo-left\">\n";
 			content = content + "<div class=\"sp-photo-left-inside\"><a href=\"#nogo\" onclick=\"lb_effect_open('#photo" + (i + 1) + "','#photo_wrap" + (i+1) + "')\"><img src=\"";
-			content = content + stock.getSmallPictureName() + "\" width=\"130\" height=\"130\" /></a></div>\n";
+			content = content + "content/storage/residential/3/" + dtoEntry.getSubSeriesImageSmall() + "\" width=\"130\" height=\"130\" /></a></div>\n";
 			content = content + "</div>\n";
 			content = content + "<div class=\"sp-photo-right\">\n";
-			content = content + "<div class=\"caption-app-1\"><span class=\"captionfont-1\">" + stock.getName() + "</span><br />";
-			content = content + "<span class=\"captionfont-2\">" + stock.getCode() + "</span><br />";
-			content = content + "<span class=\"captionfont-3\">" + stock.getDescription() + "<br />";
+			content = content + "<div class=\"caption-app-1\"><span class=\"captionfont-1\">" + "Material " + (i+1) + "</span><br />";
+			content = content + "<span class=\"captionfont-2\">" + dtoEntry.getSubSeriesID() + "</span><br />";
+			content = content + "<span class=\"captionfont-3\">" + "" + "<br />";
 			content = content + "</span> <br />\n";
 			content = content + "</div>\n";
 			content = content + "<div class=\"caption-app-2\"><img src=\"images/series-bt.jpg\" width=\"75\" height=\"19\" id=\"Image9\" onmouseover=\"MM_swapImage('Image9','','images/series-bt-over.jpg',1)\" onmouseout=\"MM_swapImgRestore()\" /></div>\n";
 			content = content + "</div>\n";
 			content = content + "<div id=\"photo" + (i+1) + "\" class=\"lightbox-panel\">\n";
 			content = content + "<div class=\"lightbox_left\"><img src=\"";
-			content = content + stock.getLargePictureName() + "\" width=\"275\" height=\"275\" /></div>\n";
+			content = content + "content/storage/residential/3/" + dtoEntry.getSubSeriesImageLarge() + "\" width=\"275\" height=\"275\" /></div>\n";
 			content = content + "<div class=\"lightbox_right\">\n";
-			content = content + "<h2>" + stock.getName() + "</h2>\n";
+			content = content + "<h2>" + "Material " + (i+1) + "</h2>\n";
 			content = content + "<table>\n";
-			content = content + "<tr><td><strong>Ref number</strong></td><td>" + stock.getRefNum() + "</td></tr>\n";
-			content = content + "<tr class=\"spec_bg\"><td><strong>Series</strong></td><td>" + stock.getSeries() + "</td></tr>\n";
-			content = content + "<tr><td><strong>Available Sizes</strong></td><td>" + stock.getSizes() + "</td></tr>\n";
-			content = content + "<tr class=\"spec_bg\"><td><strong>Tile Thickness</strong></td><td>" + stock.getThickness() + "</td></tr>";
-			content = content + "<tr><td><strong>Colour</strong></td><td>" + stock.getColor() + "</td></tr>\n";
-			content = content + "<tr class=\"spec_bg\"><td><strong>Finishing</strong></td><td>" + stock.getFinishing() + "</td></tr>\n";
-			content = content + "<tr><td><strong>Application</strong></td><td>" + stock.getApplication() + "</td></tr>\n";
-			content = content + "<tr class=\"spec_bg\"><td><strong>Remarks</strong></td><td>" + stock.getRemarks() + "</td></tr>\n";
+			content = content + "<tr><td><strong>Ref number</strong></td><td>" + dtoEntry.getSubSeriesID() + "</td></tr>\n";
+			content = content + "<tr class=\"spec_bg\"><td><strong>Series</strong></td><td>" + dtoEntry.getSeries() + "</td></tr>\n";
+			content = content + "<tr><td><strong>Available Sizes</strong></td><td>" + dtoEntry.getAvailableSize() + "</td></tr>\n";
+			content = content + "<tr class=\"spec_bg\"><td><strong>Tile Thickness</strong></td><td>" + dtoEntry.getTileThickness() + "</td></tr>";
+			content = content + "<tr><td><strong>Colour</strong></td><td>" + dtoEntry.getColor() + "</td></tr>\n";
+			content = content + "<tr class=\"spec_bg\"><td><strong>Finishing</strong></td><td>" + dtoEntry.getFinishing() + "</td></tr>\n";
+			content = content + "<tr><td><strong>Application</strong></td><td>" + dtoEntry.getApplication() + "</td></tr>\n";
+			content = content + "<tr class=\"spec_bg\"><td><strong>Remarks</strong></td><td>" + dtoEntry.getRemarks_1() + "</td></tr>\n";
 			content = content + "</table>\n</div>\n";
 			content = content + "<div class=\"clearfix\"><a href=\"#nogo\" onclick=\"lb_effect_close('#photo" + (i+1) + "','#photo_wrap" + (i+1) + "')\"><img src=\"images/close.png\" /></a></div></div>\n";
-			content = content + "<!-- /lightbox-panel -->\n<div id=\"photo_wrap" + (i+1) + "\" class=\"lightbox\"></div>\n<!-- /lightbox -->\n";
+			content = content + "<!-- /lightbox-panel -->\n<div id=\"photo_wrap" + (i+1) + "\" class=\"lightbox\"></div>\n<!-- /lightbox -->\n</div>";
 		}
 		
-		content = content + "</div>\n";
+		//content = content + "</div>\n";
 		//content = content + //navigator;  
 		content = content + "<br/>\n";
 		content = content + "</div></div>";
@@ -187,54 +193,57 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 
 	}
 
-	public String generatePage3_Chn(String catPK, String seriesPK) {
+	public String generatePage3_Chn(String catPK, String seriesPK, String title) {
 		// TODO Auto-generated method stub
 		List stocks = getStocks();
 		
-		String content = "<div class=\"collection-submenu\">Residential  &gt;  Bathroom  &gt;  Sample A</div>\n";
+		List<ResidentialPage3DTO> dtos = this.generatePage3Info(seriesPK);
+		ResidentialPage3DTO dto = dtos.get(0);
+		
+		String content = "<div class=\"collection-submenu\">Residential  &gt;  " + dto.getSeriesLabelEng() +  " &gt;  " + title + "</div>\n";
 		content = content + "<div class=\"app-commercial-frame2\">\n";
 		content = content + "<div class=\"big-photo-frame\">\n";
-		content = content + "<div class=\"big-photo-frame-inside-1\"><img src=\"../content/storage/residential/3/application-commercial-bigphoto.jpg\" width=\"495\" height=\"375\" /></div>\n";
+		content = content + "<div class=\"big-photo-frame-inside-1\"><img src=\"../content/storage/residential/3/" + dto.getSeriesImageLarge() + "\" width=\"495\" height=\"375\" /></div>\n";
 		content = content + "</div>\n";
 		content = content + "<div class=\"big-photo-right-frame\">\n";
 		
 		//Develop code here.
-		for(int i = 0 ; i < stocks.size() ; i++) {
-			Stock stock = (Stock)stocks.get(i);
+		for(int i = 0 ; i < dtos.size() ; i++) {
+			ResidentialPage3DTO dtoEntry = dtos.get(i);
 			
 			content = content + "<div class=\"rightoutsideframe\">\n";
 			content = content + "<div class=\"sp-photo-left\">\n";
 			content = content + "<div class=\"sp-photo-left-inside\"><a href=\"#nogo\" onclick=\"lb_effect_open('#photo" + (i + 1) + "','#photo_wrap" + (i+1) + "')\"><img src=\"";
-			content = content + "../" + stock.getSmallPictureName() + "\" width=\"130\" height=\"130\" /></a></div>\n";
+			content = content + "../content/storage/residential/3/" + dtoEntry.getSubSeriesImageSmall() + "\" width=\"130\" height=\"130\" /></a></div>\n";
 			content = content + "</div>\n";
 			content = content + "<div class=\"sp-photo-right\">\n";
-			content = content + "<div class=\"caption-app-1\"><span class=\"captionfont-1\">" + stock.getName() + "</span><br />";
-			content = content + "<span class=\"captionfont-2\">" + stock.getCode() + "</span><br />";
-			content = content + "<span class=\"captionfont-3\">" + stock.getDescription() + "<br />";
+			content = content + "<div class=\"caption-app-1\"><span class=\"captionfont-1\">" + "Material " + (i+1) + "</span><br />";
+			content = content + "<span class=\"captionfont-2\">" + dtoEntry.getSubSeriesID() + "</span><br />";
+			content = content + "<span class=\"captionfont-3\">" + "" + "<br />";
 			content = content + "</span> <br />\n";
 			content = content + "</div>\n";
 			content = content + "<div class=\"caption-app-2\"><img src=\"../images/series-bt.jpg\" width=\"75\" height=\"19\" id=\"Image9\" onmouseover=\"MM_swapImage('Image9','','../images/series-bt-over.jpg',1)\" onmouseout=\"MM_swapImgRestore()\" /></div>\n";
 			content = content + "</div>\n";
 			content = content + "<div id=\"photo" + (i+1) + "\" class=\"lightbox-panel\">\n";
 			content = content + "<div class=\"lightbox_left\"><img src=\"";
-			content = content + "../" + stock.getLargePictureName() + "\" width=\"275\" height=\"275\" /></div>\n";
+			content = content + "../content/storage/residential/3/" + dtoEntry.getSubSeriesImageLarge() + "\" width=\"275\" height=\"275\" /></div>\n";
 			content = content + "<div class=\"lightbox_right\">\n";
-			content = content + "<h2>" + stock.getName() + "</h2>\n";
+			content = content + "<h2>" + "Material " + (i+1) + "</h2>\n";
 			content = content + "<table>\n";
-			content = content + "<tr><td><strong>Ref number</strong></td><td>" + stock.getRefNum() + "</td></tr>\n";
-			content = content + "<tr class=\"spec_bg\"><td><strong>Series</strong></td><td>" + stock.getSeries() + "</td></tr>\n";
-			content = content + "<tr><td><strong>Available Sizes</strong></td><td>" + stock.getSizes() + "</td></tr>\n";
-			content = content + "<tr class=\"spec_bg\"><td><strong>Tile Thickness</strong></td><td>" + stock.getThickness() + "</td></tr>";
-			content = content + "<tr><td><strong>Colour</strong></td><td>" + stock.getColor() + "</td></tr>\n";
-			content = content + "<tr class=\"spec_bg\"><td><strong>Finishing</strong></td><td>" + stock.getFinishing() + "</td></tr>\n";
-			content = content + "<tr><td><strong>Application</strong></td><td>" + stock.getApplication() + "</td></tr>\n";
-			content = content + "<tr class=\"spec_bg\"><td><strong>Remarks</strong></td><td>" + stock.getRemarks() + "</td></tr>\n";
+			content = content + "<tr><td><strong>Ref number</strong></td><td>" + dtoEntry.getSubSeriesID() + "</td></tr>\n";
+			content = content + "<tr class=\"spec_bg\"><td><strong>Series</strong></td><td>" + dtoEntry.getSeries() + "</td></tr>\n";
+			content = content + "<tr><td><strong>Available Sizes</strong></td><td>" + dtoEntry.getAvailableSize() + "</td></tr>\n";
+			content = content + "<tr class=\"spec_bg\"><td><strong>Tile Thickness</strong></td><td>" + dtoEntry.getTileThickness() + "</td></tr>";
+			content = content + "<tr><td><strong>Colour</strong></td><td>" + dtoEntry.getColor() + "</td></tr>\n";
+			content = content + "<tr class=\"spec_bg\"><td><strong>Finishing</strong></td><td>" + dtoEntry.getFinishing() + "</td></tr>\n";
+			content = content + "<tr><td><strong>Application</strong></td><td>" + dtoEntry.getApplication() + "</td></tr>\n";
+			content = content + "<tr class=\"spec_bg\"><td><strong>Remarks</strong></td><td>" + dtoEntry.getRemarks_1() + "</td></tr>\n";
 			content = content + "</table>\n</div>\n";
 			content = content + "<div class=\"clearfix\"><a href=\"#nogo\" onclick=\"lb_effect_close('#photo" + (i+1) + "','#photo_wrap" + (i+1) + "')\"><img src=\"../images/close.png\" /></a></div></div>\n";
-			content = content + "<!-- /lightbox-panel -->\n<div id=\"photo_wrap" + (i+1) + "\" class=\"lightbox\"></div>\n<!-- /lightbox -->\n";
+			content = content + "<!-- /lightbox-panel -->\n<div id=\"photo_wrap" + (i+1) + "\" class=\"lightbox\"></div>\n<!-- /lightbox -->\n</div>";
 		}
 		
-		content = content + "</div>\n";
+		//content = content + "</div>\n";
 		//content = content + //navigator;  
 		content = content + "<br/>\n";
 		content = content + "</div></div>";
@@ -326,6 +335,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 			while(result.next()) {
 				System.out.println("get Data");
 				int iCatPK = result.getInt(3);
+				System.out.println("iCatPK=" + iCatPK);
 				ResidentialPage2DTO dto = catMap.get(Integer.valueOf(iCatPK));
 				if(dto == null) {
 					dto = new ResidentialPage2DTO();
@@ -333,12 +343,15 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 					dto.setCatLabelChn(result.getString(2));
 					dto.setCatPK(iCatPK);
 					List<String> imageList = new ArrayList<String>();
+					List<Integer> seriesPKs = new ArrayList<Integer>();
 					imageList.add(result.getString(4));
 					dto.setImageList(imageList);
 					dto.setLogCategorySeq(result.getInt(5));
-					dto.setSeriesPK(result.getInt(6));
+					seriesPKs.add(result.getInt(6));
+					dto.setSeriesPKs(seriesPKs);
 				} else {
 					dto.getImageList().add(result.getString(4));
+					dto.getSeriesPKs().add(result.getInt(6));
 				}
 				catMap.put(Integer.valueOf(iCatPK), dto);
 			}
@@ -355,6 +368,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 			while(iterator.hasNext()) {
 				Integer categoryPK = (Integer)iterator.next();
 				ResidentialPage2DTO dto = catMap.get(categoryPK);
+				System.out.println("categoryPK=" + categoryPK);
 				dtoArray[dto.getLogCategorySeq() - 1] = dto;
 			}	
 			
@@ -376,7 +390,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		String query = "select jrsss.series_sub_series_seq, jss.sub_series_image_small, " + 
 						"jss.sub_series_image_large, js.series_image_large, jad.sub_series_id, jad.series, " + 
 						"jad.avaliable_size, jad.tile_thickness, jad.color, jad.finishing, " + 
-						"jad.application, jad.remarks_1 from jpt_rlt_series_sub_series jrsss, " +
+						"jad.application, jad.remarks_1, js.series_label_eng from jpt_rlt_series_sub_series jrsss, " +
 						"jpt_sub_series jss, jpt_series js, jpw_application_detail jad, " +
 						"jpw_application ja where jrsss.series_pk=? and jrsss.rec_status='ACT' " + 
 						"and jrsss.sub_series_pk=jss.sub_series_pk and js.series_pk=jrsss.series_pk " +
@@ -386,7 +400,8 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 						"order by jrsss.series_sub_series_seq";
 		
 		List<ResidentialPage3DTO> dtos = new ArrayList<ResidentialPage3DTO>();
-		
+		System.out.println("query=" + query);
+		System.out.println("seriesPK=" + Integer.parseInt(seriesPK));
 		try {
 			Connection conn = DBAccess.getDBConnection();
 			ps = conn.prepareStatement(query);
@@ -406,6 +421,8 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 				dto.setFinishing(result.getString(10));
 				dto.setApplication(result.getString(11));
 				dto.setRemarks_1(result.getString(12));
+				dto.setSeriesLabelEng(result.getString(13));
+
 				
 				dtos.add(dto);
 			}

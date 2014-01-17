@@ -22,12 +22,12 @@ public class TileArtPhotoFramePage implements PhotoFramePage {
 		return null;
 	}
 
-	public String generatePage3(String catPK, String seriesPK) {
+	public String generatePage3(String catPK, String seriesPK, String title) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String generatePage3_Chn(String catPK, String seriesPK) {
+	public String generatePage3_Chn(String catPK, String seriesPK, String title) {
 		// TODO Auto-generated method stub
 		return null;
 	}

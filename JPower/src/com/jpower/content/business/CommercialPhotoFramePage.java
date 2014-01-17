@@ -102,7 +102,7 @@ public class CommercialPhotoFramePage implements PhotoFramePage {
 
 	}
 
-	public String generatePage3(String catPK, String seriesPK) {
+	public String generatePage3(String catPK, String seriesPK, String title) {
 		// TODO Auto-generated method stub
 		List stocks = getStocks();
 		
@@ -159,7 +159,7 @@ public class CommercialPhotoFramePage implements PhotoFramePage {
 
 	}
 
-	public String generatePage3_Chn(String catPK, String sereisPK) {
+	public String generatePage3_Chn(String catPK, String sereisPK, String title) {
 		// TODO Auto-generated method stub
 		List stocks = getStocks();
 		
