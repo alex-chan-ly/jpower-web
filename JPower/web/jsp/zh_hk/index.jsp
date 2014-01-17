@@ -46,8 +46,16 @@ body,td,th {
 		eng_link = "../index.jsp";
 		chn_link = "index.jsp";
 	} else {
-		eng_link = "../index.jsp?page=" + item;
-		chn_link = "index.jsp?page=" + item;
+		String param;
+		param = item;
+		if(item.equals("residential_3")) {
+			String cat = request.getParameter("cat");
+			String series = request.getParameter("series");
+			String title = request.getParameter("title");
+			param = param + "&cat=" + cat + "&series=" + series + "&title=" + title;
+		}
+		eng_link = "../index.jsp?page=" + param;
+		chn_link = "index.jsp?page=" + param;
 	}
 %>
 <body onload="MM_preloadImages('../images/lang-07-over_01.jpg','../images/lang-07-over_03.jpg','../images/menu-2_01.png','../images/menu-2_02.png','../images/menu-2_03.png','../images/menu-2_04.png','../images/menu-2_05.jpg','../images/menu-2_06.png','../images/menu-2_05.png')">
