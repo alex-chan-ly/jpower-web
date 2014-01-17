@@ -7,9 +7,9 @@ public class ResidentialPage2DTO {
 	private String catLabelEng;
 	private String catLabelChn;
 
-	private List imageList;
+	private List<String> imageList;
 	private Integer catPK;
-	private Integer seriesPK;
+	private List<Integer> seriesPKs;
 	private Integer logCategorySeq;
 
 	public String getCatLabelEng() {
@@ -28,14 +28,6 @@ public class ResidentialPage2DTO {
 		this.catLabelChn = catLabelChn;
 	}
 
-	public List getImageList() {
-		return imageList;
-	}
-
-	public void setImageList(List imageList) {
-		this.imageList = imageList;
-	}
-
 	public Integer getLogCategorySeq() {
 		return logCategorySeq;
 	}
@@ -52,13 +44,25 @@ public class ResidentialPage2DTO {
 		this.catPK = catPK;
 	}
 
-	public Integer getSeriesPK() {
-		return seriesPK;
+	public List<String> getImageList() {
+		return imageList;
 	}
 
-	public void setSeriesPK(Integer seriesPK) {
-		this.seriesPK = seriesPK;
+	public void setImageList(List<String> imageList) {
+		this.imageList = imageList;
 	}
+
+	public List<Integer> getSeriesPKs() {
+		return seriesPKs;
+	}
+
+	public void setSeriesPKs(List<Integer> seriesPKs) {
+		this.seriesPKs = seriesPKs;
+	}
+	
+	
+
+
 	
 	
 	

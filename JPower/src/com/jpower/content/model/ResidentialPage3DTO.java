@@ -14,6 +14,7 @@ public class ResidentialPage3DTO {
 	private String finishing;
 	private String application;
 	private String remarks_1;
+	private String seriesLabelEng;
 	
 	public Integer getSeriesSubSeriesSeq() {
 		return seriesSubSeriesSeq;
@@ -87,6 +88,15 @@ public class ResidentialPage3DTO {
 	public void setSubSeriesID(String subSeriesID) {
 		this.subSeriesID = subSeriesID;
 	}
+	public String getSeriesLabelEng() {
+		return seriesLabelEng;
+	}
+	public void setSeriesLabelEng(String seriesLabelEng) {
+		this.seriesLabelEng = seriesLabelEng;
+	}
+
+	
+	
 	
 	
 	
