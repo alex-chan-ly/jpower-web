@@ -14,7 +14,8 @@ public class ScreenPage3DTO {
 	private String finishing;
 	private String application;
 	private String remarks_1;
-	private String seriesLabelEng;
+	private String catLabelEng;
+	private String catLabelChn;
 	
 	public Integer getSeriesSubSeriesSeq() {
 		return seriesSubSeriesSeq;
@@ -88,12 +89,22 @@ public class ScreenPage3DTO {
 	public void setSubSeriesID(String subSeriesID) {
 		this.subSeriesID = subSeriesID;
 	}
-	public String getSeriesLabelEng() {
-		return seriesLabelEng;
+	public String getCatLabelEng() {
+		return catLabelEng;
 	}
-	public void setSeriesLabelEng(String seriesLabelEng) {
-		this.seriesLabelEng = seriesLabelEng;
+	public void setCatLabelEng(String catLabelEng) {
+		this.catLabelEng = catLabelEng;
 	}
+	public String getCatLabelChn() {
+		return catLabelChn;
+	}
+	public void setCatLabelChn(String catLabelChn) {
+		this.catLabelChn = catLabelChn;
+	}
+
+	
+	
+	
 
 	
 	

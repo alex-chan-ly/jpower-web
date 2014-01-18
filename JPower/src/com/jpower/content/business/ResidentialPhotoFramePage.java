@@ -140,7 +140,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		ScreenPage3DTO dto = dtos.get(0);
 	
 		
-		String content = "<div class=\"collection-submenu\">Residential  &gt;  " + dto.getSeriesLabelEng() + " &gt;  " + title + "</div>\n";
+		String content = "<div class=\"collection-submenu\">Residential  &gt;  " + dto.getCatLabelEng() + " &gt;  " + title + "</div>\n";
 		content = content + "<div class=\"app-commercial-frame2\">\n";
 		content = content + "<div class=\"big-photo-frame\">\n";
 		content = content + "<div class=\"big-photo-frame-inside-1\"><img src=\"content/storage/residential/3/" + dto.getSeriesImageLarge() + "\" width=\"495\" height=\"375\" /></div>\n";
@@ -200,7 +200,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		List<ScreenPage3DTO> dtos = this.generatePage3Info(seriesPK);
 		ScreenPage3DTO dto = dtos.get(0);
 		
-		String content = "<div class=\"collection-submenu\">Residential  &gt;  " + dto.getSeriesLabelEng() +  " &gt;  " + title + "</div>\n";
+		String content = "<div class=\"collection-submenu\">Residential  &gt;  " + dto.getCatLabelChn() +  " &gt;  " + title + "</div>\n";
 		content = content + "<div class=\"app-commercial-frame2\">\n";
 		content = content + "<div class=\"big-photo-frame\">\n";
 		content = content + "<div class=\"big-photo-frame-inside-1\"><img src=\"../content/storage/residential/3/" + dto.getSeriesImageLarge() + "\" width=\"495\" height=\"375\" /></div>\n";
@@ -387,17 +387,18 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		
 		PreparedStatement ps = null;
 		
-		String query = "select jrsss.series_sub_series_seq, jss.sub_series_image_small, " + 
-						"jss.sub_series_image_large, js.series_image_large, jad.sub_series_id, jad.series, " + 
-						"jad.avaliable_size, jad.tile_thickness, jad.color, jad.finishing, " + 
-						"jad.application, jad.remarks_1, js.series_label_eng from jpt_rlt_series_sub_series jrsss, " +
-						"jpt_sub_series jss, jpt_series js, jpw_application_detail jad, " +
-						"jpw_application ja where jrsss.series_pk=? and jrsss.rec_status='ACT' " + 
-						"and jrsss.sub_series_pk=jss.sub_series_pk and js.series_pk=jrsss.series_pk " +
-						"and js.rec_status=jrsss.rec_status and jrsss.rec_status=jss.rec_status " +
-						"and jss.sub_series_id=jad.sub_series_id and " +
-						"jad.sub_series_id=ja.sub_series_id and ja.tran_action='ADD' " +
-						"order by jrsss.series_sub_series_seq";
+		String query = "select jrsss.series_sub_series_seq, jss.sub_series_image_small, " +
+				"jss.sub_series_image_large, js.series_image_large, jad.sub_series_id, jad.series, " + 
+				"jad.avaliable_size, jad.tile_thickness, jad.color, jad.finishing, " + 
+				"jad.application, jad.remarks_1, jc.category_label_eng, jc.category_label_chin from jpt_rlt_series_sub_series jrsss, " +
+				"jpt_sub_series jss, jpt_series js, jpw_application_detail jad, " + 
+				"jpw_application ja, jpt_rlt_category_series jrcs, " +
+				"jpt_category jc where jrsss.series_pk=? and jrsss.rec_status='ACT' " + 
+				"and jrsss.sub_series_pk=jss.sub_series_pk and js.series_pk=jrsss.series_pk " +
+				"and js.rec_status=jrsss.rec_status and jrsss.rec_status=jss.rec_status and " +
+				"jss.sub_series_id=jad.sub_series_id and jad.sub_series_id=ja.sub_series_id and " +
+				"ja.tran_action='ADD' and jrcs.series_pk=jrsss.series_pk and " +
+				"jrcs.category_pk=jc.category_pk order by jrsss.series_sub_series_seq";
 		
 		List<ScreenPage3DTO> dtos = new ArrayList<ScreenPage3DTO>();
 		System.out.println("query=" + query);
@@ -421,7 +422,8 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 				dto.setFinishing(result.getString(10));
 				dto.setApplication(result.getString(11));
 				dto.setRemarks_1(result.getString(12));
-				dto.setSeriesLabelEng(result.getString(13));
+				dto.setCatLabelEng(result.getString(13));
+				dto.setCatLabelChn(result.getString(14));
 
 				
 				dtos.add(dto);
