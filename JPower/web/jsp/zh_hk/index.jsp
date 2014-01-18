@@ -48,7 +48,7 @@ body,td,th {
 	} else {
 		String param;
 		param = item;
-		if(item.equals("residential_3")) {
+		if( (item.equals("residential_3")) || (item.equals("commercial_3")) ) {
 			String cat = request.getParameter("cat");
 			String series = request.getParameter("series");
 			String title = request.getParameter("title");
@@ -128,7 +128,7 @@ $(document).ready(function () {
 </script>
 
 <input type=hidden name=arav value="1*#*#*2"><ul id='nav2'>
-<li> <a href='#'><img src="../images/menu-1_04_chn.png" height="20" id="Image4" onmouseover="MM_swapImage('Image4','','../images/menu-2_04_chn.png',1)" onmouseout="MM_swapImgRestore()" /></a>
+<li><img src="../images/menu-1_04_chn.png" height="20" id="Image4" onmouseover="MM_swapImage('Image4','','../images/menu-2_04_chn.png',1)" onmouseout="MM_swapImgRestore()" />
 <ul>
 <li style='background-color:#ffffff;'><a href="index.jsp?page=residential">住宅</a></li>
 <li style='background-color:#ffffff;'><a href="index.jsp?page=commercial">商業</a></licatPK>
@@ -182,7 +182,7 @@ $(document).ready(function () {
   		String pageName = null;
   		if(	(item.equals("residential")) || (item.equals("residential_2")) || (item.equals("residential_3")) ||
   			(item.equals("commercial")) || (item.equals("commercial_2")) || (item.equals("commercial_3")) ){
-  			if(item.equals("residential_3")) {
+			if( (item.equals("residential_3")) || (item.equals("commercial_3")) ) {
   				String catPK = request.getParameter("cat");
   				String seriesPK = request.getParameter("series");
   				pageName = item + ".jsp?cat=" + catPK + "&series=" + seriesPK;
