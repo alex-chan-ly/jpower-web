@@ -13,9 +13,9 @@ import java.util.Map;
 import java.util.Set;
 
 import com.jpower.cms.upload.common.DBAccess;
-import com.jpower.content.model.ResidentialPage1DTO;
-import com.jpower.content.model.ResidentialPage2DTO;
-import com.jpower.content.model.ResidentialPage3DTO;
+import com.jpower.content.model.ScreenPage1DTO;
+import com.jpower.content.model.ScreenPage2DTO;
+import com.jpower.content.model.ScreenPage3DTO;
 import com.jpower.content.model.Stock;
 
 public class ResidentialPhotoFramePage implements PhotoFramePage {
@@ -27,9 +27,9 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		String[] title = {"Living room", "Bathroom", "Kitchen", "Miscellaneous"};
 		String content = "<div class=\"photo-frame\">";
 		
-		List<ResidentialPage1DTO> rsList = getPage1Info();
+		List<ScreenPage1DTO> rsList = getPage1Info();
 		for(int i = 0 ; i < rsList.size() ; i++) {
-			ResidentialPage1DTO dto = (ResidentialPage1DTO)rsList.get(i);
+			ScreenPage1DTO dto = (ScreenPage1DTO)rsList.get(i);
 			content = content + "<div class=\"photo-inside-1\">\n";
 			content = content + "<div class=\"photo-inside-2\"><a href=\"index.jsp?page=residential_2\">";
 			content = content + "<img src=\"content/storage/residential/1/" + dto.getCatImage() + "\" width=\"160\" height=\"160\" /></a></div>\n";
@@ -48,9 +48,9 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		String[] title = {"Living room", "Bathroom", "Kitchen", "Miscellaneous"};
 		String content = "<div class=\"photo-frame\">";
 		
-		List<ResidentialPage1DTO> rsList = getPage1Info();
+		List<ScreenPage1DTO> rsList = getPage1Info();
 		for(int i = 0 ; i < rsList.size() ; i++) {
-			ResidentialPage1DTO dto = (ResidentialPage1DTO)rsList.get(i);
+			ScreenPage1DTO dto = (ScreenPage1DTO)rsList.get(i);
 			content = content + "<div class=\"photo-inside-1\">\n";
 			content = content + "<div class=\"photo-inside-2\"><a href=\"index.jsp?page=residential_2\">";
 			content = content + "<img src=\"../content/storage/residential/1/" + dto.getCatImage() + "\" width=\"160\" height=\"160\" /></a></div>\n";
@@ -68,9 +68,9 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		String[] title = {"Living Room", "Bathroom", "Kitchen", "Miscellaneous"};
 		String content = "<div class=\"collection-submenu\">";
 		
-		List<ResidentialPage2DTO> rsList = getPage2Info();
+		List<ScreenPage2DTO> rsList = getPage2Info();
 		for(int i = 0 ; i < rsList.size() ; i++) {
-			ResidentialPage2DTO dto = rsList.get(i);
+			ScreenPage2DTO dto = rsList.get(i);
 			content = content + dto.getCatLabelEng();
 			if(i != rsList.size() - 1) {
 				content = content + " / ";
@@ -79,7 +79,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		
 		content = content + "</div>\n";
 		for(int j = 0 ; j < rsList.size() ; j++) {
-			ResidentialPage2DTO dto = rsList.get(j);
+			ScreenPage2DTO dto = rsList.get(j);
 			content = content + "<div class=\"app-commer-subsub\">" + dto.getCatLabelEng() + "</div>\n";
 			content = content + "<div class=\"ap-photo-frame\">\n";
 			List<String> imageList = dto.getImageList();
@@ -102,9 +102,9 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		String[] title = {"Living Room", "Bathroom", "Kitchen", "Miscellaneous"};
 		String content = "<div class=\"collection-submenu\">";
 		
-		List<ResidentialPage2DTO> rsList = getPage2Info();
+		List<ScreenPage2DTO> rsList = getPage2Info();
 		for(int i = 0 ; i < rsList.size() ; i++) {
-			ResidentialPage2DTO dto = rsList.get(i);
+			ScreenPage2DTO dto = rsList.get(i);
 			content = content + dto.getCatLabelChn();
 			if(i != rsList.size() - 1) {
 				content = content + " / ";
@@ -113,7 +113,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		
 		content = content + "</div>\n";
 		for(int j = 0 ; j < rsList.size() ; j++) {
-			ResidentialPage2DTO dto = rsList.get(j);
+			ScreenPage2DTO dto = rsList.get(j);
 			content = content + "<div class=\"app-commer-subsub\">" + dto.getCatLabelChn() + "</div>\n";
 			content = content + "<div class=\"ap-photo-frame\">\n";
 			List<String> imageList = dto.getImageList();
@@ -136,8 +136,8 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		// TODO Auto-generated method stub
 		List stocks = getStocks();
 		
-		List<ResidentialPage3DTO> dtos = this.generatePage3Info(seriesPK);
-		ResidentialPage3DTO dto = dtos.get(0);
+		List<ScreenPage3DTO> dtos = this.generatePage3Info(seriesPK);
+		ScreenPage3DTO dto = dtos.get(0);
 	
 		
 		String content = "<div class=\"collection-submenu\">Residential  &gt;  " + dto.getSeriesLabelEng() + " &gt;  " + title + "</div>\n";
@@ -149,7 +149,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		
 		//Develop code here.
 		for(int i = 0 ; i < dtos.size() ; i++) {
-			ResidentialPage3DTO dtoEntry = dtos.get(i);
+			ScreenPage3DTO dtoEntry = dtos.get(i);
 			
 			content = content + "<div class=\"rightoutsideframe\">\n";
 			content = content + "<div class=\"sp-photo-left\">\n";
@@ -197,8 +197,8 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		// TODO Auto-generated method stub
 		List stocks = getStocks();
 		
-		List<ResidentialPage3DTO> dtos = this.generatePage3Info(seriesPK);
-		ResidentialPage3DTO dto = dtos.get(0);
+		List<ScreenPage3DTO> dtos = this.generatePage3Info(seriesPK);
+		ScreenPage3DTO dto = dtos.get(0);
 		
 		String content = "<div class=\"collection-submenu\">Residential  &gt;  " + dto.getSeriesLabelEng() +  " &gt;  " + title + "</div>\n";
 		content = content + "<div class=\"app-commercial-frame2\">\n";
@@ -209,7 +209,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		
 		//Develop code here.
 		for(int i = 0 ; i < dtos.size() ; i++) {
-			ResidentialPage3DTO dtoEntry = dtos.get(i);
+			ScreenPage3DTO dtoEntry = dtos.get(i);
 			
 			content = content + "<div class=\"rightoutsideframe\">\n";
 			content = content + "<div class=\"sp-photo-left\">\n";
@@ -280,7 +280,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		
 	}
 	
-	private List<ResidentialPage1DTO> getPage1Info() {
+	private List<ScreenPage1DTO> getPage1Info() {
 		Statement stmt = null;
 		String query = "select jc.category_label_eng, jc.category_label_chin, " + 
 						"jc.category_image, JRLC.lob_category_seq from JPT_LOB jl, " + 
@@ -289,7 +289,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 						"and jl.lob_PK=JRLC.lob_pk and JRLC.category_pk=jc.category_pk" +
 						" order by JRLC.lob_category_seq";
 		
-		List<ResidentialPage1DTO> rsList = new ArrayList<ResidentialPage1DTO>();
+		List<ScreenPage1DTO> rsList = new ArrayList<ScreenPage1DTO>();
 		
 		
 		try {
@@ -297,7 +297,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 			stmt = conn.createStatement();
 			ResultSet result = stmt.executeQuery(query);
 			while(result.next()) {
-				ResidentialPage1DTO dto = new ResidentialPage1DTO();
+				ScreenPage1DTO dto = new ScreenPage1DTO();
 				dto.setCatLabelEng(result.getString(1));
 				dto.setCatLabelChn(result.getString(2));
 				dto.setCatImage(result.getString(3));
@@ -314,7 +314,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 	}
 	
 	@SuppressWarnings("unchecked")
-	private List<ResidentialPage2DTO> getPage2Info() {
+	private List<ScreenPage2DTO> getPage2Info() {
 		Statement stmt = null;
 		String query = "select jc.category_label_eng, jc.category_label_chin, " + 
 						"jc.category_pk, js.series_image_small, JRLC.lob_category_seq, js.series_pk from JPT_LOB jl, " + 
@@ -324,8 +324,8 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 						"jrcs.category_pk=jc.category_pk and jrcs.rec_status='ACT' and " + 
 						"jrcs.series_pk=js.series_pk and js.rec_status='ACT' order by JRLC.lob_category_seq";
 		
-		List<ResidentialPage2DTO> dtos = new ArrayList<ResidentialPage2DTO>();
-		Map<Integer, ResidentialPage2DTO> catMap = new HashMap<Integer, ResidentialPage2DTO>();
+		List<ScreenPage2DTO> dtos = new ArrayList<ScreenPage2DTO>();
+		Map<Integer, ScreenPage2DTO> catMap = new HashMap<Integer, ScreenPage2DTO>();
 		
 		try {
 			Connection conn = DBAccess.getDBConnection();
@@ -336,9 +336,9 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 				System.out.println("get Data");
 				int iCatPK = result.getInt(3);
 				System.out.println("iCatPK=" + iCatPK);
-				ResidentialPage2DTO dto = catMap.get(Integer.valueOf(iCatPK));
+				ScreenPage2DTO dto = catMap.get(Integer.valueOf(iCatPK));
 				if(dto == null) {
-					dto = new ResidentialPage2DTO();
+					dto = new ScreenPage2DTO();
 					dto.setCatLabelEng(result.getString(1));
 					dto.setCatLabelChn(result.getString(2));
 					dto.setCatPK(iCatPK);
@@ -364,10 +364,10 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 			
 			Set<Integer> keySet = catMap.keySet();
 			Iterator<Integer> iterator = keySet.iterator();
-			ResidentialPage2DTO[] dtoArray = new ResidentialPage2DTO[keySet.size()];		
+			ScreenPage2DTO[] dtoArray = new ScreenPage2DTO[keySet.size()];		
 			while(iterator.hasNext()) {
 				Integer categoryPK = (Integer)iterator.next();
-				ResidentialPage2DTO dto = catMap.get(categoryPK);
+				ScreenPage2DTO dto = catMap.get(categoryPK);
 				System.out.println("categoryPK=" + categoryPK);
 				dtoArray[dto.getLogCategorySeq() - 1] = dto;
 			}	
@@ -383,7 +383,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		
 	}
 	
-	private List<ResidentialPage3DTO> generatePage3Info(String seriesPK) {
+	private List<ScreenPage3DTO> generatePage3Info(String seriesPK) {
 		
 		PreparedStatement ps = null;
 		
@@ -399,7 +399,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 						"jad.sub_series_id=ja.sub_series_id and ja.tran_action='ADD' " +
 						"order by jrsss.series_sub_series_seq";
 		
-		List<ResidentialPage3DTO> dtos = new ArrayList<ResidentialPage3DTO>();
+		List<ScreenPage3DTO> dtos = new ArrayList<ScreenPage3DTO>();
 		System.out.println("query=" + query);
 		System.out.println("seriesPK=" + Integer.parseInt(seriesPK));
 		try {
@@ -408,7 +408,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 			ps.setInt(1, Integer.parseInt(seriesPK));
 			ResultSet result = ps.executeQuery();
 			while(result.next()) {
-				ResidentialPage3DTO dto = new ResidentialPage3DTO();
+				ScreenPage3DTO dto = new ScreenPage3DTO();
 				dto.setSeriesSubSeriesSeq(result.getInt(1));
 				dto.setSubSeriesImageSmall(result.getString(2));
 				dto.setSubSeriesImageLarge(result.getString(3));
