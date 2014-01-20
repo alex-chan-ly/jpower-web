@@ -332,11 +332,8 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 			Connection conn = DBAccess.getDBConnection();
 			stmt = conn.createStatement();
 			ResultSet result = stmt.executeQuery(query);
-			System.out.println("Ready to get data");
 			while(result.next()) {
-				System.out.println("get Data");
 				int iCatPK = result.getInt(3);
-				System.out.println("iCatPK=" + iCatPK);
 				ScreenPage2DTO dto = catMap.get(Integer.valueOf(iCatPK));
 				if(dto == null) {
 					dto = new ScreenPage2DTO();
@@ -357,7 +354,6 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 				catMap.put(Integer.valueOf(iCatPK), dto);
 			}
 			
-			System.out.println("Finished to get Data");
 			
 			result.close();
 			stmt.close();
@@ -369,7 +365,6 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 			while(iterator.hasNext()) {
 				Integer categoryPK = (Integer)iterator.next();
 				ScreenPage2DTO dto = catMap.get(categoryPK);
-				System.out.println("categoryPK=" + categoryPK);
 				dtoArray[dto.getLogCategorySeq() - 1] = dto;
 			}	
 			
@@ -403,8 +398,6 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 				"jc.category_pk=jrlc.category_pk order by jrsss.series_sub_series_seq";
 		
 		List<ScreenPage3DTO> dtos = new ArrayList<ScreenPage3DTO>();
-		System.out.println("query=" + query);
-		System.out.println("seriesPK=" + Integer.parseInt(seriesPK));
 		try {
 			Connection conn = DBAccess.getDBConnection();
 			ps = conn.prepareStatement(query);
