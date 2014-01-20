@@ -94,7 +94,7 @@ $(document).ready(function () {
 </script>
 
 <input type=hidden name=arav value="1*#*#*2"><ul id='nav'>
-<li> <a href='#'><img src="../images/menu-1_03_chn.png" height="20" id="Image3" onmouseover="MM_swapImage('Image3','','../images/menu-2_03_chn.png',1)" onmouseout="MM_swapImgRestore()" /></a>
+<li> <a href='index.jsp?page=comingsoon'><img src="../images/menu-1_03_chn.png" height="20" id="Image3" onmouseover="MM_swapImage('Image3','','../images/menu-2_03_chn.png',1)" onmouseout="MM_swapImgRestore()" /></a>
 <ul>
 <!-- 
 <li style='background-color:#ffffff;'><a href="index.jsp?page=comingsoon">系列</a></li>
