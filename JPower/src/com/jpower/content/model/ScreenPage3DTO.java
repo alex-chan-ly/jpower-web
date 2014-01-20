@@ -16,6 +16,7 @@ public class ScreenPage3DTO {
 	private String remarks_1;
 	private String catLabelEng;
 	private String catLabelChn;
+	private Integer lobCatSeq;
 	
 	public Integer getSeriesSubSeriesSeq() {
 		return seriesSubSeriesSeq;
@@ -101,6 +102,16 @@ public class ScreenPage3DTO {
 	public void setCatLabelChn(String catLabelChn) {
 		this.catLabelChn = catLabelChn;
 	}
+	public Integer getLobCatSeq() {
+		return lobCatSeq;
+	}
+	public void setLobCatSeq(Integer lobCatSeq) {
+		this.lobCatSeq = lobCatSeq;
+	}
+
+	
+	
+	
 
 	
 	
