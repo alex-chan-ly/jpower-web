@@ -29,7 +29,7 @@ public class CommercialPhotoFramePage implements PhotoFramePage {
 		for(int i = 0 ; i < rsList.size() ; i++) {
 			ScreenPage1DTO dto = (ScreenPage1DTO)rsList.get(i);
 			content = content + "<div class=\"photo-inside-1-com\">\n";
-			content = content + "<div class=\"photo-inside-2-com\"><a href=\"index.jsp?page=commercial_2\">";
+			content = content + "<div class=\"photo-inside-2-com\"><a href=\"index.jsp?page=commercial_2#" + (i+1) + "\">";
 			content = content + "<img src=\"content/storage/commercial/1/" + dto.getCatImage() + "\" width=\"160\" height=\"160\" /></a></div>\n";
 			content = content + "<div class=\"photo-inside-caption-com\">" + dto.getCatLabelEng() + "</div>\n";
 			content = content + "</div>\n";			
@@ -49,7 +49,7 @@ public class CommercialPhotoFramePage implements PhotoFramePage {
 		for(int i = 0 ; i < rsList.size() ; i++) {
 			ScreenPage1DTO dto = (ScreenPage1DTO)rsList.get(i);
 			content = content + "<div class=\"photo-inside-1-com\">\n";
-			content = content + "<div class=\"photo-inside-2-com\"><a href=\"index.jsp?page=commercial_2\">";
+			content = content + "<div class=\"photo-inside-2-com\"><a href=\"index.jsp?page=commercial_2#" + (i+1) + "\">";
 			content = content + "<img src=\"../content/storage/commercial/1/" + dto.getCatImage() + "\" width=\"160\" height=\"160\" /></a></div>\n";
 			content = content + "<div class=\"photo-inside-caption-com\">" + dto.getCatLabelChn() + "</div>\n";
 			content = content + "</div>\n";			
@@ -68,7 +68,7 @@ public class CommercialPhotoFramePage implements PhotoFramePage {
 		List<ScreenPage2DTO> rsList = getPage2Info();
 		for(int i = 0 ; i < rsList.size() ; i++) {
 			ScreenPage2DTO dto = rsList.get(i);
-			content = content + dto.getCatLabelEng();
+			content = content + "<a href=\"#" + (i+1) + "\">" + dto.getCatLabelEng() + "</a>";
 			if(i != rsList.size() - 1) {
 				content = content + " / ";
 			}
@@ -77,13 +77,13 @@ public class CommercialPhotoFramePage implements PhotoFramePage {
 		content = content + "</div>\n";
 		for(int j = 0 ; j < rsList.size() ; j++) {
 			ScreenPage2DTO dto = rsList.get(j);
-			content = content + "<div class=\"app-commer-subsub\">" + dto.getCatLabelEng() + "</div>\n";
+			content = content + "<div class=\"app-commer-subsub\"><a id=\"" + (j+1) + "\"></a>" + dto.getCatLabelEng() + "</div>\n";
 			content = content + "<div class=\"ap-photo-frame\">\n";
 			List<String> imageList = dto.getImageList();
 			List<Integer> seriesPKs = dto.getSeriesPKs();
 			for(int i = 0 ; i < imageList.size() ; i++) {
 				content = content + "<div class=\"ap-photo-inside-1\">\n";
-				content = content + "<div class=\"ap-photo-inside-2-com\"><a href=\"index.jsp?page=commercial_3&cat=" + dto.getCatPK() + "&series=" + seriesPKs.get(i) + "&title=Sample+" + (i+1) + "\">";
+				content = content + "<div class=\"ap-photo-inside-2-com\"><a href=\"index.jsp?page=commercial_3&cat=" + dto.getCatPK() + "&series=" + seriesPKs.get(i) + "&title=" + (i+1) + "\">";
 				content = content + "<img src=\"content/storage/commercial/2/" + imageList.get(i) + "\" width=\"229\" height=\"168\" /></a></div>\n";
 				content = content + "<div class=\"ap-photo-inside-caption\">Sample" + " " + (i + 1) + "</div>\n";
 				content = content + "</div>\n";
@@ -102,7 +102,7 @@ public class CommercialPhotoFramePage implements PhotoFramePage {
 		List<ScreenPage2DTO> rsList = getPage2Info();
 		for(int i = 0 ; i < rsList.size() ; i++) {
 			ScreenPage2DTO dto = rsList.get(i);
-			content = content + dto.getCatLabelChn();
+			content = content + "<a href=\"#" + (i+1) + "\">" + dto.getCatLabelChn() + "</a>";
 			if(i != rsList.size() - 1) {
 				content = content + " / ";
 			}
@@ -111,15 +111,15 @@ public class CommercialPhotoFramePage implements PhotoFramePage {
 		content = content + "</div>\n";
 		for(int j = 0 ; j < rsList.size() ; j++) {
 			ScreenPage2DTO dto = rsList.get(j);
-			content = content + "<div class=\"app-commer-subsub\">" + dto.getCatLabelChn() + "</div>\n";
+			content = content + "<div class=\"app-commer-subsub\"><a id=\"" + (j+1) + "\"></a>" + dto.getCatLabelChn() + "</div>\n";
 			content = content + "<div class=\"ap-photo-frame\">\n";
 			List<String> imageList = dto.getImageList();
 			List<Integer> seriesPKs = dto.getSeriesPKs();
 			for(int i = 0 ; i < imageList.size() ; i++) {
 				content = content + "<div class=\"ap-photo-inside-1\">\n";
-				content = content + "<div class=\"ap-photo-inside-2-com\"><a href=\"index.jsp?page=commercial_3&cat=" + dto.getCatPK() + "&series=" + seriesPKs.get(i) + "&title=Sample+" + (i+1) + "\">";				
+				content = content + "<div class=\"ap-photo-inside-2-com\"><a href=\"index.jsp?page=commercial_3&cat=" + dto.getCatPK() + "&series=" + seriesPKs.get(i) + "&title=" + (i+1) + "\">";				
 				content = content + "<img src=\"../content/storage/commercial/2/" + imageList.get(i) + "\" width=\"229\" height=\"168\" /></a></div>\n";
-				content = content + "<div class=\"ap-photo-inside-caption\">Sample" + " " + (i + 1) + "</div>\n";
+				content = content + "<div class=\"ap-photo-inside-caption\">樣本" + " " + (i + 1) + "</div>\n";
 				content = content + "</div>\n";
 			}
 			
@@ -136,7 +136,7 @@ public class CommercialPhotoFramePage implements PhotoFramePage {
 		List<ScreenPage3DTO> dtos = this.generatePage3Info(seriesPK);
 		ScreenPage3DTO dto = dtos.get(0);
 		
-		String content = "<div class=\"collection-submenu\">Commercial  &gt;  " + dto.getCatLabelEng() + " &gt;  " + title + "</div>\n";		
+		String content = "<div class=\"collection-submenu\"><a href=\"index.jsp?page=commercial\">Commercial</a>  &gt;  <a href=\"index.jsp?page=commercial_2#" + dto.getLobCatSeq() + "\">" + dto.getCatLabelEng() + "</a> &gt;  Sample " + title + "</div>\n";		
 		content = content + "<div class=\"app-commercial-frame2\">\n";
 		content = content + "<div class=\"big-photo-frame\">\n";
 		content = content + "<div class=\"big-photo-frame-inside-1\"><img src=\"content/storage/commercial/3/" + dto.getSeriesImageLarge() + "\" width=\"495\" height=\"375\" /></div>\n";
@@ -196,7 +196,8 @@ public class CommercialPhotoFramePage implements PhotoFramePage {
 		List<ScreenPage3DTO> dtos = this.generatePage3Info(seriesPK);
 		ScreenPage3DTO dto = dtos.get(0);
 		
-		String content = "<div class=\"collection-submenu\">Commercial  &gt;  " + dto.getCatLabelChn() + " &gt;  " + title + "</div>\n";				
+		String commercial = "商業";
+		String content = "<div class=\"collection-submenu\"><a href=\"index.jsp?page=commercial\">" + commercial + "</a> &gt; <a href=\"index.jsp?page=commercial_2#" + dto.getLobCatSeq() + "\">" + dto.getCatLabelChn() + "</a> &gt; 樣本 " + title + "</div>\n";				
 		content = content + "<div class=\"app-commercial-frame2\">\n";
 		content = content + "<div class=\"big-photo-frame\">\n";
 		content = content + "<div class=\"big-photo-frame-inside-1\"><img src=\"../content/storage/commercial/3/" + dto.getSeriesImageLarge() + "\" width=\"495\" height=\"375\" /></div>\n";
@@ -213,7 +214,7 @@ public class CommercialPhotoFramePage implements PhotoFramePage {
 			content = content + "../content/storage/commercial/3/" + dtoEntry.getSubSeriesImageSmall() + "\" width=\"130\" height=\"130\" /></a></div>\n";
 			content = content + "</div>\n";
 			content = content + "<div class=\"sp-photo-right-com\">\n";
-			content = content + "<div class=\"caption-app-1-com\"><span class=\"captionfont-1-com\">" + "Material " + (i+1) + "</span><br />";
+			content = content + "<div class=\"caption-app-1-com\"><span class=\"captionfont-1-com\">" + "物品 " + (i+1) + "</span><br />";
 			content = content + "<span class=\"captionfont-2\">" + dtoEntry.getSubSeriesID() + "</span><br />";
 			content = content + "<span class=\"captionfont-3\">" + "" + "<br />";
 			content = content + "</span> <br />\n";
@@ -224,7 +225,7 @@ public class CommercialPhotoFramePage implements PhotoFramePage {
 			content = content + "<div class=\"lightbox_left\"><img src=\"";
 			content = content + "../content/storage/commercial/3/" + dtoEntry.getSubSeriesImageLarge() + "\" width=\"275\" height=\"275\" /></div>\n";
 			content = content + "<div class=\"lightbox_right\">\n";
-			content = content + "<h2>" + "Material " + (i+1) + "</h2>\n";
+			content = content + "<h2>" + "物品 " + (i+1) + "</h2>\n";
 			content = content + "<table>\n";
 			content = content + "<tr><td><strong>Ref number</strong></td><td>" + dtoEntry.getSubSeriesID() + "</td></tr>\n";
 			content = content + "<tr class=\"spec_bg\"><td><strong>Series</strong></td><td>" + dtoEntry.getSeries() + "</td></tr>\n";
@@ -383,18 +384,20 @@ public class CommercialPhotoFramePage implements PhotoFramePage {
 		
 		PreparedStatement ps = null;
 		
-		String query = "select jrsss.series_sub_series_seq, jss.sub_series_image_small, " +
-						"jss.sub_series_image_large, js.series_image_large, jad.sub_series_id, jad.series, " + 
-						"jad.avaliable_size, jad.tile_thickness, jad.color, jad.finishing, " + 
-						"jad.application, jad.remarks_1, jc.category_label_eng, jc.category_label_chin from jpt_rlt_series_sub_series jrsss, " +
+		
+		String query = "select jrsss.series_sub_series_seq, jss.sub_series_image_small, " + 
+						"jss.sub_series_image_large, js.series_image_large, jad.sub_series_id, " + 
+						"jad.series, jad.avaliable_size, jad.tile_thickness, jad.color, " + 
+						"jad.finishing, jad.application, jad.remarks_1, jc.category_label_eng, " +
+						"jc.category_label_chin, jrlc.lob_category_seq from jpt_rlt_series_sub_series jrsss, " + 
 						"jpt_sub_series jss, jpt_series js, jpw_application_detail jad, " + 
-						"jpw_application ja, jpt_rlt_category_series jrcs, " +
-						"jpt_category jc where jrsss.series_pk=? and jrsss.rec_status='ACT' " + 
-						"and jrsss.sub_series_pk=jss.sub_series_pk and js.series_pk=jrsss.series_pk " +
-						"and js.rec_status=jrsss.rec_status and jrsss.rec_status=jss.rec_status and " +
-						"jss.sub_series_id=jad.sub_series_id and jad.sub_series_id=ja.sub_series_id and " +
-						"ja.tran_action='ADD' and jrcs.series_pk=jrsss.series_pk and " +
-						"jrcs.category_pk=jc.category_pk order by jrsss.series_sub_series_seq";
+						"jpt_rlt_category_series jrcs, jpt_category jc, " + 
+						"jpt_rlt_lob_category jrlc where jrsss.series_pk=? and jrsss.rec_status='ACT' " + 
+						"and jrsss.sub_series_pk=jss.sub_series_pk and js.series_pk=jrsss.series_pk " + 
+						"and js.rec_status=jrsss.rec_status and jrsss.rec_status=jss.rec_status " + 
+						"and jss.sub_series_id=jad.sub_series_id and jrcs.series_pk=jrsss.series_pk " + 
+						"and jrcs.category_pk=jc.category_pk and " + 
+						"jc.category_pk=jrlc.category_pk order by jrsss.series_sub_series_seq";
 		
 		List<ScreenPage3DTO> dtos = new ArrayList<ScreenPage3DTO>();
 		System.out.println("query=" + query);
@@ -420,6 +423,7 @@ public class CommercialPhotoFramePage implements PhotoFramePage {
 				dto.setRemarks_1(result.getString(12));
 				dto.setCatLabelEng(result.getString(13));
 				dto.setCatLabelChn(result.getString(14));
+				dto.setLobCatSeq(result.getInt(15));
 
 				
 				dtos.add(dto);
