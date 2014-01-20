@@ -302,7 +302,7 @@ public class CommercialPhotoFramePage implements PhotoFramePage {
 			}			
 			result.close();
 			stmt.close();
-			DBAccess.returnDBConnection(conn);
+			conn.close();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
@@ -357,7 +357,7 @@ public class CommercialPhotoFramePage implements PhotoFramePage {
 			
 			result.close();
 			stmt.close();
-			DBAccess.returnDBConnection(conn);
+			conn.close();
 			
 			Set<Integer> keySet = catMap.keySet();
 			Iterator<Integer> iterator = keySet.iterator();
@@ -430,7 +430,7 @@ public class CommercialPhotoFramePage implements PhotoFramePage {
 			}
 			result.close();
 			ps.close();
-			DBAccess.returnDBConnection(conn);
+			conn.close();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
