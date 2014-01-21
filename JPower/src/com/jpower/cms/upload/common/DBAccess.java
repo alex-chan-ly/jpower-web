@@ -8,7 +8,12 @@ public class DBAccess {
        
         public static String driver = "org.apache.derby.jdbc.EmbeddedDriver";
 //      public static String dbName="jPowerDB";
-        public static String dbName="db1";
+        //testing
+        //public static String dbName="/home/benson/apache-tomcat-6.0.32/webapps/jpower/content/db/db1";
+        
+        //BAU
+        public static String dbName="/home/jpoweradm/public_html/content/db/db1";
+
         public static String connectionURL = "jdbc:derby:" + dbName + ";create=true";
         public static Connection conn = null;
        
