@@ -60,7 +60,7 @@
     </div>
   	<div class="menu">
   	  <div class="menutab"><a href="."><img src="images/menu-1_01.png" height="20" id="Image1" onmouseover="MM_swapImage('Image1','','images/menu-2_01.png',1)" onmouseout="MM_swapImgRestore()" /></a></div>
-  	  <div class="menutab2"><a href="index.jsp?page=comingsoon"><img src="images/menu-1_02.png" height="20" id="Image2" onmouseover="MM_swapImage('Image2','','images/menu-2_02.png',1)" onmouseout="MM_swapImgRestore()" /></a></div>
+  	  <div class="menutab2"><a href="index.jsp?page=whatsnew"><img src="images/menu-1_02.png" height="20" id="Image2" onmouseover="MM_swapImage('Image2','','images/menu-2_02.png',1)" onmouseout="MM_swapImgRestore()" /></a></div>
   	  <div class="menutab3"><style type="text/css">
 </style>
 
