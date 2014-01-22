@@ -713,11 +713,25 @@ font-size: 11px;
 	height: auto;
 	width: 400px;
 	margin-right: 30px;
-	margin-left: 190px;
+	/*margin-left: 190px;*/
+	margin-left:1px;
 	font-size: 12px;
 	color: #000;
 	text-align: justify;
 	margin-top: 60px;
+	line-height: 21px;
+}
+.aboutus-02-comingsoon {
+	font-family: calibri, Arial,verdana, san-serif;
+	float: left;
+	height: auto;
+	width: 400px;
+	margin-right: 30px;
+	margin-left: 190px;
+	font-size: 12px;
+	color: #000;
+	text-align: justify;
+	margin-top: 60px;	
 	line-height: 21px;
 }
 .aboutus-02-2 {
