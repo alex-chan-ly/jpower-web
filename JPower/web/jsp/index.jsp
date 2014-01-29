@@ -37,7 +37,8 @@
 			String cat = request.getParameter("cat");
 			String series = request.getParameter("series");
 			String title = request.getParameter("title");
-			param = param + "&cat=" + cat + "&series=" + series + "&title=" + title;
+			String subpage = request.getParameter("subpage");
+			param = param + "&cat=" + cat + "&series=" + series + "&title=" + title + "&subpage=" + subpage;
 		}
 		eng_link = "index.jsp?page=" + param;
 		chn_link = "zh_hk/index.jsp?page=" + param;
@@ -172,14 +173,7 @@ $(document).ready(function () {
   		String pageName = null;
   		if(	(item.equals("residential")) || (item.equals("residential_2")) || (item.equals("residential_3")) ||
   			(item.equals("commercial")) || (item.equals("commercial_2")) || (item.equals("commercial_3")) ){
- 			if( (item.equals("residential_3")) || (item.equals("commercial_3")) ) {
-  				String catPK = request.getParameter("cat");
-  				String seriesPK = request.getParameter("series");
-  				String title = request.getParameter("title");
-  				pageName = item + ".jsp?cat=" + catPK + "&series=" + seriesPK + "&title=" + title;
-  			} else {
-  				pageName = item + ".jsp";
-  			}
+ 				pageName = item + ".jsp";
   		} else {
   			pageName = item + ".html";
   		}
