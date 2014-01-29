@@ -6,7 +6,7 @@ public class ScreenPage3DTO {
 	private String subSeriesImageSmall;
 	private String subSeriesImageLarge;
 	private String seriesImageLarge;
-	private String subSeriesID;
+	private String materialID;
 	private String series;
 	private String availableSize;
 	private String tileThickness;
@@ -84,11 +84,11 @@ public class ScreenPage3DTO {
 	public void setRemarks_1(String remarks_1) {
 		this.remarks_1 = remarks_1;
 	}
-	public String getSubSeriesID() {
-		return subSeriesID;
+	public String getMaterialID() {
+		return materialID;
 	}
-	public void setSubSeriesID(String subSeriesID) {
-		this.subSeriesID = subSeriesID;
+	public void setMaterialID(String materialID) {
+		this.materialID = materialID;
 	}
 	public String getCatLabelEng() {
 		return catLabelEng;
