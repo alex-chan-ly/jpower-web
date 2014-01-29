@@ -86,7 +86,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 			List<Integer> seriesPKs = dto.getSeriesPKs();
 			for(int i = 0 ; i < imageList.size() ; i++) {
 				content = content + "<div class=\"ap-photo-inside-1\">\n";
-				content = content + "<div class=\"ap-photo-inside-2\"><a href=\"index.jsp?page=residential_3&cat=" + dto.getCatPK() + "&series=" + seriesPKs.get(i) + "&title=" + (i+1) + "\">";
+				content = content + "<div class=\"ap-photo-inside-2\"><a href=\"index.jsp?page=residential_3&cat=" + dto.getCatPK() + "&series=" + seriesPKs.get(i) + "&title=" + (i+1) + "&subpage=1" + "\">";
 				content = content + "<img src=\"content/storage/residential/2/" + imageList.get(i) + "\" width=\"229\" height=\"168\" /></a></div>\n";
 				content = content + "<div class=\"ap-photo-inside-caption\">Sample" + " " + (i + 1) + "</div>\n";
 				content = content + "</div>\n";
@@ -120,7 +120,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 			List<Integer> seriesPKs = dto.getSeriesPKs();
 			for(int i = 0 ; i < imageList.size() ; i++) {
 				content = content + "<div class=\"ap-photo-inside-1\">\n";
-				content = content + "<div class=\"ap-photo-inside-2\"><a href=\"index.jsp?page=residential_3&cat=" + dto.getCatPK() + "&series=" + seriesPKs.get(i) + "&title=" + (i+1) + "\">";
+				content = content + "<div class=\"ap-photo-inside-2\"><a href=\"index.jsp?page=residential_3&cat=" + dto.getCatPK() + "&series=" + seriesPKs.get(i) + "&title=" + (i+1) + "&subpage=1" + "\">";
 				content = content + "<img src=\"../content/storage/residential/2/" + imageList.get(i) + "\" width=\"229\" height=\"168\" /></a></div>\n";
 				content = content + "<div class=\"ap-photo-inside-caption\">樣本" + " " + (i + 1) + "</div>\n";
 				content = content + "</div>\n";
@@ -132,7 +132,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 
 	}
 
-	public String generatePage3(String catPK, String seriesPK, String title) {
+	public String generatePage3(String catPK, String seriesPK, String title, String subpage) {
 		// TODO Auto-generated method stub
 		List stocks = getStocks();
 		
@@ -147,8 +147,19 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		content = content + "</div>\n";
 		content = content + "<div class=\"big-photo-right-frame\">\n";
 		
-		//Develop code here.
-		for(int i = 0 ; i < dtos.size() ; i++) {
+		int iStartIndex = (Integer.parseInt(subpage) - 1) * 3;
+		int iEndIndex = iStartIndex + 3;
+		if(dtos.size() <= iEndIndex - 1) {
+			iEndIndex = dtos.size();
+		}
+		
+		int iNumFullPage = dtos.size() / 3;
+		if((dtos.size() % 3) > 0) {
+			iNumFullPage = iNumFullPage + 1;
+		}
+		
+		//Develop code here. 0,3,6,9
+		for(int i = iStartIndex ; i < iEndIndex ; i++) {
 			ScreenPage3DTO dtoEntry = dtos.get(i);
 			
 			content = content + "<div class=\"rightoutsideframe\">\n";
@@ -158,7 +169,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 			content = content + "</div>\n";
 			content = content + "<div class=\"sp-photo-right\">\n";
 			content = content + "<div class=\"caption-app-1\"><span class=\"captionfont-1\">" + "Material " + (i+1) + "</span><br />";
-			content = content + "<span class=\"captionfont-2\">" + dtoEntry.getSubSeriesID() + "</span><br />";
+			content = content + "<span class=\"captionfont-2\">" + dtoEntry.getMaterialID() + "</span><br />";
 			content = content + "<span class=\"captionfont-3\">" + "" + "<br />";
 			content = content + "</span> <br />\n";
 			content = content + "</div>\n";
@@ -170,7 +181,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 			content = content + "<div class=\"lightbox_right\">\n";
 			content = content + "<h2>" + "Material " + (i+1) + "</h2>\n";
 			content = content + "<table>\n";
-			content = content + "<tr><td><strong>Ref number</strong></td><td>" + dtoEntry.getSubSeriesID() + "</td></tr>\n";
+			content = content + "<tr><td><strong>Ref number</strong></td><td>" + dtoEntry.getMaterialID() + "</td></tr>\n";
 			content = content + "<tr class=\"spec_bg\"><td><strong>Series</strong></td><td>" + dtoEntry.getSeries() + "</td></tr>\n";
 			content = content + "<tr><td><strong>Available Sizes</strong></td><td>" + dtoEntry.getAvailableSize() + "</td></tr>\n";
 			content = content + "<tr class=\"spec_bg\"><td><strong>Tile Thickness</strong></td><td>" + dtoEntry.getTileThickness() + "</td></tr>";
@@ -185,6 +196,14 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		
 		//content = content + "</div>\n";
 		//content = content + //navigator;  
+		if(iNumFullPage > 1) {
+			if(subpage.equals("1"))
+				content = content + "<div class=\"page-select\"><strong>1</strong>  <a href=\"index.jsp?page=residential_3&cat=" + catPK + "&series=" + seriesPK + "&title=" + title + "&subpage=2" + "\">2</a>   <a href=\"index.jsp?page=residential_3&cat=" + catPK + "&series=" + seriesPK + "&title=" + title + "&subpage=2" + "\">Next</a></div>";
+			else if(Integer.parseInt(subpage) == iNumFullPage)
+				content = content + "<div class=\"page-select\"><a href=\"index.jsp?page=residential_3&cat=" + catPK + "&series=" + seriesPK + "&title=" + title + "&subpage=" + (Integer.parseInt(subpage) - 1) + "\">Previous</a>  <a href=\"index.jsp?page=residential_3&cat=" + catPK + "&series=" + seriesPK + "&title=" + title + "&subpage=" + (Integer.parseInt(subpage) - 1) + "\">"+ (Integer.parseInt(subpage) - 1) + "</a>  <strong>" + subpage + "</strong></div>";					
+			else 
+				content = content + "<div class=\"page-select\"><a href=\"index.jsp?page=residential_3&cat=" + catPK + "&series=" + seriesPK + "&title=" + title + "&subpage=" + (Integer.parseInt(subpage) - 1) + "\">Previous</a>  <a href=\"index.jsp?page=residential_3&cat=" + catPK + "&series=" + seriesPK + "&title=" + title + "&subpage=" + (Integer.parseInt(subpage) - 1) + "\">" + (Integer.parseInt(subpage) - 1) + "</a>  <strong>" + subpage + "</strong>  <a href=\"index.jsp?page=residential_3&cat=" + catPK + "&series=" + seriesPK + "&title=" + title + "&subpage=" + (Integer.parseInt(subpage) + 1) + "\">" + (Integer.parseInt(subpage) + 1) + "</a>  <a href=\"index.jsp?page=residential_3&cat=" + catPK + "&series=" + seriesPK + "&title=" + title + "&subpage=" + (Integer.parseInt(subpage) + 1) + "\">Next</a></div>";
+		}
 		content = content + "<br/>\n";
 		content = content + "</div></div>";
 		
@@ -193,7 +212,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 
 	}
 
-	public String generatePage3_Chn(String catPK, String seriesPK, String title) {
+	public String generatePage3_Chn(String catPK, String seriesPK, String title, String subpage) {
 		// TODO Auto-generated method stub
 		List stocks = getStocks();
 		
@@ -208,8 +227,20 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		content = content + "</div>\n";
 		content = content + "<div class=\"big-photo-right-frame\">\n";
 		
+		int iStartIndex = (Integer.parseInt(subpage) - 1) * 3;
+		int iEndIndex = iStartIndex + 3;
+		if(dtos.size() <= iEndIndex - 1) {
+			iEndIndex = dtos.size();
+		}
+		
+		int iNumFullPage = dtos.size() / 3;
+		if((dtos.size() % 3) > 0) {
+			iNumFullPage = iNumFullPage + 1;
+		}
+
+		
 		//Develop code here.
-		for(int i = 0 ; i < dtos.size() ; i++) {
+		for(int i = iStartIndex ; i < iEndIndex ; i++) {
 			ScreenPage3DTO dtoEntry = dtos.get(i);
 			
 			content = content + "<div class=\"rightoutsideframe\">\n";
@@ -219,7 +250,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 			content = content + "</div>\n";
 			content = content + "<div class=\"sp-photo-right\">\n";
 			content = content + "<div class=\"caption-app-1\"><span class=\"captionfont-1\">" + "物品 " + (i+1) + "</span><br />";
-			content = content + "<span class=\"captionfont-2\">" + dtoEntry.getSubSeriesID() + "</span><br />";
+			content = content + "<span class=\"captionfont-2\">" + dtoEntry.getMaterialID() + "</span><br />";
 			content = content + "<span class=\"captionfont-3\">" + "" + "<br />";
 			content = content + "</span> <br />\n";
 			content = content + "</div>\n";
@@ -231,7 +262,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 			content = content + "<div class=\"lightbox_right\">\n";
 			content = content + "<h2>" + "物品 " + (i+1) + "</h2>\n";
 			content = content + "<table>\n";
-			content = content + "<tr><td><strong>Ref number</strong></td><td>" + dtoEntry.getSubSeriesID() + "</td></tr>\n";
+			content = content + "<tr><td><strong>Ref number</strong></td><td>" + dtoEntry.getMaterialID() + "</td></tr>\n";
 			content = content + "<tr class=\"spec_bg\"><td><strong>Series</strong></td><td>" + dtoEntry.getSeries() + "</td></tr>\n";
 			content = content + "<tr><td><strong>Available Sizes</strong></td><td>" + dtoEntry.getAvailableSize() + "</td></tr>\n";
 			content = content + "<tr class=\"spec_bg\"><td><strong>Tile Thickness</strong></td><td>" + dtoEntry.getTileThickness() + "</td></tr>";
@@ -246,6 +277,15 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		
 		//content = content + "</div>\n";
 		//content = content + //navigator;  
+		if(iNumFullPage > 1) {
+			if(subpage.equals("1"))
+				content = content + "<div class=\"page-select\"><strong>1</strong>  <a href=\"index.jsp?page=residential_3&cat=" + catPK + "&series=" + seriesPK + "&title=" + title + "&subpage=2" + "\">2</a>   <a href=\"index.jsp?page=residential_3&cat=" + catPK + "&series=" + seriesPK + "&title=" + title + "&subpage=2" + "\">下一頁</a></div>";
+			else if(Integer.parseInt(subpage) == iNumFullPage)
+				content = content + "<div class=\"page-select\"><a href=\"index.jsp?page=residential_3&cat=" + catPK + "&series=" + seriesPK + "&title=" + title + "&subpage=" + (Integer.parseInt(subpage) - 1) + "\">上一頁</a>  <a href=\"index.jsp?page=residential_3&cat=" + catPK + "&series=" + seriesPK + "&title=" + title + "&subpage=" + (Integer.parseInt(subpage) - 1) + "\">"+ (Integer.parseInt(subpage) - 1) + "</a>  <strong>" + subpage + "</strong></div>";					
+			else 
+				content = content + "<div class=\"page-select\"><a href=\"index.jsp?page=residential_3&cat=" + catPK + "&series=" + seriesPK + "&title=" + title + "&subpage=" + (Integer.parseInt(subpage) - 1) + "\">上一頁</a>  <a href=\"index.jsp?page=residential_3&cat=" + catPK + "&series=" + seriesPK + "&title=" + title + "&subpage=" + (Integer.parseInt(subpage) - 1) + "\">" + (Integer.parseInt(subpage) - 1) + "</a>  <strong>" + subpage + "</strong>  <a href=\"index.jsp?page=residential_3&cat=" + catPK + "&series=" + seriesPK + "&title=" + title + "&subpage=" + (Integer.parseInt(subpage) + 1) + "\">" + (Integer.parseInt(subpage) + 1) + "</a>  <a href=\"index.jsp?page=residential_3&cat=" + catPK + "&series=" + seriesPK + "&title=" + title + "&subpage=" + (Integer.parseInt(subpage) + 1) + "\">下一頁</a></div>";
+		}
+		
 		content = content + "<br/>\n";
 		content = content + "</div></div>";
 		
@@ -384,16 +424,16 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 		PreparedStatement ps = null;
 		
 		String query = "select jrsss.series_sub_series_seq, jss.sub_series_image_small, " + 
-				"jss.sub_series_image_large, js.series_image_large, jad.sub_series_id, " + 
-				"jad.series, jad.avaliable_size, jad.tile_thickness, jad.color, " + 
-				"jad.finishing, jad.application, jad.remarks_1, jc.category_label_eng, " +
+				"jss.sub_series_image_large, js.series_image_large, jm.material_id, " + 
+				"jm.series, jm.avaliable_size, jm.tile_thickness, jm.color, " + 
+				"jm.finishing, jm.application, jm.remarks_1, jc.category_label_eng, " +
 				"jc.category_label_chin, jrlc.lob_category_seq from jpt_rlt_series_sub_series jrsss, " + 
-				"jpt_sub_series jss, jpt_series js, jpw_application_detail jad, " + 
+				"jpt_sub_series jss, jpt_series js, jpt_material jm, " + 
 				"jpt_rlt_category_series jrcs, jpt_category jc, " + 
 				"jpt_rlt_lob_category jrlc where jrsss.series_pk=? and jrsss.rec_status='ACT' " + 
 				"and jrsss.sub_series_pk=jss.sub_series_pk and js.series_pk=jrsss.series_pk " + 
 				"and js.rec_status=jrsss.rec_status and jrsss.rec_status=jss.rec_status " + 
-				"and jss.sub_series_id=jad.sub_series_id and jrcs.series_pk=jrsss.series_pk " + 
+				"and jss.material_id=jm.material_id and jrcs.series_pk=jrsss.series_pk " + 
 				"and jrcs.category_pk=jc.category_pk and " + 
 				"jc.category_pk=jrlc.category_pk order by jrsss.series_sub_series_seq";
 		
@@ -409,7 +449,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 				dto.setSubSeriesImageSmall(result.getString(2));
 				dto.setSubSeriesImageLarge(result.getString(3));
 				dto.setSeriesImageLarge(result.getString(4));
-				dto.setSubSeriesID(result.getString(5));
+				dto.setMaterialID(result.getString(5));
 				dto.setSeries(result.getString(6));
 				dto.setAvailableSize(result.getString(7));
 				dto.setTileThickness(result.getString(8));
