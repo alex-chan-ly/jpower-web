@@ -17,6 +17,9 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import com.jpower.cms.upload.common.FileHelper;
+import com.jpower.cms.upload.excel.ExcelUploader;
+
 public class UploadServlet extends HttpServlet {
 
 
@@ -24,9 +27,19 @@ public class UploadServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		int rtnCode = 0;
 		String fileName = null;
 //		String destination = "/home/benson/apache-tomcat-6.0.32/webapps/jpower/content/zip";
-		String destination = "/home/jpoweradm/public_html/content/zip";
+//		String destination = "/home/jpoweradm/public_html/content/zip";
+//		String destination = "/home/alexc/workspace_ee/JPower-Web/JPower/content/staging";
+		
+		String stagingHome = FileHelper
+				.getConfigProperty("staging.home");
+		String stagingDir = FileHelper
+				.getConfigProperty("staging.directory");
+
+		String destination = stagingHome + File.separator + stagingDir;
+		
 		
 //		super.doPost(req, resp);
 		// Create a factory for disk-based file items
@@ -61,14 +74,21 @@ public class UploadServlet extends HttpServlet {
         	e.printStackTrace();
           	req.getSession().setAttribute("RESULT", "Exception in uploading file.");
         }
+
+        rtnCode = ExcelUploader.mainProcess(fileName);
+        
+       	req.getSession().setAttribute("UPLOAD-RESULT", String.valueOf(rtnCode));
         
         //production
-        resp.sendRedirect("/upload.jsp");
+        
+	    resp.sendRedirect("/upload.jsp");
         //testing development
 //        resp.sendRedirect("/jpower/upload.jsp");
-		Runtime.getRuntime().exec("chown jpoweradm " + "/home/jpoweradm/public_html/content/zip/" + fileName);
-		Runtime.getRuntime().exec("chgrp jpoweradm " + "/home/jpoweradm/public_html/content/zip/" + fileName);
+//		Runtime.getRuntime().exec("chown jpoweradm " + "/home/jpoweradm/public_html/content/zip/" + fileName);
+//		Runtime.getRuntime().exec("chgrp jpoweradm " + "/home/jpoweradm/public_html/content/zip/" + fileName);
+
         
+		
 	}
 	
 	private Boolean isZipFile(File file) {
