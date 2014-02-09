@@ -1,0 +1,500 @@
+Sep 5, 2013 12:08:26 AM org.apache.catalina.core.StandardHost start
+INFO: XML validation disabled
+Sep 5, 2013 12:08:27 AM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextInitialized()
+Sep 5, 2013 12:08:27 AM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextInitialized()
+Sep 5, 2013 12:08:27 AM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextInitialized()
+Sep 5, 2013 12:08:27 AM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextInitialized()
+Sep 5, 2013 12:08:27 AM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextInitialized()
+Sep 5, 2013 12:08:27 AM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextInitialized()
+Sep 5, 2013 12:08:27 AM org.apache.catalina.startup.UserConfig deploy
+INFO: Deploying web application for user admin
+Sep 5, 2013 12:08:27 AM org.apache.catalina.startup.ContextConfig applicationWebConfig
+INFO: Missing application web.xml, using defaults only StandardEngine[Catalina].StandardHost[www.thaidelight.com.hk].StandardContext[/~admin]
+Sep 5, 2013 12:08:27 AM org.apache.catalina.core.StandardHost start
+INFO: XML validation disabled
+Sep 5, 2013 12:08:29 AM org.apache.catalina.core.StandardHost start
+INFO: XML validation disabled
+Sep 5, 2013 12:08:29 AM org.apache.catalina.startup.ContextConfig applicationWebConfig
+INFO: Missing application web.xml, using defaults only StandardEngine[Catalina].StandardHost[johnnyjsp.e-hosting.com.hk].StandardContext[]
+Sep 5, 2013 12:08:29 AM org.apache.catalina.core.StandardHost start
+INFO: XML validation disabled
+Sep 5, 2013 12:08:30 AM org.apache.catalina.startup.ContextConfig applicationWebConfig
+INFO: Missing application web.xml, using defaults only StandardEngine[Catalina].StandardHost[tomcattest.e-hosting.com.hk].StandardContext[]
+Sep 5, 2013 12:08:30 AM org.apache.catalina.core.StandardHost start
+INFO: XML validation disabled
+Sep 5, 2013 12:08:30 AM org.apache.catalina.core.StandardHost start
+INFO: XML validation disabled
+Sep 5, 2013 12:08:30 AM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextInitialized()
+Sep 5, 2013 12:08:30 AM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextInitialized()
+Sep 5, 2013 12:08:30 AM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextInitialized()
+Sep 5, 2013 12:08:30 AM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextInitialized()
+Sep 5, 2013 12:08:30 AM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Sep 5, 2013 12:08:31 AM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Sep 5, 2013 12:08:31 AM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/32  config=null
+Sep 5, 2013 12:08:32 AM org.apache.catalina.storeconfig.StoreLoader load
+INFO: Find registry server-registry.xml at classpath resource
+Sep 5, 2013 12:08:32 AM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 26551 ms
+Sep 5, 2013 12:09:32 AM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: sessionDestroyed('487486FFA38064386ADC02BC549734B9')
+Sep 5, 2013 12:09:32 AM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: sessionDestroyed('94F0503F934A76C21D634BACEB6EFACC')
+Sep 5, 2013 12:09:32 AM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: sessionDestroyed('C1E8067167FCE29F9FF4E2F4DA824109')
+Sep 5, 2013 12:10:25 AM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: sessionCreated('8A671BFD7132737E7BE516108B9752DC')
+Sep 5, 2013 12:41:18 AM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: sessionDestroyed('8A671BFD7132737E7BE516108B9752DC')
+Sep 5, 2013 1:07:23 AM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: sessionCreated('47E89FAE8B9B03056298FE0F709D1E24')
+Sep 5, 2013 1:09:16 AM org.apache.catalina.core.ApplicationContext log
+INFO: InvokerFilter(ApplicationFilterConfig[name=Path Mapped Filter, filterClass=filters.ExampleFilter]): 1 milliseconds
+Sep 5, 2013 1:09:25 AM org.apache.catalina.core.ApplicationContext log
+INFO: InvokerFilter(ApplicationFilterConfig[name=Path Mapped Filter, filterClass=filters.ExampleFilter]): 129 milliseconds
+Sep 5, 2013 1:13:05 AM org.apache.catalina.loader.WebappClassLoader modified
+SEVERE:     Resource '/WEB-INF/lib/log4j-1.2.8.jar' is missing
+Sep 5, 2013 1:13:05 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading this Context has started
+Sep 5, 2013 1:13:06 AM org.apache.catalina.loader.WebappClassLoader openJARs
+WARNING: Failed to open JAR
+java.util.zip.ZipException: error in opening zip file
+	at java.util.zip.ZipFile.open(Native Method)
+	at java.util.zip.ZipFile.<init>(ZipFile.java:203)
+	at java.util.jar.JarFile.<init>(JarFile.java:132)
+	at java.util.jar.JarFile.<init>(JarFile.java:97)
+	at org.apache.catalina.loader.WebappClassLoader.openJARs(WebappClassLoader.java:1544)
+	at org.apache.catalina.loader.WebappClassLoader.findResourceInternal(WebappClassLoader.java:1763)
+	at org.apache.catalina.loader.WebappClassLoader.findClassInternal(WebappClassLoader.java:1570)
+	at org.apache.catalina.loader.WebappClassLoader.findClass(WebappClassLoader.java:850)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1299)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1181)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:319)
+	at listeners.ContextListener.attributeReplaced(ContextListener.java:134)
+	at org.apache.catalina.core.ApplicationContext.setAttribute(ApplicationContext.java:780)
+	at org.apache.catalina.core.ApplicationContextFacade.setAttribute(ApplicationContextFacade.java:337)
+	at org.apache.catalina.core.StandardContext.postWelcomeFiles(StandardContext.java:4703)
+	at org.apache.catalina.core.StandardContext.removeWelcomeFile(StandardContext.java:3411)
+	at org.apache.catalina.startup.ContextConfig.stop(ContextConfig.java:1204)
+	at org.apache.catalina.startup.ContextConfig.lifecycleEvent(ContextConfig.java:271)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:4265)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:2924)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:403)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1276)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1568)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1557)
+	at java.lang.Thread.run(Thread.java:595)
+Sep 5, 2013 1:13:06 AM org.apache.catalina.core.ApplicationContext log
+SEVERE: Exception thrown by attributes event listener
+java.lang.NullPointerException
+	at org.apache.catalina.loader.WebappClassLoader.findResourceInternal(WebappClassLoader.java:1766)
+	at org.apache.catalina.loader.WebappClassLoader.findClassInternal(WebappClassLoader.java:1570)
+	at org.apache.catalina.loader.WebappClassLoader.findClass(WebappClassLoader.java:850)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1299)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1181)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:319)
+	at listeners.ContextListener.attributeReplaced(ContextListener.java:134)
+	at org.apache.catalina.core.ApplicationContext.setAttribute(ApplicationContext.java:780)
+	at org.apache.catalina.core.ApplicationContextFacade.setAttribute(ApplicationContextFacade.java:337)
+	at org.apache.catalina.core.StandardContext.postWelcomeFiles(StandardContext.java:4703)
+	at org.apache.catalina.core.StandardContext.removeWelcomeFile(StandardContext.java:3411)
+	at org.apache.catalina.startup.ContextConfig.stop(ContextConfig.java:1204)
+	at org.apache.catalina.startup.ContextConfig.lifecycleEvent(ContextConfig.java:271)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:4265)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:2924)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:403)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1276)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1568)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1557)
+	at java.lang.Thread.run(Thread.java:595)
+Sep 5, 2013 1:13:06 AM org.apache.catalina.loader.WebappClassLoader openJARs
+WARNING: Failed to open JAR
+java.util.zip.ZipException: error in opening zip file
+	at java.util.zip.ZipFile.open(Native Method)
+	at java.util.zip.ZipFile.<init>(ZipFile.java:203)
+	at java.util.jar.JarFile.<init>(JarFile.java:132)
+	at java.util.jar.JarFile.<init>(JarFile.java:97)
+	at org.apache.catalina.loader.WebappClassLoader.openJARs(WebappClassLoader.java:1544)
+	at org.apache.catalina.loader.WebappClassLoader.findResourceInternal(WebappClassLoader.java:1763)
+	at org.apache.catalina.loader.WebappClassLoader.findClassInternal(WebappClassLoader.java:1570)
+	at org.apache.catalina.loader.WebappClassLoader.findClass(WebappClassLoader.java:850)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1299)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1181)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:319)
+	at listeners.ContextListener.attributeReplaced(ContextListener.java:134)
+	at org.apache.catalina.core.ApplicationContext.setAttribute(ApplicationContext.java:780)
+	at org.apache.catalina.core.ApplicationContextFacade.setAttribute(ApplicationContextFacade.java:337)
+	at org.apache.catalina.core.StandardContext.postWelcomeFiles(StandardContext.java:4703)
+	at org.apache.catalina.core.StandardContext.removeWelcomeFile(StandardContext.java:3411)
+	at org.apache.catalina.startup.ContextConfig.stop(ContextConfig.java:1204)
+	at org.apache.catalina.startup.ContextConfig.lifecycleEvent(ContextConfig.java:271)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:4265)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:2924)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:403)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1276)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1568)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1557)
+	at java.lang.Thread.run(Thread.java:595)
+Sep 5, 2013 1:13:06 AM org.apache.catalina.core.ApplicationContext log
+SEVERE: Exception thrown by attributes event listener
+java.lang.NullPointerException
+	at org.apache.catalina.loader.WebappClassLoader.findResourceInternal(WebappClassLoader.java:1766)
+	at org.apache.catalina.loader.WebappClassLoader.findClassInternal(WebappClassLoader.java:1570)
+	at org.apache.catalina.loader.WebappClassLoader.findClass(WebappClassLoader.java:850)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1299)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1181)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:319)
+	at listeners.ContextListener.attributeReplaced(ContextListener.java:134)
+	at org.apache.catalina.core.ApplicationContext.setAttribute(ApplicationContext.java:780)
+	at org.apache.catalina.core.ApplicationContextFacade.setAttribute(ApplicationContextFacade.java:337)
+	at org.apache.catalina.core.StandardContext.postWelcomeFiles(StandardContext.java:4703)
+	at org.apache.catalina.core.StandardContext.removeWelcomeFile(StandardContext.java:3411)
+	at org.apache.catalina.startup.ContextConfig.stop(ContextConfig.java:1204)
+	at org.apache.catalina.startup.ContextConfig.lifecycleEvent(ContextConfig.java:271)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:4265)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:2924)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:403)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1276)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1568)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1557)
+	at java.lang.Thread.run(Thread.java:595)
+Sep 5, 2013 1:13:06 AM org.apache.catalina.loader.WebappClassLoader openJARs
+WARNING: Failed to open JAR
+java.util.zip.ZipException: error in opening zip file
+	at java.util.zip.ZipFile.open(Native Method)
+	at java.util.zip.ZipFile.<init>(ZipFile.java:203)
+	at java.util.jar.JarFile.<init>(JarFile.java:132)
+	at java.util.jar.JarFile.<init>(JarFile.java:97)
+	at org.apache.catalina.loader.WebappClassLoader.openJARs(WebappClassLoader.java:1544)
+	at org.apache.catalina.loader.WebappClassLoader.findResourceInternal(WebappClassLoader.java:1763)
+	at org.apache.catalina.loader.WebappClassLoader.findClassInternal(WebappClassLoader.java:1570)
+	at org.apache.catalina.loader.WebappClassLoader.findClass(WebappClassLoader.java:850)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1299)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1181)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:319)
+	at listeners.ContextListener.attributeReplaced(ContextListener.java:134)
+	at org.apache.catalina.core.ApplicationContext.setAttribute(ApplicationContext.java:780)
+	at org.apache.catalina.core.ApplicationContextFacade.setAttribute(ApplicationContextFacade.java:337)
+	at org.apache.catalina.core.StandardContext.postWelcomeFiles(StandardContext.java:4703)
+	at org.apache.catalina.core.StandardContext.removeWelcomeFile(StandardContext.java:3411)
+	at org.apache.catalina.startup.ContextConfig.stop(ContextConfig.java:1204)
+	at org.apache.catalina.startup.ContextConfig.lifecycleEvent(ContextConfig.java:271)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:4265)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:2924)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:403)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1276)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1568)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1557)
+	at java.lang.Thread.run(Thread.java:595)
+Sep 5, 2013 1:13:06 AM org.apache.catalina.core.ApplicationContext log
+SEVERE: Exception thrown by attributes event listener
+java.lang.NullPointerException
+	at org.apache.catalina.loader.WebappClassLoader.findResourceInternal(WebappClassLoader.java:1766)
+	at org.apache.catalina.loader.WebappClassLoader.findClassInternal(WebappClassLoader.java:1570)
+	at org.apache.catalina.loader.WebappClassLoader.findClass(WebappClassLoader.java:850)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1299)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1181)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:319)
+	at listeners.ContextListener.attributeReplaced(ContextListener.java:134)
+	at org.apache.catalina.core.ApplicationContext.setAttribute(ApplicationContext.java:780)
+	at org.apache.catalina.core.ApplicationContextFacade.setAttribute(ApplicationContextFacade.java:337)
+	at org.apache.catalina.core.StandardContext.postWelcomeFiles(StandardContext.java:4703)
+	at org.apache.catalina.core.StandardContext.removeWelcomeFile(StandardContext.java:3411)
+	at org.apache.catalina.startup.ContextConfig.stop(ContextConfig.java:1204)
+	at org.apache.catalina.startup.ContextConfig.lifecycleEvent(ContextConfig.java:271)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:4265)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:2924)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:403)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1276)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1568)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1557)
+	at java.lang.Thread.run(Thread.java:595)
+Sep 5, 2013 1:13:06 AM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextDestroyed()
+Sep 5, 2013 1:13:06 AM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextDestroyed()
+Sep 5, 2013 1:13:06 AM org.apache.catalina.startup.ContextConfig applicationWebConfig
+INFO: Missing application web.xml, using defaults only StandardEngine[Catalina].StandardHost[www.jpower.com.hk].StandardContext[]
+Sep 5, 2013 1:13:06 AM org.apache.catalina.core.StandardContext listenerStart
+SEVERE: Error configuring application listener of class listeners.ContextListener
+java.lang.ClassNotFoundException: listeners.ContextListener
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1332)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1181)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:3617)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4104)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:2930)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:403)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1276)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1568)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1557)
+	at java.lang.Thread.run(Thread.java:595)
+Sep 5, 2013 1:13:06 AM org.apache.catalina.core.StandardContext listenerStart
+SEVERE: Error configuring application listener of class listeners.SessionListener
+java.lang.ClassNotFoundException: listeners.SessionListener
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1332)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1181)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:3617)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4104)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:2930)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:403)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1276)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1568)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1557)
+	at java.lang.Thread.run(Thread.java:595)
+Sep 5, 2013 1:13:06 AM org.apache.catalina.core.StandardContext listenerStart
+SEVERE: Skipped installing application listeners due to previous error(s)
+Sep 5, 2013 1:13:06 AM org.apache.catalina.core.StandardContext start
+SEVERE: Error listenerStart
+Sep 5, 2013 1:13:06 AM org.apache.catalina.core.StandardContext start
+SEVERE: Context [] startup failed due to previous errors
+Sep 5, 2013 1:13:06 AM org.apache.catalina.loader.WebappClassLoader modified
+SEVERE:     Resource '/WEB-INF/lib/log4j-1.2.8.jar' is missing
+Sep 5, 2013 1:13:06 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading this Context has started
+Sep 5, 2013 1:13:06 AM org.apache.catalina.loader.WebappClassLoader openJARs
+WARNING: Failed to open JAR
+java.util.zip.ZipException: error in opening zip file
+	at java.util.zip.ZipFile.open(Native Method)
+	at java.util.zip.ZipFile.<init>(ZipFile.java:203)
+	at java.util.jar.JarFile.<init>(JarFile.java:132)
+	at java.util.jar.JarFile.<init>(JarFile.java:97)
+	at org.apache.catalina.loader.WebappClassLoader.openJARs(WebappClassLoader.java:1544)
+	at org.apache.catalina.loader.WebappClassLoader.findResourceInternal(WebappClassLoader.java:1763)
+	at org.apache.catalina.loader.WebappClassLoader.findClassInternal(WebappClassLoader.java:1570)
+	at org.apache.catalina.loader.WebappClassLoader.findClass(WebappClassLoader.java:850)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1299)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1181)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:319)
+	at listeners.ContextListener.attributeReplaced(ContextListener.java:134)
+	at org.apache.catalina.core.ApplicationContext.setAttribute(ApplicationContext.java:780)
+	at org.apache.catalina.core.ApplicationContextFacade.setAttribute(ApplicationContextFacade.java:337)
+	at org.apache.catalina.core.StandardContext.postWelcomeFiles(StandardContext.java:4703)
+	at org.apache.catalina.core.StandardContext.removeWelcomeFile(StandardContext.java:3411)
+	at org.apache.catalina.startup.ContextConfig.stop(ContextConfig.java:1204)
+	at org.apache.catalina.startup.ContextConfig.lifecycleEvent(ContextConfig.java:271)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:4265)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:2924)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:403)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1276)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1568)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1557)
+	at java.lang.Thread.run(Thread.java:595)
+Sep 5, 2013 1:13:06 AM org.apache.catalina.core.ApplicationContext log
+SEVERE: Exception thrown by attributes event listener
+java.lang.NullPointerException
+	at org.apache.catalina.loader.WebappClassLoader.findResourceInternal(WebappClassLoader.java:1766)
+	at org.apache.catalina.loader.WebappClassLoader.findClassInternal(WebappClassLoader.java:1570)
+	at org.apache.catalina.loader.WebappClassLoader.findClass(WebappClassLoader.java:850)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1299)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1181)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:319)
+	at listeners.ContextListener.attributeReplaced(ContextListener.java:134)
+	at org.apache.catalina.core.ApplicationContext.setAttribute(ApplicationContext.java:780)
+	at org.apache.catalina.core.ApplicationContextFacade.setAttribute(ApplicationContextFacade.java:337)
+	at org.apache.catalina.core.StandardContext.postWelcomeFiles(StandardContext.java:4703)
+	at org.apache.catalina.core.StandardContext.removeWelcomeFile(StandardContext.java:3411)
+	at org.apache.catalina.startup.ContextConfig.stop(ContextConfig.java:1204)
+	at org.apache.catalina.startup.ContextConfig.lifecycleEvent(ContextConfig.java:271)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:4265)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:2924)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:403)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1276)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1568)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1557)
+	at java.lang.Thread.run(Thread.java:595)
+Sep 5, 2013 1:13:06 AM org.apache.catalina.loader.WebappClassLoader openJARs
+WARNING: Failed to open JAR
+java.util.zip.ZipException: error in opening zip file
+	at java.util.zip.ZipFile.open(Native Method)
+	at java.util.zip.ZipFile.<init>(ZipFile.java:203)
+	at java.util.jar.JarFile.<init>(JarFile.java:132)
+	at java.util.jar.JarFile.<init>(JarFile.java:97)
+	at org.apache.catalina.loader.WebappClassLoader.openJARs(WebappClassLoader.java:1544)
+	at org.apache.catalina.loader.WebappClassLoader.findResourceInternal(WebappClassLoader.java:1763)
+	at org.apache.catalina.loader.WebappClassLoader.findClassInternal(WebappClassLoader.java:1570)
+	at org.apache.catalina.loader.WebappClassLoader.findClass(WebappClassLoader.java:850)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1299)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1181)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:319)
+	at listeners.ContextListener.attributeReplaced(ContextListener.java:134)
+	at org.apache.catalina.core.ApplicationContext.setAttribute(ApplicationContext.java:780)
+	at org.apache.catalina.core.ApplicationContextFacade.setAttribute(ApplicationContextFacade.java:337)
+	at org.apache.catalina.core.StandardContext.postWelcomeFiles(StandardContext.java:4703)
+	at org.apache.catalina.core.StandardContext.removeWelcomeFile(StandardContext.java:3411)
+	at org.apache.catalina.startup.ContextConfig.stop(ContextConfig.java:1204)
+	at org.apache.catalina.startup.ContextConfig.lifecycleEvent(ContextConfig.java:271)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:4265)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:2924)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:403)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1276)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1568)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1557)
+	at java.lang.Thread.run(Thread.java:595)
+Sep 5, 2013 1:13:06 AM org.apache.catalina.core.ApplicationContext log
+SEVERE: Exception thrown by attributes event listener
+java.lang.NullPointerException
+	at org.apache.catalina.loader.WebappClassLoader.findResourceInternal(WebappClassLoader.java:1766)
+	at org.apache.catalina.loader.WebappClassLoader.findClassInternal(WebappClassLoader.java:1570)
+	at org.apache.catalina.loader.WebappClassLoader.findClass(WebappClassLoader.java:850)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1299)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1181)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:319)
+	at listeners.ContextListener.attributeReplaced(ContextListener.java:134)
+	at org.apache.catalina.core.ApplicationContext.setAttribute(ApplicationContext.java:780)
+	at org.apache.catalina.core.ApplicationContextFacade.setAttribute(ApplicationContextFacade.java:337)
+	at org.apache.catalina.core.StandardContext.postWelcomeFiles(StandardContext.java:4703)
+	at org.apache.catalina.core.StandardContext.removeWelcomeFile(StandardContext.java:3411)
+	at org.apache.catalina.startup.ContextConfig.stop(ContextConfig.java:1204)
+	at org.apache.catalina.startup.ContextConfig.lifecycleEvent(ContextConfig.java:271)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:4265)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:2924)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:403)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1276)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1568)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1557)
+	at java.lang.Thread.run(Thread.java:595)
+Sep 5, 2013 1:13:06 AM org.apache.catalina.loader.WebappClassLoader openJARs
+WARNING: Failed to open JAR
+java.util.zip.ZipException: error in opening zip file
+	at java.util.zip.ZipFile.open(Native Method)
+	at java.util.zip.ZipFile.<init>(ZipFile.java:203)
+	at java.util.jar.JarFile.<init>(JarFile.java:132)
+	at java.util.jar.JarFile.<init>(JarFile.java:97)
+	at org.apache.catalina.loader.WebappClassLoader.openJARs(WebappClassLoader.java:1544)
+	at org.apache.catalina.loader.WebappClassLoader.findResourceInternal(WebappClassLoader.java:1763)
+	at org.apache.catalina.loader.WebappClassLoader.findClassInternal(WebappClassLoader.java:1570)
+	at org.apache.catalina.loader.WebappClassLoader.findClass(WebappClassLoader.java:850)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1299)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1181)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:319)
+	at listeners.ContextListener.attributeReplaced(ContextListener.java:134)
+	at org.apache.catalina.core.ApplicationContext.setAttribute(ApplicationContext.java:780)
+	at org.apache.catalina.core.ApplicationContextFacade.setAttribute(ApplicationContextFacade.java:337)
+	at org.apache.catalina.core.StandardContext.postWelcomeFiles(StandardContext.java:4703)
+	at org.apache.catalina.core.StandardContext.removeWelcomeFile(StandardContext.java:3411)
+	at org.apache.catalina.startup.ContextConfig.stop(ContextConfig.java:1204)
+	at org.apache.catalina.startup.ContextConfig.lifecycleEvent(ContextConfig.java:271)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:4265)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:2924)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:403)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1276)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1568)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1557)
+	at java.lang.Thread.run(Thread.java:595)
+Sep 5, 2013 1:13:06 AM org.apache.catalina.core.ApplicationContext log
+SEVERE: Exception thrown by attributes event listener
+java.lang.NullPointerException
+	at org.apache.catalina.loader.WebappClassLoader.findResourceInternal(WebappClassLoader.java:1766)
+	at org.apache.catalina.loader.WebappClassLoader.findClassInternal(WebappClassLoader.java:1570)
+	at org.apache.catalina.loader.WebappClassLoader.findClass(WebappClassLoader.java:850)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1299)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1181)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:319)
+	at listeners.ContextListener.attributeReplaced(ContextListener.java:134)
+	at org.apache.catalina.core.ApplicationContext.setAttribute(ApplicationContext.java:780)
+	at org.apache.catalina.core.ApplicationContextFacade.setAttribute(ApplicationContextFacade.java:337)
+	at org.apache.catalina.core.StandardContext.postWelcomeFiles(StandardContext.java:4703)
+	at org.apache.catalina.core.StandardContext.removeWelcomeFile(StandardContext.java:3411)
+	at org.apache.catalina.startup.ContextConfig.stop(ContextConfig.java:1204)
+	at org.apache.catalina.startup.ContextConfig.lifecycleEvent(ContextConfig.java:271)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:4265)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:2924)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:403)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1276)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1568)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1557)
+	at java.lang.Thread.run(Thread.java:595)
+Sep 5, 2013 1:13:06 AM org.apache.catalina.core.ApplicationContext log
+INFO: SessionListener: contextDestroyed()
+Sep 5, 2013 1:13:06 AM org.apache.catalina.core.ApplicationContext log
+INFO: ContextListener: contextDestroyed()
+Sep 5, 2013 1:13:06 AM org.apache.catalina.startup.ContextConfig applicationWebConfig
+INFO: Missing application web.xml, using defaults only StandardEngine[Catalina].StandardHost[jpower.com.hk].StandardContext[]
+Sep 5, 2013 1:13:06 AM org.apache.catalina.core.StandardContext listenerStart
+SEVERE: Error configuring application listener of class listeners.ContextListener
+java.lang.ClassNotFoundException: listeners.ContextListener
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1332)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1181)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:3617)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4104)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:2930)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:403)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1276)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1568)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1557)
+	at java.lang.Thread.run(Thread.java:595)
+Sep 5, 2013 1:13:06 AM org.apache.catalina.core.StandardContext listenerStart
+SEVERE: Error configuring application listener of class listeners.SessionListener
+java.lang.ClassNotFoundException: listeners.SessionListener
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1332)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1181)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:3617)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4104)
+	at org.apache.catalina.core.StandardContext.reload(StandardContext.java:2930)
+	at org.apache.catalina.loader.WebappLoader.backgroundProcess(WebappLoader.java:403)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1276)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1568)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1577)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1557)
+	at java.lang.Thread.run(Thread.java:595)
+Sep 5, 2013 1:13:06 AM org.apache.catalina.core.StandardContext listenerStart
+SEVERE: Skipped installing application listeners due to previous error(s)
+Sep 5, 2013 1:13:06 AM org.apache.catalina.core.StandardContext start
+SEVERE: Error listenerStart
+Sep 5, 2013 1:13:06 AM org.apache.catalina.core.StandardContext start
+SEVERE: Context [] startup failed due to previous errors
