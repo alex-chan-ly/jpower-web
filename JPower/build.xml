@@ -3,6 +3,7 @@
 	<target name="build">
 		<war destfile="build/jpower.war"  webxml="web/WEB-INF/web.xml">
        	 <classes dir="bin"/>
+       	 <classes dir="resources"/>
          <lib dir="lib"/>
 		 <fileset dir="web/jsp"/>
 		 <fileset dir="web/html"/>
