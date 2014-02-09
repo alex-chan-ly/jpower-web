@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="build" name="JPower">
+	<target name="build">
+		<war destfile="build/jpower.war"  webxml="web/WEB-INF/web.xml">
+       	 <classes dir="bin"/>
+         <lib dir="lib"/>
+		 <fileset dir="web/jsp"/>
+		 <fileset dir="web/html"/>
+		 <zipfileset dir="web/css" prefix="css"/>
+		 <zipfileset dir="web/js"  prefix="js"/>
+		 <zipfileset dir="web/images"   prefix="images"/>
+		 <zipfileset dir="content"  prefix="content"/>
+		</war>
+	</target>
+
+</project>
