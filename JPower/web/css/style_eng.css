@@ -1769,3 +1769,95 @@ z-index:1000;
 	height: 179px;
 	width: 163px;
 }
+
+/* Tile Art */
+.app-tileart-frame {
+	float: left;
+	height: auto;
+	width: 800px;
+	margin-right: 0px;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	border-top-width: 1px;
+	border-bottom-width: 0px;
+}
+
+.big-photo-frame2 {
+	float: left;
+	height: auto;
+	width: 378px;
+	margin-right: 0px;
+	margin-left: 10px;
+	margin-top: 0px;
+	margin-bottom: 1px;
+}
+
+.big-photo-frame-inside-2 {
+	float: left;
+	height: auto;
+	width: 495px;
+	margin: 0px;
+	padding: 20px;
+}
+
+.big-photo-right-frame2 {
+	float: right;
+	min-height: 700px;
+	height:auto;
+	width: 380px;
+	padding:10px 0;
+	clear: none;
+}
+
+.photo-inside-1-tile {
+	float: left;
+	height: 210px;
+	width: 178px;
+	margin-right: 11px;
+	margin-bottom: 25px;
+	clear: none;
+}
+.photo-inside-1-tile:hover {
+	height: 204px;
+	width: 172px;
+	border:3px solid #c06465;
+}
+
+.photo-inside-1-tile:hover .photo-inside-2-tile {
+	padding:6px 6px 9px;
+}
+
+.photo-inside-1-tile:hover .photo-inside-caption-tile {
+	margin-right: 6px;
+	margin-left: 6px;
+}
+
+.photo-inside-2-tile {
+	padding: 9px;
+	float: left;
+	height: 160px;
+	width: 160px;
+}
+.photo-inside-1-tile:hover .photo-inside-2-tile {
+	padding:6px 6px 9px;
+}
+
+.photo-inside-caption-tile {
+	float: left;
+	width: 160px;
+	margin-right: 9px;
+	margin-left: 9px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #CCC;
+	font-family: calibri, Arial, verdana, san-serif;
+	font-size: 14px;
+	line-height: 24px;
+	font-weight: normal;
+	color: #999;
+}
+.photo-inside-1-tile:hover .photo-inside-caption-tile {
+	margin-right: 6px;
+	margin-left: 6px;
+}
