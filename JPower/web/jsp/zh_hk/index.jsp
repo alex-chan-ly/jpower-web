@@ -133,7 +133,7 @@ $(document).ready(function () {
 <ul>
 <li style='background-color:#ffffff;'><a href="index.jsp?page=residential">住宅</a></li>
 <li style='background-color:#ffffff;'><a href="index.jsp?page=commercial">商業</a></licatPK>
-<li style='background-color:#ffffff;'><a href="index.jsp?page=comingsoon">磁磚藝術</a></li>
+<li style='background-color:#ffffff;'><a href="index.jsp?page=tile_art">磁磚藝術</a></li>
 </ul>
 </li>
 </ul></div>
@@ -182,7 +182,8 @@ $(document).ready(function () {
   	} else {
   		String pageName = null;
   		if(	(item.equals("residential")) || (item.equals("residential_2")) || (item.equals("residential_3")) ||
-  			(item.equals("commercial")) || (item.equals("commercial_2")) || (item.equals("commercial_3")) ){
+  			(item.equals("commercial")) || (item.equals("commercial_2")) || (item.equals("commercial_3")) ||
+  			(item.equals("tile_art"))	){
 			pageName = item + ".jsp";
   		} else {
   			pageName = item + ".html";
