@@ -9,15 +9,15 @@ public class TileArtPhotoFramePage implements PhotoFramePage {
 		String content = "<div class=\"app-tileart-frame\">\n";
 		
 		content = content + "<div class=\"big-photo-frame2\">\n";
-		content = content +  "<div class=\"big-photo-frame-inside-2\"><img src=\"content/storage/tile_art/1/application-tileart-bigphoto1.jpg\" width=\"365\" height=\"365\" name=\"showImage\" id=\"showImage\" /><br />\n";
+		content = content +  "<div class=\"big-photo-frame-inside-2\"><img src=\"content/storage/tile_art/1/application-tileart-1.png\" width=\"365\" height=\"365\" name=\"showImage\" id=\"showImage\" /><br />\n";
 		content = content + "<img src=\"content/storage/tile_art/1/application-tileart-bigphoto_title.jpg\" width=\"365\" /></div>\n";
 		content = content + "</div>\n";
 		
 		content = content + "<div class=\"big-photo-right-frame2\">\n";
 		for(int i = 0 ; i < name.length ; i++) {
 			content = content + "<div class=\"photo-inside-1-tile\">\n";
-			content = content + "<div class=\"photo-inside-2-tile\"><img src=\"content/storage/tile_art/1/collection-sample-pic.jpg\" width=\"160\" height=\"160\" onMouseOver=\"$('#showImage').attr('src','content/storage/tile_art/1/application-tileart-bigphoto" + (i+1) + ".jpg');\" /></div>\n";
-			content = content + "<div class=\"photo-inside-caption-tile\">" + name[i] + "</div>\n";
+			content = content + "<div class=\"photo-inside-2-tile\"><img src=\"content/storage/tile_art/1/application-tileart-" + (i+1) + ".png\" width=\"160\" height=\"160\" onMouseOver=\"$('#showImage').attr('src','content/storage/tile_art/1/application-tileart-" + (i+1) + ".png');\" /></div>\n";
+			//content = content + "<div class=\"photo-inside-caption-tile\">" + name[i] + "</div>\n";
 			content = content + "</div>\n";
 		}
 		content = content + "</div>\n";
@@ -36,15 +36,15 @@ public class TileArtPhotoFramePage implements PhotoFramePage {
 		String content = "<div class=\"app-tileart-frame\">\n";
 		
 		content = content + "<div class=\"big-photo-frame2\">\n";
-		content = content +  "<div class=\"big-photo-frame-inside-2\"><img src=\"../content/storage/tile_art/1/application-tileart-bigphoto1.jpg\" width=\"365\" height=\"365\" name=\"showImage\" id=\"showImage\" /><br />\n";
+		content = content +  "<div class=\"big-photo-frame-inside-2\"><img src=\"../content/storage/tile_art/1/application-tileart-1.png\" width=\"365\" height=\"365\" name=\"showImage\" id=\"showImage\" /><br />\n";
 		content = content + "<img src=\"../content/storage/tile_art/1/application-tileart-bigphoto_title.jpg\" width=\"365\" /></div>\n";
 		content = content + "</div>\n";
 		
 		content = content + "<div class=\"big-photo-right-frame2\">\n";
 		for(int i = 0 ; i < name.length ; i++) {
 			content = content + "<div class=\"photo-inside-1-tile\">\n";
-			content = content + "<div class=\"photo-inside-2-tile\"><img src=\"../content/storage/tile_art/1/collection-sample-pic.jpg\" width=\"160\" height=\"160\" onMouseOver=\"$('#showImage').attr('src','../content/storage/tile_art/1/application-tileart-bigphoto" + (i+1) + ".jpg');\" /></div>\n";
-			content = content + "<div class=\"photo-inside-caption-tile\">" + name[i] + "</div>\n";
+			content = content + "<div class=\"photo-inside-2-tile\"><img src=\"../content/storage/tile_art/1/application-tileart-" + (i+1) + ".png\" width=\"160\" height=\"160\" onMouseOver=\"$('#showImage').attr('src','../content/storage/tile_art/1/application-tileart-" + (i+1) + ".png');\" /></div>\n";
+			//content = content + "<div class=\"photo-inside-caption-tile\">" + name[i] + "</div>\n";
 			content = content + "</div>\n";
 		}
 		content = content + "</div>\n";
