@@ -4,7 +4,9 @@
 		<war destfile="build/jpower.war"  webxml="web/WEB-INF/web.xml">
        	 <classes dir="bin"/>
        	 <classes dir="resources"/>
-         <lib dir="lib"/>
+         <lib dir="lib">
+         	<exclude name="jxl.jar"/>
+         </lib>
 		 <fileset dir="web/jsp"/>
 		 <fileset dir="web/html"/>
 		 <zipfileset dir="web/css" prefix="css"/>
