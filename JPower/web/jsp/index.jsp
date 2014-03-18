@@ -84,7 +84,7 @@ $(document).ready(function () {
 </script>
 
 <input type=hidden name=arav value="1*#*#*2"><ul id='nav'>
-<li> <a href="index.jsp?page=comingsoon"><img src="images/menu-1_03.png" height="20" id="Image3" onmouseover="MM_swapImage('Image3','','images/menu-2_03.png',1)" onmouseout="MM_swapImgRestore()" /></a>
+<li> <a href="index.jsp?page=collection"><img src="images/menu-1_03.png" height="20" id="Image3" onmouseover="MM_swapImage('Image3','','images/menu-2_03.png',1)" onmouseout="MM_swapImgRestore()" /></a>
 <ul>
 <!--  
 <li style='background-color:#ffffff;'><a href="index.jsp?page=comingsoon">Collection</a></li>
@@ -173,7 +173,8 @@ $(document).ready(function () {
   		String pageName = null;
   		if(	(item.equals("residential")) || (item.equals("residential_2")) || (item.equals("residential_3")) ||
   			(item.equals("commercial")) || (item.equals("commercial_2")) || (item.equals("commercial_3")) ||
-  			(item.equals("tile_art"))	){
+  			(item.equals("tile_art"))	||
+  			(item.equals("collection"))	){
  				pageName = item + ".jsp";
   		} else {
   			pageName = item + ".html";

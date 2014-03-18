@@ -1861,3 +1861,21 @@ z-index:1000;
 	margin-right: 6px;
 	margin-left: 6px;
 }
+
+
+/* Collection */
+.collection-top-banner {
+	background-attachment: scroll;
+	background-image: url(../images/collection-banner.jpg);
+	background-repeat: no-repeat;
+	background-position: center top;
+	height: 156px;
+	width: 800px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCC;
+	float: left;
+	margin-top: 7px;
+}
+
+
