@@ -1879,3 +1879,100 @@ z-index:1000;
 }
 
 
+.collection-submenu {
+	font-family: calibri, Arial, verdana, san-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: normal;
+	color: #999;
+	float: left;
+	height: 30px;
+	width: 700px;
+	margin-left: 27px;
+	margin-top: 20px;
+}
+
+.collection-subtitle {
+	font-family: calibri, Arial, verdana, san-serif;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: bold;
+	color: #000;
+	float: left;
+	height: 30px;
+	width: 700px;
+	margin-left: 27px;
+	margin-top: 10px;
+}
+
+.collection-susubbtitle {
+	font-family: calibri, Arial, verdana, san-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: bold;
+	color: #333;
+	float: left;
+	height: 30px;
+	width: 773px;
+	background-color: #e9f3f3;
+	padding-left: 27px;
+	line-height: 30px;
+	margin-top: 10px;
+}
+
+.sp-frame {
+	float: left;
+	height: auto;
+	width: 779px;
+	margin-right: 0px;
+	margin-left: 21px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.sp-inside-1 {
+	float: left;
+	height: 104px;
+	width: 84px;
+	margin-right: 12px;
+	margin-bottom: 17px;
+	clear: none;
+}
+.sp-inside-1:hover {
+	height: 98px;
+	width: 78px;
+	margin-right: 12px;
+	margin-bottom: 17px;
+	border:3px solid #c5ed9f;
+}
+
+.sp-inside-1:hover .sp-inside-2 {
+	margin: 4px 4px 7px;
+}
+
+.sp-inside-1:hover .sp-inside-caption {
+	width: 70px;
+	margin-right: 4px;
+	margin-left: 4px;
+}
+
+.sp-inside-2 {
+	padding: 0px;
+	float: left;
+	height: 70px;
+	width: 70px;
+	margin: 7px;
+}
+
+.sp-inside-caption {
+	float: left;
+	width: 70px;
+	margin-right: 7px;
+	margin-left: 7px;
+	font-family: calibri, Arial, verdana, san-serif;
+	font-size: 14px;
+	line-height: 18px;
+	font-weight: normal;
+	color: #999;
+	text-align: center;
+}

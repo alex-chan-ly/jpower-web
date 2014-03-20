@@ -174,7 +174,7 @@ $(document).ready(function () {
   		if(	(item.equals("residential")) || (item.equals("residential_2")) || (item.equals("residential_3")) ||
   			(item.equals("commercial")) || (item.equals("commercial_2")) || (item.equals("commercial_3")) ||
   			(item.equals("tile_art"))	||
-  			(item.equals("collection"))	){
+  			(item.equals("collection"))	|| (item.equals("collection_2"))	){
  				pageName = item + ".jsp";
   		} else {
   			pageName = item + ".html";
