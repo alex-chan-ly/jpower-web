@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<packages version="1.3">
+  <package exploded="false" inWorkspace="false" name="jpower.war" todir="/home/benson/Project/JPower/build" type="jar">
+    <fileset dir="/home/benson/Project/JPower/web/jsp" flatten="false" inWorkspace="false" includes="*.jsp">
+      <properties/>
+    </fileset>
+    <folder name="css">
+      <properties/>
+    </folder>
+    <folder name="js">
+      <properties/>
+    </folder>
+    <folder name="images">
+      <properties/>
+    </folder>
+    <folder name="WEB-INF">
+      <properties/>
+    </folder>
+    <properties>
+      <property name="org.jboss.ide.eclipse.as.core.packages.ModuleIDPropertyKey" value="1376673754907616117213318890031483"/>
+    </properties>
+  </package>
+  <properties/>
+</packages>
