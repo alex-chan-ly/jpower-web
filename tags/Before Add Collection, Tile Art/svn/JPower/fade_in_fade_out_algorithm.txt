@@ -1,0 +1,18 @@
+Based on the website http://css3.bradshawenterprises.com/cfimg/   , Demo with multiple pages.
+
+The current figure of JPower website :
+presentation time for one image=a=3s
+duration for cross fading=b=1s
+total animation-duration=t=(3+1)*5 = 20s   (assume 5 images)
+
+animation-delay=t=3+1=4s
+
+
+Percentage for keyframes
+
+1. 0%
+2. 15%
+3. 20%
+4. 95%
+5. 100%
+
