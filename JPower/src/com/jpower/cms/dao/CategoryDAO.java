@@ -47,7 +47,10 @@ public class CategoryDAO {
 	
 	public static String sql6 = "insert into jpt_log (ref_no, severity, category, log_message, remarks_1, create_date, update_date) "
 			+ "select TRIM(CAST(CAST(? AS CHAR(10))AS VARCHAR(10))), 'Info', 'ADDITION-CATEGORY_IMAGE_FILE', "
-			+ "copy_file(?, ?, cat.category_image, ? || (case when upper(lob.sub_lob_id) = 'COMMERCIAL' then 'commercial/1' else (case when upper(lob.sub_lob_id) = 'RESIDENTIAL' then 'residential/1' end) end), cat.category_image), "
+//			+ "copy_file(?, ?, cat.category_image, ? || (case when upper(lob.sub_lob_id) = 'COMMERCIAL' then 'commercial/1' else (case when upper(lob.sub_lob_id) = 'RESIDENTIAL' then 'residential/1' end) end), cat.category_image), "
+			+ "copy_file(?, ?, cat.category_image, ? || (case when upper(lob.sub_lob_id) = 'COMMERCIAL' then 'commercial/1' when upper(lob.sub_lob_id) = 'RESIDENTIAL' then 'residential/1' when upper(lob.sub_lob_id) = 'COLLECTION' then 'collection/1' when upper(lob.sub_lob_id) = 'TILE-ART' then 'tile-art/1' end), cat.category_image), "			
+//			+ "copy_file(?, ?, cat.category_image, ? || (case when upper(lob.sub_lob_id) = 'COMMERCIAL' then 'commercial/1' else (case when upper(lob.sub_lob_id) = 'RESIDENTIAL' then 'residential/1' else (case when upper(lob.sub_lob_id) = 'COLLECTION' then 'collection/1' end) end), cat.category_image), "			
+//			+ "copy_file(?, ?, cat.category_image, ? || (case when upper(lob.sub_lob_id) = 'COMMERCIAL' then 'commercial/1' else (case when upper(lob.sub_lob_id) = 'RESIDENTIAL' then 'residential/1' else (case when upper(lob.sub_lob_id) = 'COLLECTION' then 'collection/1' end)) end), cat.category_image), "
 			+ "'Image file being added', current_timestamp, current_timestamp from jpt_category cat, jpt_rlt_lob_category lob_cat, "
 			+ "jpt_lob lob where cat.rec_status = 'ACT' and cat.ref_idx = ? and cat.category_pk = lob_cat.category_pk and lob_cat.lob_pk = lob.lob_pk";
 

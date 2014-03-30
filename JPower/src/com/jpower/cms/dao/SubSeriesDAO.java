@@ -24,8 +24,9 @@ public class SubSeriesDAO {
 			+ "'Sub Series ID : ' || sub_series_id || '; Material_ID : ' || material_id || ' being marked deletion', '', current_timestamp, current_timestamp from jpt_sub_series where rec_status = 'DEL' and ref_idx = ?";	
 			
 	public static String sql3 = "insert into jpt_sub_series (ref_idx, sub_series_id, material_id, sub_series_image_small, sub_series_image_large, "
-		+ "rec_status, create_date, update_date, create_user, update_user) "
-		+ "select app.ref_idx, app.sub_series, app.sub_series_id, app.sub_series_image_small, app.sub_series_image_large, 'ACT', "
+		+ "sub_series_label_eng, sub_series_label_chin, rec_status, create_date, update_date, create_user, update_user) "
+		+ "select app.ref_idx, app.sub_series, app.sub_series_id, app.sub_series_image_small, app.sub_series_image_large, "
+		+ "app.sub_series_label_eng, app.sub_series_label_chin, 'ACT', "
 		+ "current_timestamp, current_timestamp, 'john', 'john' from jpw_application app where app.tran_action = 'ADD' and app.tran_status = 'AWV' and app.ref_idx = ? "
 		+ "and not exists (select * from jpt_sub_series ss where ss.material_id = app.sub_series_id and ss.rec_status = 'ACT')";
 	
@@ -36,7 +37,8 @@ public class SubSeriesDAO {
 	
 	public static String sql5 = "insert into jpt_log (ref_no, severity, category, log_message, remarks_1, create_date, update_date) "
 			+ "select TRIM(CAST(CAST(? AS CHAR(10))AS VARCHAR(10))), 'Info', 'DELETION-SUB_SERIES_SMALL_IMAGE_FILE', "
-			+ "purge_file(?, (case when upper(lob.sub_lob_id) = 'COMMERCIAL' then 'commercial/3' else (case when upper(lob.sub_lob_id) = 'RESIDENTIAL' then 'residential/3' end) end), "
+//			+ "purge_file(?, (case when upper(lob.sub_lob_id) = 'COMMERCIAL' then 'commercial/3' else (case when upper(lob.sub_lob_id) = 'RESIDENTIAL' then 'residential/3' end) end), "
+			+ "purge_file(?, (case when upper(lob.sub_lob_id) = 'COMMERCIAL' then 'commercial/3' when upper(lob.sub_lob_id) = 'RESIDENTIAL' then 'residential/3' when upper(lob.sub_lob_id) = 'COLLECTION' then 'collection/3' when upper(lob.sub_lob_id) = 'TILE-ART' then 'tile-art/3' end), "
 			+ "sub_ser.sub_series_image_small), 'Small image file being purged', " 
 			+ "current_timestamp, current_timestamp from jpt_sub_series sub_ser, jpt_rlt_series_sub_series rlt_ser_sub_ser, jpt_series ser, "
 			+ "jpt_rlt_category_series cat_ser, jpt_category cat, jpt_rlt_lob_category lob_cat, jpt_lob lob "
@@ -46,7 +48,8 @@ public class SubSeriesDAO {
 	
 	public static String sql6 = "insert into jpt_log (ref_no, severity, category, log_message, remarks_1, create_date, update_date) "
 			+ "select TRIM(CAST(CAST(? AS CHAR(10))AS VARCHAR(10))), 'Info', 'DELETION-SUB_SERIES_LARGE_IMAGE_FILE', "
-			+ "purge_file(?, (case when upper(lob.sub_lob_id) = 'COMMERCIAL' then 'commercial/3' else (case when upper(lob.sub_lob_id) = 'RESIDENTIAL' then 'residential/3' end) end), "
+//			+ "purge_file(?, (case when upper(lob.sub_lob_id) = 'COMMERCIAL' then 'commercial/3' else (case when upper(lob.sub_lob_id) = 'RESIDENTIAL' then 'residential/3' end) end), "
+			+ "purge_file(?, (case when upper(lob.sub_lob_id) = 'COMMERCIAL' then 'commercial/3' when upper(lob.sub_lob_id) = 'RESIDENTIAL' then 'residential/3' when upper(lob.sub_lob_id) = 'COLLECTION' then 'collection/3' when upper(lob.sub_lob_id) = 'TILE-ART' then 'tile-art/3' end), "
 			+ "sub_ser.sub_series_image_large), 'Large image file being purged', " 
 			+ "current_timestamp, current_timestamp from jpt_sub_series sub_ser, jpt_rlt_series_sub_series rlt_ser_sub_ser, jpt_series ser, "
 			+ "jpt_rlt_category_series cat_ser, jpt_category cat, jpt_rlt_lob_category lob_cat, jpt_lob lob "
@@ -56,7 +59,8 @@ public class SubSeriesDAO {
 	
 	public static String sql7 = "insert into jpt_log (ref_no, severity, category, log_message, remarks_1, create_date, update_date) "
 			+ "select TRIM(CAST(CAST(? AS CHAR(10))AS VARCHAR(10))), 'Info', 'ADDITION-SUB_SERIES_SMALL_IMAGE_FILE', "
-			+ "copy_file(?, ?, sub_ser.sub_series_image_small, ? || (case when upper(lob.sub_lob_id) = 'COMMERCIAL' then 'commercial/3' else (case when upper(lob.sub_lob_id) = 'RESIDENTIAL' then 'residential/3' end) end), sub_ser.sub_series_image_small), "
+//			+ "copy_file(?, ?, sub_ser.sub_series_image_small, ? || (case when upper(lob.sub_lob_id) = 'COMMERCIAL' then 'commercial/3' else (case when upper(lob.sub_lob_id) = 'RESIDENTIAL' then 'residential/3' end) end), sub_ser.sub_series_image_small), "
+			+ "copy_file(?, ?, sub_ser.sub_series_image_small, ? || (case when upper(lob.sub_lob_id) = 'COMMERCIAL' then 'commercial/3' when upper(lob.sub_lob_id) = 'RESIDENTIAL' then 'residential/3' when upper(lob.sub_lob_id) = 'COLLECTION' then 'collection/3' when upper(lob.sub_lob_id) = 'TILE-ART' then 'tile-art/3' end), sub_ser.sub_series_image_small), "
 			+ "'Small image file being added', " 
 			+ "current_timestamp, current_timestamp from jpt_sub_series sub_ser, jpt_rlt_series_sub_series rlt_ser_sub_ser, jpt_series ser, "
 			+ "jpt_rlt_category_series cat_ser, jpt_category cat, jpt_rlt_lob_category lob_cat, jpt_lob lob "
@@ -66,7 +70,8 @@ public class SubSeriesDAO {
 	
 	public static String sql8 = "insert into jpt_log (ref_no, severity, category, log_message, remarks_1, create_date, update_date) "
 			+ "select TRIM(CAST(CAST(? AS CHAR(10))AS VARCHAR(10))), 'Info', 'ADDITION-SUB_SERIES_LARGE_IMAGE_FILE', "
-			+ "copy_file(?, ?, sub_ser.sub_series_image_large, ? || (case when upper(lob.sub_lob_id) = 'COMMERCIAL' then 'commercial/3' else (case when upper(lob.sub_lob_id) = 'RESIDENTIAL' then 'residential/3' end) end), sub_ser.sub_series_image_large), "
+//			+ "copy_file(?, ?, sub_ser.sub_series_image_large, ? || (case when upper(lob.sub_lob_id) = 'COMMERCIAL' then 'commercial/3' else (case when upper(lob.sub_lob_id) = 'RESIDENTIAL' then 'residential/3' end) end), sub_ser.sub_series_image_large), "
+			+ "copy_file(?, ?, sub_ser.sub_series_image_large, ? || (case when upper(lob.sub_lob_id) = 'COMMERCIAL' then 'commercial/3' when upper(lob.sub_lob_id) = 'RESIDENTIAL' then 'residential/3' when upper(lob.sub_lob_id) = 'COLLECTION' then 'collection/3' when upper(lob.sub_lob_id) = 'TILE-ART' then 'tile-art/3' end), sub_ser.sub_series_image_large), "			
 			+ "'Large image file being added', " 
 			+ "current_timestamp, current_timestamp from jpt_sub_series sub_ser, jpt_rlt_series_sub_series rlt_ser_sub_ser, jpt_series ser, "
 			+ "jpt_rlt_category_series cat_ser, jpt_category cat, jpt_rlt_lob_category lob_cat, jpt_lob lob "

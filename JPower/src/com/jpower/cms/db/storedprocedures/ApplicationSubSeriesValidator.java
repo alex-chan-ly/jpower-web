@@ -144,6 +144,7 @@ public class ApplicationSubSeriesValidator {
 		sb.append("'Sub series large image file name contain space character - ' || a.sub_series_image_large || ', Excel row number : ' || TRIM(CAST(CAST(a.excel_row_id AS CHAR(10)) AS VARCHAR(10))), ");
 		sb.append("a.excel_row_data, current_timestamp,current_timestamp from jpw_application a where a.ref_idx = ? and locate(' ', a.sub_series_image_large) > 0");
 
+
 		try {
 			conn = DBAccess.getDBConnection();
 			ps1 = conn.prepareStatement(sb.toString());
@@ -174,7 +175,7 @@ public class ApplicationSubSeriesValidator {
 		sb.append("insert into jpt_log(ref_no, severity, category, log_message, remarks_1, create_date, update_date) ");
 		sb.append("select TRIM(CAST(CAST(a.ref_idx AS CHAR(10)) AS VARCHAR(10))), 'Error', 'UPLOAD-APPLICATION', ");
 		sb.append("'Sub series small image file name not found within upload package - ' || a.sub_series_image_small || ', Excel row number : ' || TRIM(CAST(CAST(a.excel_row_id AS CHAR(10)) AS VARCHAR(10))), ");
-		sb.append("a.excel_row_data, current_timestamp,current_timestamp from jpw_application a where a.ref_idx = ? and tran_action = 'ADD' ");
+		sb.append("a.excel_row_data, current_timestamp,current_timestamp from jpw_application a where a.ref_idx = ? and a.tran_action = 'ADD' ");
 		sb.append("and is_file_exists(?, ?, a.sub_series_image_small) = -1");
 
 		try {
@@ -209,7 +210,7 @@ public class ApplicationSubSeriesValidator {
 		sb.append("insert into jpt_log(ref_no, severity, category, log_message, remarks_1, create_date, update_date) ");
 		sb.append("select TRIM(CAST(CAST(a.ref_idx AS CHAR(10)) AS VARCHAR(10))), 'Error', 'UPLOAD-APPLICATION', ");
 		sb.append("'Sub series large image file name not found within upload package - ' || a.sub_series_image_large || ', Excel row number : ' || TRIM(CAST(CAST(a.excel_row_id AS CHAR(10)) AS VARCHAR(10))), ");
-		sb.append("a.excel_row_data, current_timestamp,current_timestamp from jpw_application a where a.ref_idx = ? and tran_action = 'ADD' ");
+		sb.append("a.excel_row_data, current_timestamp,current_timestamp from jpw_application a where a.ref_idx = ? and a.tran_action = 'ADD' ");
 		sb.append("and is_file_exists(?, ?, a.sub_series_image_large) = -1");
 
 		try {

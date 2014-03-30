@@ -20,6 +20,8 @@ public class InventoryApplicationVO {
 	private String seriesImageLargePath;
 	private String subSeries;
 	private short subSeriesSeq;
+	private String subSeriesLabelEng;
+	private String subSeriesLabelChin;
 	private String subSeriesID;
 	private String subSeriesImageSmallPath;
 	private String subSeriesImageLargePath;
@@ -200,6 +202,18 @@ public class InventoryApplicationVO {
 	public void setSubLobLabelChin(String subLobLabelChin) {
 		this.subLobLabelChin = subLobLabelChin;
 	}
+	public String getSubSeriesLabelEng() {
+		return subSeriesLabelEng;
+	}
+	public void setSubSeriesLabelEng(String subSeriesLabelEng) {
+		this.subSeriesLabelEng = subSeriesLabelEng;
+	}
+	public String getSubSeriesLabelChin() {
+		return subSeriesLabelChin;
+	}
+	public void setSubSeriesLabelChin(String subSeriesLabelChin) {
+		this.subSeriesLabelChin = subSeriesLabelChin;
+	}
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
 		sb.append(getLob());
@@ -237,6 +251,10 @@ public class InventoryApplicationVO {
 		sb.append(getSubSeries());
 		sb.append("|");
 		sb.append(getSubSeriesSeq());
+		sb.append("|");
+		sb.append(getSubSeriesLabelEng());
+		sb.append("|");
+		sb.append(getSubSeriesLabelChin());
 		sb.append("|");
 		sb.append(getSubSeriesID());
 		sb.append("|");

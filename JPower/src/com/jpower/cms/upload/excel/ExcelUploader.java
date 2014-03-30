@@ -230,13 +230,15 @@ public class ExcelUploader {
 	public static void main(String[] args) {
 		int rtnCode = 0;
 		
-		String fileName = "jpower-phase-2-19012014.xls";
+//		String fileName = "jpower-phase-2-19012014.xls";
+		String fileName = "jpowerWeb-20140305.xls";
 		String zipFileName = "website_26012014.zip";
 
 		String fullPath = stagingHome + File.separator + stagingDir
 				+ File.separator + fileName;
-		
-		preUpload(zipFileName);		
+
+		// 	Comment out for testing on add Collection		
+//		preUpload(zipFileName);		
 		
 		rtnCode = process(fullPath);
 		System.out.println("rtnCode : " + rtnCode + ", refIdx : " + MemCache.getUploadSeq());

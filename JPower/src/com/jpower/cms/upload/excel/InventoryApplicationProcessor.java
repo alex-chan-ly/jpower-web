@@ -29,7 +29,8 @@ public class InventoryApplicationProcessor {
 		, "Category-Label-Chin", "Category-Image", "Action", "Series"
 		, "Series-Sequence", "Series-Label-Eng", "Series-Label-Chin"
 		, "Series-Image-Small", "Series-Image-Large", "Sub-Series"
-		, "Sub-Series-Sequence", "Sub-Series-ID", "Sub-Series-Image-Small"
+		, "Sub-Series-Sequence", "Sub-Series-Label-Eng", "Sub-Series-Label-Chin"
+		, "Sub-Series-ID", "Sub-Series-Image-Small"
 		, "Sub-Series-Image-Large"};
 	
 	private static void generateInventoryApplicationHeaderRow(WritableSheet ws) {
@@ -88,6 +89,8 @@ public class InventoryApplicationProcessor {
 		vo.setSeriesImageLargePath(row[columnIndex++].getContents());
 		vo.setSubSeries(row[columnIndex++].getContents());
 		vo.setSubSeriesSeq(Short.parseShort(row[columnIndex++].getContents()));
+		vo.setSubSeriesLabelEng(row[columnIndex++].getContents());
+		vo.setSubSeriesLabelChin(row[columnIndex++].getContents());
 		vo.setSubSeriesID(row[columnIndex++].getContents());
 		vo.setSubSeriesImageSmallPath(row[columnIndex++].getContents());
 		vo.setSubSeriesImageLargePath(row[columnIndex++].getContents());
@@ -143,12 +146,16 @@ public class InventoryApplicationProcessor {
 				ws.addCell(lbl15);				
 				Number num3 = new Number(17, rowNum, vo.getSubSeriesSeq());
 				ws.addCell(num3);				
-				Label lbl16 = new Label(18, rowNum, vo.getSubSeriesID());
+				Label lbl16 = new Label(18, rowNum, vo.getSubSeriesLabelEng());
 				ws.addCell(lbl16);
-				Label lbl17 = new Label(19, rowNum, vo.getSubSeriesImageSmallPath());
+				Label lbl17 = new Label(19, rowNum, vo.getSubSeriesLabelChin());
 				ws.addCell(lbl17);
-				Label lbl18 = new Label(20, rowNum, vo.getSubSeriesImageLargePath());
-				ws.addCell(lbl18);								
+				Label lbl18 = new Label(20, rowNum, vo.getSubSeriesID());
+				ws.addCell(lbl18);
+				Label lbl19 = new Label(21, rowNum, vo.getSubSeriesImageSmallPath());
+				ws.addCell(lbl19);
+				Label lbl20 = new Label(22, rowNum, vo.getSubSeriesImageLargePath());
+				ws.addCell(lbl20);								
 			} catch (RowsExceededException e) {
 				e.printStackTrace();
 				rtnCode = -1;

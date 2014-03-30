@@ -125,7 +125,8 @@ public class ApplicationSeriesValidator {
 		sb.append("insert into jpt_log(ref_no, severity, category, log_message, remarks_1, create_date, update_date) ");
 		sb.append("select TRIM(CAST(CAST(a.ref_idx AS CHAR(10)) AS VARCHAR(10))), 'Error', 'UPLOAD-APPLICATION', ");
 		sb.append("'Series small image file name contain space character - ' || a.series_image_small || ', Excel row number : ' || TRIM(CAST(CAST(a.excel_row_id AS CHAR(10)) AS VARCHAR(10))), ");
-		sb.append("a.excel_row_data, current_timestamp,current_timestamp from jpw_application a where a.ref_idx = ? and locate(' ', a.series_image_small) > 0");
+//		sb.append("a.excel_row_data, current_timestamp,current_timestamp from jpw_application a where a.ref_idx = ? and locate(' ', a.series_image_small) > 0");
+		sb.append("a.excel_row_data, current_timestamp,current_timestamp from jpw_application a where a.ref_idx = ? and (upper(a.lob) <> 'COLLECTION' and upper(a.lob) <> 'TILE-ART') and locate(' ', a.series_image_small) > 0");
 
 		try {
 			conn = DBAccess.getDBConnection();
@@ -157,7 +158,8 @@ public class ApplicationSeriesValidator {
 		sb.append("insert into jpt_log(ref_no, severity, category, log_message, remarks_1, create_date, update_date) ");
 		sb.append("select TRIM(CAST(CAST(a.ref_idx AS CHAR(10)) AS VARCHAR(10))), 'Error', 'UPLOAD-APPLICATION', ");
 		sb.append("'Series large image file name contain space character - ' || a.series_image_large || ', Excel row number : ' || TRIM(CAST(CAST(a.excel_row_id AS CHAR(10)) AS VARCHAR(10))), ");
-		sb.append("a.excel_row_data, current_timestamp,current_timestamp from jpw_application a where a.ref_idx = ? and locate(' ', a.series_image_large) > 0");
+//		sb.append("a.excel_row_data, current_timestamp,current_timestamp from jpw_application a where a.ref_idx = ? and locate(' ', a.series_image_large) > 0");
+		sb.append("a.excel_row_data, current_timestamp,current_timestamp from jpw_application a where a.ref_idx = ? and (upper(a.lob) <> 'COLLECTION' and upper(a.lob) <> 'TILE-ART') and locate(' ', a.series_image_large) > 0");
 
 		try {
 			conn = DBAccess.getDBConnection();
@@ -189,7 +191,8 @@ public class ApplicationSeriesValidator {
 		sb.append("insert into jpt_log(ref_no, severity, category, log_message, remarks_1, create_date, update_date) ");
 		sb.append("select TRIM(CAST(CAST(a.ref_idx AS CHAR(10)) AS VARCHAR(10))), 'Error', 'UPLOAD-APPLICATION', ");
 		sb.append("'Series small image file name not found within upload package - ' || a.series_image_small || ', Excel row number : ' || TRIM(CAST(CAST(a.excel_row_id AS CHAR(10)) AS VARCHAR(10))), ");
-		sb.append("a.excel_row_data, current_timestamp,current_timestamp from jpw_application a where a.ref_idx = ? and tran_action = 'ADD' ");
+//		sb.append("a.excel_row_data, current_timestamp,current_timestamp from jpw_application a where a.ref_idx = ? and a.tran_action = 'ADD' ");
+		sb.append("a.excel_row_data, current_timestamp,current_timestamp from jpw_application a where a.ref_idx = ? and (upper(a.lob) <> 'COLLECTION' and upper(a.lob) <> 'TILE-ART') and a.tran_action = 'ADD' ");
 		sb.append("and is_file_exists(?, ?, a.series_image_small) = -1");
 
 		try {
@@ -224,7 +227,8 @@ public class ApplicationSeriesValidator {
 		sb.append("insert into jpt_log(ref_no, severity, category, log_message, remarks_1, create_date, update_date) ");
 		sb.append("select TRIM(CAST(CAST(a.ref_idx AS CHAR(10)) AS VARCHAR(10))), 'Error', 'UPLOAD-APPLICATION', ");
 		sb.append("'Series large image file name not found within upload package - ' || a.series_image_large || ', Excel row number : ' || TRIM(CAST(CAST(a.excel_row_id AS CHAR(10)) AS VARCHAR(10))), ");
-		sb.append("a.excel_row_data, current_timestamp,current_timestamp from jpw_application a where a.ref_idx = ? and tran_action = 'ADD' ");
+//		sb.append("a.excel_row_data, current_timestamp,current_timestamp from jpw_application a where a.ref_idx = ? and a.tran_action = 'ADD' ");
+		sb.append("a.excel_row_data, current_timestamp,current_timestamp from jpw_application a where a.ref_idx = ? and (upper(a.lob) <> 'COLLECTION' and upper(a.lob) <> 'TILE-ART') and a.tran_action = 'ADD' ");
 		sb.append("and is_file_exists(?, ?, a.series_image_large) = -1");
 
 		try {
