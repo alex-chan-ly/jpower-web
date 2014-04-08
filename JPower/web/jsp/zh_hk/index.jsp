@@ -185,7 +185,12 @@ $(document).ready(function () {
   			(item.equals("commercial")) || (item.equals("commercial_2")) || (item.equals("commercial_3")) ||
   			(item.equals("tile_art")) ||
   			(item.equals("collection"))	|| (item.equals("collection_2"))){
-			pageName = item + ".jsp";
+  			
+  			if(	item.equals("collection") || (item.equals("collection_2"))	) {
+  				pageName = "comingsoon.html";
+  			} else {
+				pageName = item + ".jsp";
+  			}
   		} else {
   			pageName = item + ".html";
   		}
