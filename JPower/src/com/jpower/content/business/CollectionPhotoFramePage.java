@@ -1,8 +1,14 @@
 package com.jpower.content.business;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jpower.cms.upload.common.DBAccess;
+import com.jpower.content.model.ScreenPage1DTO;
 import com.jpower.content.model.ScreenPage3DTO;
 
 public class CollectionPhotoFramePage implements PhotoFramePage {
@@ -14,10 +20,12 @@ public class CollectionPhotoFramePage implements PhotoFramePage {
 		
 		String content = "";
 		
-		for(int i = 0 ; i < item.length ; i++) {
+		List<ScreenPage1DTO> rsList = getPage1Info();
+		for(int i = 0 ; i < rsList.size() ; i++) {
+			ScreenPage1DTO dto = (ScreenPage1DTO)rsList.get(i);
 			content = content + "<div class=\"photo-inside-1\">\n";
-			content = content + "<div class=\"photo-inside-2\"><a href=\"index.jsp?page=collection_2\"><img src=\"content/storage/collection/1/" + "MSA02.jpg" + "\" width=\"160\" height=\"160\" /></a></div>\n";
-			content = content +  "<div class=\"photo-inside-caption\">" + item[i] + "</div>\n";
+			content = content + "<div class=\"photo-inside-2\"><a href=\"index.jsp?page=collection_2\"><img src=\"content/storage/collection/1/" + dto.getCatImage() + "\" width=\"160\" height=\"160\" /></a></div>\n";
+			content = content +  "<div class=\"photo-inside-caption\">" + dto.getCatLabelEng() + "</div>\n";
 			content = content + "</div>\n";
 		}
 		
@@ -224,6 +232,36 @@ public class CollectionPhotoFramePage implements PhotoFramePage {
 		
 		return content;
 
+	}
+	
+	private List<ScreenPage1DTO> getPage1Info() {
+		Statement stmt = null;
+		String query = "select jc.category_label_eng, jc.category_label_chin, jc.category_image, " + 
+						"JRLC.lob_category_seq from JPT_LOB jl, JPT_RLT_LOB_CATEGORY JRLC, " + 
+						"JPT_CATEGORY jc where sub_lob_id='Collection' and jl.lob_PK=JRLC.lob_pk " + 
+						"and JRLC.category_pk=jc.category_pk and jc.rec_status='ACT' order by JRLC.lob_category_seq";
+		
+		List<ScreenPage1DTO> rsList = new ArrayList<ScreenPage1DTO>();
+		
+		try {
+			Connection conn = DBAccess.getDBConnection();
+			stmt = conn.createStatement();
+			ResultSet result = stmt.executeQuery(query);
+			while(result.next()) {
+				ScreenPage1DTO dto = new ScreenPage1DTO();
+				dto.setCatLabelEng(result.getString(1));
+				dto.setCatLabelChn(result.getString(2));
+				dto.setCatImage(result.getString(3));
+				rsList.add(dto);
+			}			
+			result.close();
+			stmt.close();
+			conn.close();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return rsList;	
 	}
 	
 	private List<ScreenPage3DTO>  generatePage3Info() {
