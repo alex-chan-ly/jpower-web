@@ -16,7 +16,7 @@ public class CategoryDAO {
 	private static String stagingDirectory = FileHelper.getConfigProperty("staging.directory");
 	private static String storageDirectory = FileHelper.getConfigProperty("storage.directory");
 	
-	
+/* comment */	
 	public static String sql1 = "insert into jpt_category (ref_idx, category_id, category_label_eng, category_label_chin, category_image, rec_status, create_date, "
 			+ "update_date, create_user, update_user) "
 			+ "select distinct ref_idx, app.category, app.category_label_eng, app.category_label_chin, app.category_image, 'ACT', "
