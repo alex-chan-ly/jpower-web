@@ -41,7 +41,7 @@ public class CommercialPhotoFramePage implements PhotoFramePage {
 	}
 
 	public String generatePage1_Chn() {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stubs
 		String[] title = {"Retail Shop", "Office Building", "Swimming Pool", "Miscellaneous"};
 		String content = "<div class=\"photo-frame-com\">";
 		
