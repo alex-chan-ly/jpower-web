@@ -38,10 +38,12 @@ public class CollectionPhotoFramePage implements PhotoFramePage {
 		
 		String content = "";
 		
-		for(int i = 0 ; i < item.length ; i++) {
+		List<ScreenPage1DTO> rsList = getPage1Info();
+		for(int i = 0 ; i < rsList.size() ; i++) {
+			ScreenPage1DTO dto = (ScreenPage1DTO)rsList.get(i);
 			content = content + "<div class=\"photo-inside-1\">\n";
-			content = content + "<div class=\"photo-inside-2\"><a href=\"index.jsp?page=collection_2\"><img src=\"../content/storage/collection/1/collection-sample-pic.jpg\" width=\"160\" height=\"160\" /></a></div>\n";
-			content = content +  "<div class=\"photo-inside-caption\">" + item[i] + "</div>\n";
+			content = content + "<div class=\"photo-inside-2\"><a href=\"index.jsp?page=collection_2\"><img src=\"../content/storage/collection/1/" + dto.getCatImage() + "\" width=\"160\" height=\"160\" /></a></div>\n";
+			content = content +  "<div class=\"photo-inside-caption\">" + dto.getCatLabelChn() + "</div>\n";
 			content = content + "</div>\n";
 		}
 		
