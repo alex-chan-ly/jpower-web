@@ -6,6 +6,7 @@ public class ScreenPage2DTO {
 	
 	private String catLabelEng;
 	private String catLabelChn;
+	private String catImage;
 
 	private List<String> imageList;
 	private Integer catPK;
@@ -59,6 +60,16 @@ public class ScreenPage2DTO {
 	public void setSeriesPKs(List<Integer> seriesPKs) {
 		this.seriesPKs = seriesPKs;
 	}
+
+	public String getCatImage() {
+		return catImage;
+	}
+
+	public void setCatImage(String catImage) {
+		this.catImage = catImage;
+	}
+	
+	
 	
 	
 
