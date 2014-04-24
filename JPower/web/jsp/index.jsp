@@ -40,6 +40,10 @@
 			String subpage = request.getParameter("subpage");
 			param = param + "&cat=" + cat + "&series=" + series + "&title=" + title + "&subpage=" + subpage;
 		}
+		if(item.equals("collection_2")) {
+			String series = request.getParameter("series");
+			param = param + "&series=" + series;
+		}
 		eng_link = "index.jsp?page=" + param;
 		chn_link = "zh_hk/index.jsp?page=" + param;
 	}
