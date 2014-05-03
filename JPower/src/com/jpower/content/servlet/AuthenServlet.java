@@ -20,9 +20,9 @@ public class AuthenServlet extends HttpServlet {
 		if(code.equals("jpoweradm")) {
 			req.getSession().setAttribute("STATUS", "AUTHENTICATED");
 			//production
-			resp.sendRedirect("/upload.jsp");
+			//resp.sendRedirect("/upload.jsp");
 			//testing development
-//			resp.sendRedirect("/jpower/upload.jsp");
+			resp.sendRedirect(req.getContextPath() + "/upload.jsp");
 		} else {
 			req.getSession().setAttribute("ERROR", "invalid security code");
 			//production
