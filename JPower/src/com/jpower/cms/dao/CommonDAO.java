@@ -26,7 +26,7 @@ public class CommonDAO {
 			+ "order by lob.lob_id, lob.sub_lob_id, rlt_lob_cat.lob_category_seq, rlt_cat_ser.cat_series_seq, rlt_ser_sub_ser.series_sub_series_seq";
 
 	public static String sql2 = "select material_id, series, name, description_eng, description_chin, avaliable_size, avaliable_size_chin, tile_thickness, tile_thickness_chin, "
-			+ "color, color_chin, finishing, finishing_chin, application, application_chin, remarks_1, remarks_1_chin, rec_status "
+			+ "color, color_chin, finishing, finishing_chin, application, application_chin, remarks_1, remarks_1_chin, 'ADD' as rec_status "
 			+ "from jpt_material where rec_status = 'ACT' order by material_id";
 	
 	public static List<InventoryApplicationVO> extractInventoryApplication() {
