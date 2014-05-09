@@ -384,7 +384,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 					List<Integer> seriesPKs = new ArrayList<Integer>();
 					imageList.add(result.getString(4));
 					dto.setImageList(imageList);
-					dto.setLogCategorySeq(result.getInt(5));
+					dto.setLobCategorySeq(result.getInt(5));
 					seriesPKs.add(result.getInt(6));
 					dto.setSeriesPKs(seriesPKs);
 				} else {
@@ -405,7 +405,7 @@ public class ResidentialPhotoFramePage implements PhotoFramePage {
 			while(iterator.hasNext()) {
 				Integer categoryPK = (Integer)iterator.next();
 				ScreenPage2DTO dto = catMap.get(categoryPK);
-				dtoArray[dto.getLogCategorySeq() - 1] = dto;
+				dtoArray[dto.getLobCategorySeq() - 1] = dto;
 			}	
 			
 			for(int i = 0 ; i < dtoArray.length ; i++) {

@@ -11,6 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Logger;
 
 import com.jpower.cms.upload.common.DBAccess;
 import com.jpower.content.model.ScreenPage1DTO;
@@ -19,6 +20,8 @@ import com.jpower.content.model.ScreenPage3DTO;
 
 public class CollectionPhotoFramePage implements PhotoFramePage {
 
+	Logger log = Logger.getLogger(this.getClass().getName());
+	
 	public String generatePage1() {
 		// TODO Auto-generated method stub
 		String item[] = {"Procelain"};
@@ -29,10 +32,8 @@ public class CollectionPhotoFramePage implements PhotoFramePage {
 		List<ScreenPage2DTO> rsList = getPage1Info();
 		for(int i = 0 ; i < rsList.size() ; i++) {
 			ScreenPage2DTO dto = (ScreenPage2DTO)rsList.get(i);
-			List seriesPKs = dto.getSeriesPKs();
-			Integer seriesPK = (Integer)seriesPKs.get(0);
 			content = content + "<div class=\"photo-inside-1\">\n";
-			content = content + "<div class=\"photo-inside-2\"><a href=\"index.jsp?page=collection_2&series=" + seriesPK + "\"><img src=\"content/storage/collection/1/" + dto.getCatImage() + "\" width=\"160\" height=\"160\" /></a></div>\n";
+			content = content + "<div class=\"photo-inside-2\"><a href=\"index.jsp?page=collection_2&cat=" + dto.getCatPK() + "\"><img src=\"content/storage/collection/1/" + dto.getCatImage() + "\" width=\"160\" height=\"160\" /></a></div>\n";
 			content = content +  "<div class=\"photo-inside-caption\">" + dto.getCatLabelEng() + "</div>\n";
 			content = content + "</div>\n";
 		}
@@ -49,10 +50,8 @@ public class CollectionPhotoFramePage implements PhotoFramePage {
 		List<ScreenPage2DTO> rsList = getPage1Info();
 		for(int i = 0 ; i < rsList.size() ; i++) {
 			ScreenPage2DTO dto = (ScreenPage2DTO)rsList.get(i);
-			List seriesPKs = dto.getSeriesPKs();
-			Integer seriesPK = (Integer)seriesPKs.get(0);
 			content = content + "<div class=\"photo-inside-1\">\n";
-			content = content + "<div class=\"photo-inside-2\"><a href=\"index.jsp?page=collection_2&series=" + seriesPK + "\"><img src=\"../content/storage/collection/1/" + dto.getCatImage() + "\" width=\"160\" height=\"160\" /></a></div>\n";
+			content = content + "<div class=\"photo-inside-2\"><a href=\"index.jsp?page=collection_2&cat=" + dto.getCatPK() + "\"><img src=\"../content/storage/collection/1/" + dto.getCatImage() + "\" width=\"160\" height=\"160\" /></a></div>\n";
 			content = content +  "<div class=\"photo-inside-caption\">" + dto.getCatLabelChn() + "</div>\n";
 			content = content + "</div>\n";
 		}
@@ -78,17 +77,17 @@ public class CollectionPhotoFramePage implements PhotoFramePage {
 						"MSA02DM12.jpg", "MSA02DM13.jpg", "MSA02DM14.jpg", "MSA02DM15.jpg", "MSA02DM16.jpg"};
 		
 		List<ScreenPage2DTO> rsList = getPage1Info();
-		List<ScreenPage3DTO> dtos = generatePage3Info(seriesPK);
+		List<ScreenPage3DTO> dtos = generatePage3Info(catPK);
 		
 		String content = "<div class=\"collection-submenu\">\n";
 		//content = content + theme[0];
 		for(int i = 0 ; i < rsList.size() ; i++) {
 			ScreenPage2DTO dto = rsList.get(i);
-			Integer catSeriesPK = dto.getSeriesPKs().get(0);
+			Integer catSeriesPK = dto.getCatPK();
 			if(i > 0) {
 				content = content + " / ";
 			}
-			content = content + "<a href=\"index.jsp?page=collection_2&series=" + catSeriesPK + "\">" + dto.getCatLabelEng() + "</a>";
+			content = content + "<a href=\"index.jsp?page=collection_2&cat=" + catSeriesPK + "\">" + dto.getCatLabelEng() + "</a>";
 			
 		}
 		content = content + "</div>\n";
@@ -99,13 +98,22 @@ public class CollectionPhotoFramePage implements PhotoFramePage {
 		ScreenPage3DTO dtoTmp = dtos.get(0);
 		content = content + "<div class=\"collection-subtitle\">" + dtoTmp.getCatLabelEng() + "</div>\n";
 
+		Map<String, List<ScreenPage3DTO>> seriesMap = classifySeries(dtos);
+		Set<String> keys = seriesMap.keySet();
+		//keys..
+		Object[] keyArr = keys.toArray();
 		
-		for(int i = 0 ; i < 1 ; i++) {
-			content = content + "<div class=\"collection-susubbtitle\">" + dtoTmp.getSeriesLabelEng() + " </div>\n";
+		
+		int iPhotoNum = 0;
+		for(int i = 0 ; i < keyArr.length ; i++) {
+			
+			String key = (String)keyArr[i];
+			content = content + "<div class=\"collection-susubbtitle\">" + key + " </div>\n";
 			content = content + "<div class=\"sp-frame\">\n";
-			for(int j = 0 ; j < dtos.size() ; j++) {
-				int iPhotoNum = j + 1;
-				ScreenPage3DTO dto = dtos.get(j);
+			List<ScreenPage3DTO> dtoMaterials = seriesMap.get(keyArr[i]);
+			for(int j = 0 ; j < dtoMaterials.size() ; j++) {
+				iPhotoNum++;
+				ScreenPage3DTO dto = dtoMaterials.get(j);
 				content = content + "<div class=\"sp-inside-1\">\n";
 				content = content + "<div class=\"sp-inside-2\"><a href=\"#nogo\" onclick=\"lb_effect_open('#photo" + iPhotoNum + "','#photo_wrap" + iPhotoNum + "')\"><img src=\"content/storage/collection/3/" + dto.getSubSeriesImageSmall() + "\" width=\"71\" height=\"71\" /></a></div>\n";
 				content = content + "<div class=\"sp-inside-caption\">" + dto.getMaterialID() + "</div>\n";
@@ -166,9 +174,10 @@ public class CollectionPhotoFramePage implements PhotoFramePage {
 				//content = content + "<br />\n";
 				
 			}
+			content = content + "</div>\n";
 		}
 		
-		content = content + "</div>\n";
+		//content = content + "</div>\n";
 		content = content + "<br />\n";
 		return content;
 	}
@@ -178,17 +187,17 @@ public class CollectionPhotoFramePage implements PhotoFramePage {
 		String theme[] = {"瓷", "馬賽克", "手工製作的瓷磚", "地板采暖", "其他"};
 		
 		List<ScreenPage2DTO> rsList = getPage1Info();
-		List<ScreenPage3DTO> dtos = generatePage3Info(seriesPK);
+		List<ScreenPage3DTO> dtos = generatePage3Info(catPK);
 		
 		String content = "<div class=\"collection-submenu\">\n";
 		//content = content + theme[0];
 		for(int i = 0 ; i < rsList.size() ; i++) {
 			ScreenPage2DTO dto = rsList.get(i);
-			Integer catSeriesPK = dto.getSeriesPKs().get(0);
+			Integer catSeriesPK = dto.getCatPK();
 			if(i > 0) {
 				content = content + " / ";
 			}
-			content = content + "<a href=\"index.jsp?page=collection_2&series=" + catSeriesPK + "\">" + dto.getCatLabelChn() + "</a>";
+			content = content + "<a href=\"index.jsp?page=collection_2&cat=" + catSeriesPK + "\">" + dto.getCatLabelChn() + "</a>";
 			
 		}
 		content = content + "</div>\n";
@@ -197,14 +206,20 @@ public class CollectionPhotoFramePage implements PhotoFramePage {
 		
 		ScreenPage3DTO dtoTmp = dtos.get(0);
 		content = content + "<div class=\"collection-subtitle\">" + dtoTmp.getCatLabelChn() + "</div>\n";
+		Map<String, List<ScreenPage3DTO>> seriesMap = classifySeries(dtos);
+		Set<String> keys = seriesMap.keySet();
+		//keys..
+		Object[] keyArr = keys.toArray();
 
-		
-		for(int i = 0 ; i < 1 ; i++) {
-			content = content + "<div class=\"collection-susubbtitle\">" + dtoTmp.getSeriesLabelChn() + "</div>\n";
+		int iPhotoNum = 0;
+		for(int i = 0 ; i < keyArr.length ; i++) {
+			String key = (String)keyArr[i];
+			content = content + "<div class=\"collection-susubbtitle\">" + key + "</div>\n";
 			content = content + "<div class=\"sp-frame\">\n";
-			for(int j = 0 ; j < dtos.size() ; j++) {
-				int iPhotoNum = j + 1;
-				ScreenPage3DTO dto = dtos.get(j);
+			List<ScreenPage3DTO> dtoMaterials = seriesMap.get(keyArr[i]);
+			for(int j = 0 ; j < dtoMaterials.size() ; j++) {
+				iPhotoNum++;
+				ScreenPage3DTO dto = dtoMaterials.get(j);
 				content = content + "<div class=\"sp-inside-1\">\n";
 				content = content + "<div class=\"sp-inside-2\"><a href=\"#nogo\" onclick=\"lb_effect_open('#photo" + iPhotoNum + "','#photo_wrap" + iPhotoNum + "')\"><img src=\"../content/storage/collection/3/" + dto.getSubSeriesImageSmall() + "\" width=\"71\" height=\"71\" /></a></div>\n";
 				content = content + "<div class=\"sp-inside-caption\">" + dto.getMaterialID() + "</div>\n";
@@ -265,53 +280,41 @@ public class CollectionPhotoFramePage implements PhotoFramePage {
 				//content = content + "<br />\n";
 				
 			}
+			content = content + "</div>\n";
 		}
 		
-		
+		content = content + "<br />\n";
 		return content;
 
 	}
 	
 	private List<ScreenPage2DTO> getPage1Info() {
 		Statement stmt = null;
-		String query = "select jc.category_label_eng, jc.category_label_chin, " + 
-						"jc.category_pk, jc.category_image, js.series_image_small, JRLC.lob_category_seq, " + 
-						"js.series_pk from JPT_LOB jl, JPT_RLT_LOB_CATEGORY JRLC, " + 
-						"JPT_CATEGORY jc, jpt_rlt_category_series jrcs, " + 
-						"jpt_series js where sub_lob_id='Collection' and " + 
-						"jl.lob_PK=JRLC.lob_pk and JRLC.category_pk=jc.category_pk " + 
-						"and jc.rec_status='ACT' and jrcs.category_pk=jc.category_pk " + 
-						"and jrcs.rec_status='ACT' and jrcs.series_pk=js.series_pk " + 
-						"and js.rec_status='ACT' order by JRLC.lob_category_seq";
+		String query = "select jc.category_label_eng, jc.category_label_chin, " +
+						"jc.category_pk, jc.category_image, JRLC.lob_category_seq " +
+						"from JPT_LOB jl, JPT_RLT_LOB_CATEGORY JRLC, JPT_CATEGORY jc where " +
+						"sub_lob_id='Collection' and jl.lob_PK=JRLC.lob_pk and " +
+						"JRLC.category_pk=jc.category_pk and jc.rec_status='ACT' order by JRLC.lob_category_seq";
 		
 		List<ScreenPage2DTO> dtos = new ArrayList<ScreenPage2DTO>();
 		Map<Integer, ScreenPage2DTO> catMap = new HashMap<Integer, ScreenPage2DTO>();
+		//log.info("query=" + query);
+		
 		
 		try {
 			Connection conn = DBAccess.getDBConnection();
 			stmt = conn.createStatement();
 			ResultSet result = stmt.executeQuery(query);
 			while(result.next()) {
-				int iCatPK = result.getInt(3);
-				ScreenPage2DTO dto = catMap.get(Integer.valueOf(iCatPK));
-				if(dto == null) {
-					dto = new ScreenPage2DTO();
-					dto.setCatLabelEng(result.getString(1));
-					dto.setCatLabelChn(result.getString(2));
-					dto.setCatPK(iCatPK);
-					dto.setCatImage(result.getString(4));
-					List<String> imageList = new ArrayList<String>();
-					List<Integer> seriesPKs = new ArrayList<Integer>();
-					imageList.add(result.getString(5));
-					dto.setImageList(imageList);
-					dto.setLogCategorySeq(result.getInt(6));
-					seriesPKs.add(result.getInt(7));
-					dto.setSeriesPKs(seriesPKs);
-				} else {
-					dto.getImageList().add(result.getString(5));
-					dto.getSeriesPKs().add(result.getInt(7));
-				}
-				catMap.put(Integer.valueOf(iCatPK), dto);
+				ScreenPage2DTO dto = new ScreenPage2DTO();
+				dto = new ScreenPage2DTO();
+				dto.setCatLabelEng(result.getString(1));
+				dto.setCatLabelChn(result.getString(2));
+				dto.setCatPK(result.getInt(3));
+				dto.setCatImage(result.getString(4));				
+				dto.setLobCategorySeq(result.getInt(5));
+				
+				dtos.add(dto);
 			}
 			
 			
@@ -319,18 +322,6 @@ public class CollectionPhotoFramePage implements PhotoFramePage {
 			stmt.close();
 			conn.close();
 			
-			Set<Integer> keySet = catMap.keySet();
-			Iterator<Integer> iterator = keySet.iterator();
-			ScreenPage2DTO[] dtoArray = new ScreenPage2DTO[keySet.size()];		
-			while(iterator.hasNext()) {
-				Integer categoryPK = (Integer)iterator.next();
-				ScreenPage2DTO dto = catMap.get(categoryPK);
-				dtoArray[dto.getLogCategorySeq() - 1] = dto;
-			}	
-			
-			for(int i = 0 ; i < dtoArray.length ; i++) {
-				dtos.add(dtoArray[i]);
-			}
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
@@ -338,30 +329,27 @@ public class CollectionPhotoFramePage implements PhotoFramePage {
 		return dtos;
 	}
 	
-	private List<ScreenPage3DTO> generatePage3Info(String seriesPK) {
+	private List<ScreenPage3DTO> generatePage3Info(String catPK) {
 		
 		PreparedStatement ps = null;
 		
 		
 		String query = "select jrsss.series_sub_series_seq, jss.sub_series_image_small, " + 
-						"jss.sub_series_image_large, js.series_image_large, js.series_label_eng, js.series_label_chin, jm.material_id, " + 
-						"jm.series, jm.avaliable_size, jm.tile_thickness, jm.color, " + 
-						"jm.finishing, jm.application, jm.remarks_1, jc.category_label_eng, " +
-						"jc.category_label_chin, jrlc.lob_category_seq from jpt_rlt_series_sub_series jrsss, " + 
-						"jpt_sub_series jss, jpt_series js, jpt_material jm, " + 
-						"jpt_rlt_category_series jrcs, jpt_category jc, " + 
-						"jpt_rlt_lob_category jrlc where jrsss.series_pk=? and jrsss.rec_status='ACT' " + 
-						"and jrsss.sub_series_pk=jss.sub_series_pk and js.series_pk=jrsss.series_pk " + 
-						"and js.rec_status=jrsss.rec_status and jrsss.rec_status=jss.rec_status " + 
-						"and jss.material_id=jm.material_id and jrcs.series_pk=jrsss.series_pk " + 
-						"and jrcs.category_pk=jc.category_pk and " + 
-						"jc.category_pk=jrlc.category_pk order by jrsss.series_sub_series_seq";
+						"jss.sub_series_image_large, js.series_image_large, jm.material_id, " +
+						"jm.series, jm.avaliable_size, jm.tile_thickness, jm.color, jm.finishing, " + 
+						"jm.application, jm.remarks_1, jc.category_label_eng, jc.category_label_chin, " + 
+						"jrlc.lob_category_seq from jpt_rlt_category_series jrcs, jpt_category jc, jpt_series " + 
+						"js,jpt_rlt_series_sub_series jrsss, jpt_sub_series jss, jpt_material jm, jpt_rlt_lob_category " + 
+						"jrlc where jrcs.category_pk=? and jc.category_pk=jrcs.category_pk and " + 
+						"jc.category_pk=jrlc.category_pk and jrcs.series_pk=js.series_pk and " + 
+						"jrsss.series_pk=jrcs.series_pk and jrsss.sub_series_pk=jss.sub_series_pk and " + 
+						"jss.material_id=jm.material_id";
 		
 		List<ScreenPage3DTO> dtos = new ArrayList<ScreenPage3DTO>();
 		try {
 			Connection conn = DBAccess.getDBConnection();
 			ps = conn.prepareStatement(query);
-			ps.setInt(1, Integer.parseInt(seriesPK));
+			ps.setInt(1, Integer.parseInt(catPK));
 			ResultSet result = ps.executeQuery();
 			while(result.next()) {
 				ScreenPage3DTO dto = new ScreenPage3DTO();
@@ -369,19 +357,17 @@ public class CollectionPhotoFramePage implements PhotoFramePage {
 				dto.setSubSeriesImageSmall(result.getString(2));
 				dto.setSubSeriesImageLarge(result.getString(3));
 				dto.setSeriesImageLarge(result.getString(4));
-				dto.setSeriesLabelEng(result.getString(5));
-				dto.setSeriesLabelChn(result.getString(6));
-				dto.setMaterialID(result.getString(7));
-				dto.setSeries(result.getString(8));
-				dto.setAvailableSize(result.getString(9));
-				dto.setTileThickness(result.getString(10));
-				dto.setColor(result.getString(11));
-				dto.setFinishing(result.getString(12));
-				dto.setApplication(result.getString(13));
-				dto.setRemarks_1(result.getString(14));
-				dto.setCatLabelEng(result.getString(15));
-				dto.setCatLabelChn(result.getString(16));
-				dto.setLobCatSeq(result.getInt(17));
+				dto.setMaterialID(result.getString(5));
+				dto.setSeries(result.getString(6));
+				dto.setAvailableSize(result.getString(7));
+				dto.setTileThickness(result.getString(8));
+				dto.setColor(result.getString(9));
+				dto.setFinishing(result.getString(10));
+				dto.setApplication(result.getString(11));
+				dto.setRemarks_1(result.getString(12));
+				dto.setCatLabelEng(result.getString(13));
+				dto.setCatLabelChn(result.getString(14));
+				dto.setLobCatSeq(result.getInt(15));
 
 				
 				dtos.add(dto);
@@ -394,6 +380,28 @@ public class CollectionPhotoFramePage implements PhotoFramePage {
 		}
 		
 		return dtos;
+		
+	}
+	
+	private Map<String, List<ScreenPage3DTO>> classifySeries(List<ScreenPage3DTO> dtos) {
+		Map<String, List<ScreenPage3DTO>> seriesMap = new HashMap<String, List<ScreenPage3DTO>>();
+		
+		for(int i = 0 ; i < dtos.size() ; i++) {
+			ScreenPage3DTO srcDto = (ScreenPage3DTO) dtos.get(i);
+			
+			List<ScreenPage3DTO> tmpDtos = (List<ScreenPage3DTO>) seriesMap.get(srcDto.getSeries());
+			if(tmpDtos == null) {
+				List<ScreenPage3DTO> destDtos = new ArrayList<ScreenPage3DTO>();
+				destDtos.add(srcDto);
+				seriesMap.put(srcDto.getSeries(), destDtos);
+			} else {
+				tmpDtos.add(srcDto);
+				seriesMap.put(srcDto.getSeries(), tmpDtos);
+			}
+		}
+		
+		
+		return seriesMap;
 		
 	}
 
