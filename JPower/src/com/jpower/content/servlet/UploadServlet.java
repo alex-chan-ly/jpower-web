@@ -81,9 +81,9 @@ public class UploadServlet extends HttpServlet {
         
         //production
         
-	    resp.sendRedirect("/upload.jsp");
+	    //resp.sendRedirect("/upload.jsp");
         //testing development
-//        resp.sendRedirect("/jpower/upload.jsp");
+        resp.sendRedirect("/jpower/upload.jsp");
 //		Runtime.getRuntime().exec("chown jpoweradm " + "/home/jpoweradm/public_html/content/zip/" + fileName);
 //		Runtime.getRuntime().exec("chgrp jpoweradm " + "/home/jpoweradm/public_html/content/zip/" + fileName);
 
