@@ -56,8 +56,8 @@ body,td,th {
 			param = param + "&cat=" + cat + "&series=" + series + "&title=" + title + "&subpage=" + subpage;
 		}
 		if(item.equals("collection_2")) {
-			String series = request.getParameter("series");
-			param = param + "&series=" + series;
+			String catPK = request.getParameter("cat");
+			param = param + "&cat=" + catPK;
 		}		
 		eng_link = "../index.jsp?page=" + param;
 		chn_link = "index.jsp?page=" + param;
