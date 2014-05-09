@@ -19,6 +19,10 @@ public class ScreenPage3DTO {
 	private Integer lobCatSeq;
 	private String seriesLabelEng;
 	private String seriesLabelChn;
+	private String colorChn;
+	private String finishingChn;
+	private String applicationChn;
+	private String remarks_1Chn;
 	
 	public Integer getSeriesSubSeriesSeq() {
 		return seriesSubSeriesSeq;
@@ -122,6 +126,32 @@ public class ScreenPage3DTO {
 	public void setSeriesLabelChn(String seriesLabelChn) {
 		this.seriesLabelChn = seriesLabelChn;
 	}
+	public String getColorChn() {
+		return colorChn;
+	}
+	public void setColorChn(String colorChn) {
+		this.colorChn = colorChn;
+	}
+	public String getFinishingChn() {
+		return finishingChn;
+	}
+	public void setFinishingChn(String finishingChn) {
+		this.finishingChn = finishingChn;
+	}
+	public String getApplicationChn() {
+		return applicationChn;
+	}
+	public void setApplicationChn(String applicationChn) {
+		this.applicationChn = applicationChn;
+	}
+	public String getRemarks_1Chn() {
+		return remarks_1Chn;
+	}
+	public void setRemarks_1Chn(String remarks_1Chn) {
+		this.remarks_1Chn = remarks_1Chn;
+	}
+	
+	
 	
 	
 
