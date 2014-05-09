@@ -11,7 +11,7 @@ public class ScreenPage2DTO {
 	private List<String> imageList;
 	private Integer catPK;
 	private List<Integer> seriesPKs;
-	private Integer logCategorySeq;
+	private Integer lobCategorySeq;
 
 	public String getCatLabelEng() {
 		return catLabelEng;
@@ -29,12 +29,12 @@ public class ScreenPage2DTO {
 		this.catLabelChn = catLabelChn;
 	}
 
-	public Integer getLogCategorySeq() {
-		return logCategorySeq;
+	public Integer getLobCategorySeq() {
+		return lobCategorySeq;
 	}
 
-	public void setLogCategorySeq(Integer logCategorySeq) {
-		this.logCategorySeq = logCategorySeq;
+	public void setLobCategorySeq(Integer lobCategorySeq) {
+		this.lobCategorySeq = lobCategorySeq;
 	}
 
 	public Integer getCatPK() {
