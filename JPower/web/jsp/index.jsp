@@ -41,8 +41,8 @@
 			param = param + "&cat=" + cat + "&series=" + series + "&title=" + title + "&subpage=" + subpage;
 		}
 		if(item.equals("collection_2")) {
-			String series = request.getParameter("series");
-			param = param + "&series=" + series;
+			String cat = request.getParameter("cat");
+			param = param + "&cat=" + cat;
 		}
 		eng_link = "index.jsp?page=" + param;
 		chn_link = "zh_hk/index.jsp?page=" + param;
@@ -197,6 +197,6 @@ $(document).ready(function () {
   
    
 </div>
-<blockquote>	</blockquote>
+<blockquote>	</blockquote>  
 </body>
 </html>
