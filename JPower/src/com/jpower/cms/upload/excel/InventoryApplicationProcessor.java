@@ -198,4 +198,38 @@ public class InventoryApplicationProcessor {
 		return rtnCode;
 		
 	}
+	
+	public static int generateInventoryApplicationWorkbook(String filePath) {
+		int rtnCode = 0;
+		List<InventoryApplicationVO> voList = null;
+		List<InventoryApplicationDetailVO> voDetailList = null;
+		
+		try {
+			File excelFile = new File(filePath + File.separator + Util.EXCEL_APPLICATION_EXCEL);
+			WritableWorkbook workbook = Workbook.createWorkbook(excelFile);
+//			WritableWorkbook workbook = Workbook.createWorkbook(out);
+			WritableSheet sheet1 = workbook.createSheet(Util.EXCEL_INVENTORY_APPLICATION, 0);
+			WritableSheet sheet2 = workbook.createSheet(Util.EXCEL_INVENTORY_APPLICATION_DETAIL, 1);
+			
+			voList = CommonDAO.extractInventoryApplication();
+			generateInventoryApplicationDataRow(sheet1, voList);
+			
+			voDetailList = CommonDAO.extractInventoryApplicationDetail();
+			InventoryApplicationDetailProcessor.generateInventoryApplicationDetailDataRow(sheet2, voDetailList);
+			
+			workbook.write();
+			workbook.close();
+					
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			rtnCode = -1;
+		} catch (WriteException e) {
+			e.printStackTrace();
+			rtnCode = -1;
+		}
+		
+		return rtnCode;
+		
+	}
 }
