@@ -334,16 +334,19 @@ public class CollectionPhotoFramePage implements PhotoFramePage {
 		PreparedStatement ps = null;
 		
 		
-		String query = "select jrsss.series_sub_series_seq, jss.sub_series_image_small, " + 
-						"jss.sub_series_image_large, js.series_image_large, jm.material_id, " +
-						"jm.series, jm.avaliable_size, jm.tile_thickness, jm.color, jm.finishing, " + 
-						"jm.application, jm.remarks_1, jc.category_label_eng, jc.category_label_chin, jm.color_chin, " + 
-						"jm.finishing_chin, jm.application_chin, jm.remarks_1_chin, jrlc.lob_category_seq from jpt_rlt_category_series jrcs, jpt_category jc, jpt_series " + 
-						"js,jpt_rlt_series_sub_series jrsss, jpt_sub_series jss, jpt_material jm, jpt_rlt_lob_category " + 
-						"jrlc where jrcs.category_pk=? and jc.category_pk=jrcs.category_pk and " + 
-						"jc.category_pk=jrlc.category_pk and jrcs.series_pk=js.series_pk and " + 
-						"jrsss.series_pk=jrcs.series_pk and jrsss.sub_series_pk=jss.sub_series_pk and " + 
-						"jss.material_id=jm.material_id";
+		String query = "select jrsss.series_sub_series_seq, jss.sub_series_image_small," + 
+				"jss.sub_series_image_large, js.series_image_large, jm.material_id,jm.series, " +
+				"jm.avaliable_size, jm.tile_thickness, jm.color, jm.finishing,jm.application, " +
+				"jm.remarks_1, jc.category_label_eng, jc.category_label_chin, " +
+				"jm.color_chin,jm.finishing_chin, jm.application_chin, jm.remarks_1_chin, jrlc.lob_category_seq " + 
+				"from jpt_rlt_category_series jrcs, jpt_category jc, jpt_series js,jpt_rlt_series_sub_series jrsss, " +
+				"jpt_sub_series jss, jpt_material jm, jpt_rlt_lob_category jrlc " + 
+				"where jrcs.rec_status='ACT' and jrcs.category_pk=? and jc.rec_status='ACT' and " +
+				"jc.category_pk=jrcs.category_pk and jc.category_pk=jrlc.category_pk and " +
+				"jrlc.rec_status='ACT' and jrcs.series_pk=js.series_pk and " +
+				"js.rec_status='ACT' and jrsss.series_pk=jrcs.series_pk and " +
+				"jrsss.rec_status='ACT' and jrsss.sub_series_pk=jss.sub_series_pk and " +
+				"jss.rec_status='ACT' and jss.material_id=jm.material_id and jss.rec_status='ACT'";
 		
 		List<ScreenPage3DTO> dtos = new ArrayList<ScreenPage3DTO>();
 		try {
