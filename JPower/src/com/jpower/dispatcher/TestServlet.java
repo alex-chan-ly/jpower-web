@@ -42,12 +42,14 @@ public class TestServlet extends HttpServlet {
 		output.close()*/;
 //		Runtime.getRuntime().exec("chown jpoweradm " + "/home/jpoweradm/public_html/content/zip/wcrhpg300-106.zip");
 //		Runtime.getRuntime().exec("chgrp jpoweradm " + "/home/jpoweradm/public_html/content/zip/wcrhpg300-106.zip");
-		Runtime.getRuntime().exec("chown jpoweradm " + "/home/jpoweradm/public_html/hello.jsp");
-		Runtime.getRuntime().exec("chgrp jpoweradm " + "/home/jpoweradm/public_html/hello.jsp");
-		Runtime.getRuntime().exec("chown jpoweradm " + "/home/jpoweradm/public_html/servlets-examples.tar.gz");
-		Runtime.getRuntime().exec("chgrp jpoweradm " + "/home/jpoweradm/public_html/servlets-examples.tar.gz");
-		Runtime.getRuntime().exec("chown jpoweradm " + "/home/jpoweradm/public_html/test.txt");
-		Runtime.getRuntime().exec("chgrp jpoweradm " + "/home/jpoweradm/public_html/test.txt");
+//		Runtime.getRuntime().exec("chown jpoweradm " + "/home/jpoweradm/public_html/hello.jsp");
+//		Runtime.getRuntime().exec("chgrp jpoweradm " + "/home/jpoweradm/public_html/hello.jsp");
+//		Runtime.getRuntime().exec("chown jpoweradm " + "/home/jpoweradm/public_html/servlets-examples.tar.gz");
+//		Runtime.getRuntime().exec("chgrp jpoweradm " + "/home/jpoweradm/public_html/servlets-examples.tar.gz");
+//		Runtime.getRuntime().exec("chown jpoweradm " + "/home/jpoweradm/public_html/test.txt");
+//		Runtime.getRuntime().exec("chgrp jpoweradm " + "/home/jpoweradm/public_html/test.txt");
+		Runtime.getRuntime().exec("chown -R jpoweradm " + "/home/jpoweradm/public_html/content/tmp/1400084060862845000");
+		Runtime.getRuntime().exec("chgrp -R jpoweradm " + "/home/jpoweradm/public_html/content/tmp/1400084060862845000");
 
 		
 
