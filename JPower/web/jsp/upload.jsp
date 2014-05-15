@@ -81,7 +81,7 @@
 		<tr align="center">
 			<td>
 				<form action="servlet/generateInventoryExcel" method="get">
-					Download inventory Excel list
+					Download inventory package
 			</td>
 		</tr>
 		<tr align="center">
