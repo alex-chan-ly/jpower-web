@@ -346,8 +346,9 @@ public class CollectionPhotoFramePage implements PhotoFramePage {
 				"jrlc.rec_status='ACT' and jrcs.series_pk=js.series_pk and " +
 				"js.rec_status='ACT' and jrsss.series_pk=jrcs.series_pk and " +
 				"jrsss.rec_status='ACT' and jrsss.sub_series_pk=jss.sub_series_pk and " +
-				"jss.rec_status='ACT' and jss.material_id=jm.material_id and jss.rec_status='ACT'";
+				"jss.rec_status='ACT' and jss.material_id=jm.material_id and jm.rec_status='ACT'";
 		
+		log.info(query);
 		List<ScreenPage3DTO> dtos = new ArrayList<ScreenPage3DTO>();
 		try {
 			Connection conn = DBAccess.getDBConnection();
