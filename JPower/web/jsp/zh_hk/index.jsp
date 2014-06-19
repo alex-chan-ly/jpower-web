@@ -58,7 +58,11 @@ body,td,th {
 		if(item.equals("collection_2")) {
 			String catPK = request.getParameter("cat");
 			param = param + "&cat=" + catPK;
-		}		
+		}
+		if(item.equals("tile_art")) {
+			String subpage = request.getParameter("subpage");
+			param = param + "&subpage=" + subpage;
+		}
 		eng_link = "../index.jsp?page=" + param;
 		chn_link = "index.jsp?page=" + param;
 	}
@@ -137,7 +141,7 @@ $(document).ready(function () {
 <ul>
 <li style='background-color:#ffffff;'><a href="index.jsp?page=residential">住宅</a></li>
 <li style='background-color:#ffffff;'><a href="index.jsp?page=commercial">商業</a></licatPK>
-<li style='background-color:#ffffff;'><a href="index.jsp?page=tile_art">磁磚藝術</a></li>
+<li style='background-color:#ffffff;'><a href="index.jsp?page=tile_art&subpage=1">磁磚藝術</a></li>
 </ul>
 </li>
 </ul></div>
