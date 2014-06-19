@@ -2,7 +2,8 @@
     <div class="application-top-banner"><img src="images/application-tileart-topbanner.jpg" width="800" height="147" /><br />
     </div>
        
- 		<jsp:include page="servlet/generatePF?app=tile_art&page=1&lang=eng" />
+ <!--  	<jsp:include page="servlet/generatePF?app=tile_art&page=1&lang=eng" />   -->
+ 		<jsp:include page="servlet/generatePF?app=tile_art&page=3&lang=eng" />
  		
 <!--  
 <div class="app-tileart-frame">

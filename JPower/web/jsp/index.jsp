@@ -33,7 +33,7 @@
 	} else {
 		String param;
 		param = item;
-		if( (item.equals("residential_3")) || (item.equals("commercial_3")) ) {
+		if( (item.equals("residential_3")) || (item.equals("commercial_3"))) {
 			String cat = request.getParameter("cat");
 			String series = request.getParameter("series");
 			String title = request.getParameter("title");
@@ -43,6 +43,10 @@
 		if(item.equals("collection_2")) {
 			String cat = request.getParameter("cat");
 			param = param + "&cat=" + cat;
+		}
+		if(item.equals("tile_art")) {
+			String subpage = request.getParameter("subpage");
+			param = param + "&subpage=" + subpage;
 		}
 		eng_link = "index.jsp?page=" + param;
 		chn_link = "zh_hk/index.jsp?page=" + param;
@@ -127,7 +131,7 @@ $(document).ready(function () {
 <ul>
 <li style='background-color:#ffffff;'><a href="index.jsp?page=residential">Residential</a></li>
 <li style='background-color:#ffffff;'><a href="index.jsp?page=commercial">Commercial</a></li>
-<li style='background-color:#ffffff;'><a href="index.jsp?page=tile_art">Tile Art</a></li>
+<li style='background-color:#ffffff;'><a href="index.jsp?page=tile_art&subpage=1">Tile Art</a></li>
 </ul>
 </li>
 </ul></div>
