@@ -20,7 +20,7 @@ public class TileArtPhotoFramePage implements PhotoFramePage {
 		
 		content = content + "<div class=\"big-photo-frame2\">\n";
 		content = content +  "<div class=\"big-photo-frame-inside-2\"><img src=\"content/storage/tile_art/1/application-tileart-1.png\" width=\"365\" height=\"365\" name=\"showImage\" id=\"showImage\" /><br />\n";
-		content = content + "<img src=\"content/storage/tile_art/1/application-tileart-bigphoto_title.jpg\" width=\"365\" /></div>\n";
+		content = content + "<img src=\"images/application-tileart-bigphoto_title.jpg\" width=\"365\" /></div>\n";
 		content = content + "</div>\n";
 		
 		content = content + "<div class=\"big-photo-right-frame2\">\n";
@@ -47,7 +47,7 @@ public class TileArtPhotoFramePage implements PhotoFramePage {
 		
 		content = content + "<div class=\"big-photo-frame2\">\n";
 		content = content +  "<div class=\"big-photo-frame-inside-2\"><img src=\"../content/storage/tile_art/1/application-tileart-1.png\" width=\"365\" height=\"365\" name=\"showImage\" id=\"showImage\" /><br />\n";
-		content = content + "<img src=\"../content/storage/tile_art/1/application-tileart-bigphoto_title.jpg\" width=\"365\" /></div>\n";
+		content = content + "<img src=\"../images/application-tileart-bigphoto_title.jpg\" width=\"365\" /></div>\n";
 		content = content + "</div>\n";
 		
 		content = content + "<div class=\"big-photo-right-frame2\">\n";
@@ -77,7 +77,7 @@ public class TileArtPhotoFramePage implements PhotoFramePage {
 	public String generatePage3(String catPK, String seriesPK, String title, String subpage) {
 		// TODO Auto-generated method stub
 		List<ScreenPage3DTO> dtos = this.generatePage3Info();
-		System.out.println("dtos.size=" + dtos.size());
+		//System.out.println("dtos.size=" + dtos.size());
 		
 		
 		int iStartIndex = (Integer.parseInt(subpage) - 1) * 6;
@@ -96,7 +96,7 @@ public class TileArtPhotoFramePage implements PhotoFramePage {
 		
 		content = content + "<div class=\"big-photo-frame2\">\n";
 		content = content +  "<div class=\"big-photo-frame-inside-2\"><img src=\"content/storage/tile_art/3/" + dtos.get(iStartIndex).getSeriesImageLarge() + "\" width=\"365\" height=\"365\" name=\"showImage\" id=\"showImage\" /><br />\n";
-		content = content + "<img src=\"content/storage/tile_art/1/application-tileart-bigphoto_title.jpg\" width=\"365\" /></div>\n";
+		content = content + "<img src=\"images/application-tileart-bigphoto_title.jpg\" width=\"365\" /></div>\n";
 		content = content + "</div>\n";
 		
 		content = content + "<div class=\"big-photo-right-frame2\">\n";
@@ -146,7 +146,7 @@ public class TileArtPhotoFramePage implements PhotoFramePage {
 		
 		content = content + "<div class=\"big-photo-frame2\">\n";
 		content = content +  "<div class=\"big-photo-frame-inside-2\"><img src=\"../content/storage/tile_art/3/" + dtos.get(iStartIndex).getSeriesImageLarge() + "\" width=\"365\" height=\"365\" name=\"showImage\" id=\"showImage\" /><br />\n";
-		content = content + "<img src=\"../content/storage/tile_art/1/application-tileart-bigphoto_title.jpg\" width=\"365\" /></div>\n";
+		content = content + "<img src=\"../images/application-tileart-bigphoto_title_chn.jpg\" width=\"365\" /></div>\n";
 		content = content + "</div>\n";
 		
 		content = content + "<div class=\"big-photo-right-frame2\">\n";
