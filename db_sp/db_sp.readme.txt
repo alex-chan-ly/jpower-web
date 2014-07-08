@@ -1,0 +1,5 @@
+1. Derby stored procedure implemented by java, bundle as jar file.
+2. To create jar file
+   jar -cvf myApp.jar com/jpower/cms/db/storedprocedures/StoredUtil.class
+3. To install stored procedure (jar file)
+   CALL sqlj.install_jar('/home/alex/workspace_ee/JPower-Web/db_sp/myApp.jar', 'APP.STOREDUTIL', 0);
